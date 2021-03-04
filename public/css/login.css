@@ -1,0 +1,17 @@
+.col-md-8 .card{
+    background-color: red;
+}
+
+.logo{
+    display: flex;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.textos{
+    color: black;
+}
+
+.prueba{
+    color: black;
+}
