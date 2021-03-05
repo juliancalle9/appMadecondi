@@ -1,0 +1,16 @@
+.grid{
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    align-self: center;
+    justify-self: center;
+}
+
+
+
+.grid div a{
+    display: flex;
+}
+
+.grid div a img{
+    width: 25%;
+}
