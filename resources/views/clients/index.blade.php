@@ -28,7 +28,7 @@
 
         <th>Correo Electrónico</th>
 
-        <th width="280px">Acciones</th>
+        <th>Acciones</th>
 
     </tr>
 
@@ -46,12 +46,6 @@
         <td>{{ $client->correoElectronico }}</td>
 
         <td><a href="{{route('clients.edit',$client->documento)}}" class="btn btn-info">Editar</a>
-                    <form method="post" action="{{url('/clients/'.$client->documento)}}">
-                        {{csrf_field()}}
-                        {{method_field('DELETE')}}
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('¿Seguro que desea eliminar la información de este cliente?')">Borrar</button>
-                    </form></td>
-
     </tr>
 
     @endforeach

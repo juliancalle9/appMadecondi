@@ -8,7 +8,7 @@
         <div class="card-body">
             <div class="grid">
                 <div>
-                    <a href="{{route('clients')}}" class="linkIcono" > 
+                    <a href="{{route('clients.index')}}" class="linkIcono" > 
                         Clientes
                         <img src="{{ asset('image/clientes.png')}}" alt="icono clientes">
                     </a>
