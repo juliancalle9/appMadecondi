@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('clients', 'ClientController@clients'); 
 
 Auth::routes();
 

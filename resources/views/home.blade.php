@@ -14,31 +14,31 @@
                     </a>
                 </div>
                 <div>
-                    <a href="">
+                    <a href="" class="linkIcono">
                         Proveedores
                         <img src="{{ asset('image/proveedores.png')}}" alt="icono proveedores">
                     </a>
                 </div>
                 <div>
-                    <a href="">
+                    <a href="" class="linkIcono">
                         Productos   
                         <img src="{{ asset('image/producto.png')}}" alt="icono proveedores">
                     </a>
                 </div> 
                 <div>
-                    <a href="">
+                    <a href="" class="linkIcono">
                         Ventas
                         <img src="{{ asset('image/ventas.png')}}" alt="icono ventas">
                     </a>
                 </div>
                 <div>
-                    <a href="">
+                    <a href="" class="linkIcono">
                         Compras
                         <img src="{{ asset('image/compras.png')}}" alt="icono compras">
                     </a>
                 </div>
                 <div>
-                    <a href="">
+                    <a href="" class="linkIcono">
                         Informes
                         <img src="{{ asset('image/pdf.png')}}" alt="icono informes">
                     </a>
