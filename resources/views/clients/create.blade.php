@@ -13,7 +13,7 @@
 
         <div class="pull-right">
 
-            <a class="btn btn-primary" href="{{ route('clients.index') }}"> Volver</a>
+            <a class="btn btn-primary" href="{{route('clients.index')}}"> Volver</a>
 
         </div>
 

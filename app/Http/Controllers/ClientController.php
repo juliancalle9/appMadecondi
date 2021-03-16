@@ -28,7 +28,7 @@ class ClientController extends Controller
         
         Client::create($request->all()); 
         return redirect()->route('clients.index')
-                            -with('success', 'Cliente agregado con éxito.'); 
+                            ->with('success', 'Cliente agregado con éxito.'); 
     }
 
     public function show(Client $client){
@@ -50,8 +50,11 @@ class ClientController extends Controller
         return redirect()->route('clients.index')
                             ->with('success', 'Cliente actualizado con éxito.');
     }
-    
 
-
+    public function destroy(Client $client){
+        $client->delete(); 
+        return redirect()->route('clients.index')
+                        ->with('success', 'Cliente eliminado con éxito');
+    }
 
 }
