@@ -1,3 +1,4 @@
+<link href="{{ asset('css/formularioi.css') }}" rel="stylesheet">
 @extends('layouts.app')
 
 @section('content')
@@ -28,6 +29,8 @@
 
         <th>Correo Electrónico</th>
 
+        <th>Estado</th>
+
         <th>Acciones</th>
 
     </tr>
@@ -44,6 +47,11 @@
         <td>{{ $client->telefono }}</td>
 
         <td>{{ $client->correoElectronico }}</td>
+
+        <td>@if($client->estado > 0)
+                <P>HABILITADO</P>
+            @endif
+            </td>
 
         <td><a href="{{route('clients.edit',$client->documento)}}" class="btn btn-info">Editar</a>
     </tr>
