@@ -1,8 +1,6 @@
 .grid{
     display: grid;
-    grid-template-columns: 200px 200px 200px;
-    align-self: center;
-    justify-self: center;
+    grid-template-columns: auto auto auto;
 }
 
 
@@ -11,6 +9,9 @@
     display: flex;
 }
 
-.grid div a img{
-    width: 25%;
+.grid div a {
+    display: block;
+    margin: 50px;
+    text-decoration: none;
+    color: black !important;
 }
