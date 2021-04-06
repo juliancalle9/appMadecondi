@@ -2,6 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="row">
     <div class="col-lg-12 margin-tb">
 
@@ -50,6 +51,8 @@
 
         <td>@if($client->estado > 0)
                 <P>HABILITADO</P>
+                @else
+                <p>DESHABILITADO</p>
             @endif
             </td>
 
@@ -59,5 +62,6 @@
     @endforeach
 
 </table>
+</div>
 
 @endsection
