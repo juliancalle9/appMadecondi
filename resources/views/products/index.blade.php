@@ -8,7 +8,8 @@
                 <h2>Productos</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{route('products.create')}}">Agregar Productos</a>
+                <a class="btn btn-primary" href="{{route('products.create')}}">Agregar Productos</a>
+                <a href="{{route('categories.index')}}" class="btn btn-secondary">Categorías</a>
             </div>
     </div>
 </div>
