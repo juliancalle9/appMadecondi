@@ -1,6 +1,8 @@
+<link href="{{ asset('css/formularioi.css') }}" rel="stylesheet">
 @extends('layouts.app')
 
 @section('content')
+
 <div class="row">
     <div class="col-lg-12 margin-tb">
 
@@ -28,6 +30,8 @@
 
         <th>Correo Electrónico</th>
 
+        <th>Estado</th>
+
         <th>Acciones</th>
 
     </tr>
@@ -45,11 +49,19 @@
 
         <td>{{ $client->correoElectronico }}</td>
 
+        <td>@if($client->estado > 0)
+                <P>HABILITADO</P>
+                @else
+                <p>DESHABILITADO</p>
+            @endif
+            </td>
+
         <td><a href="{{route('clients.edit',$client->documento)}}" class="btn btn-info">Editar</a>
     </tr>
 
     @endforeach
 
 </table>
+</div>
 
 @endsection

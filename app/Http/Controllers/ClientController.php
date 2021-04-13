@@ -36,7 +36,7 @@ class ClientController extends Controller
     }
 
     public function edit(Client $client){
-        return view('client.edit', compact('client')); 
+        return view('clients.edit', compact('client')); 
     }
 
     public function update(Request $request, Client $client){
@@ -45,7 +45,7 @@ class ClientController extends Controller
             'apellidos' => 'required',
         ]);
 
-        $client->update($request-all());
+        $client->update($request->all());
 
         return redirect()->route('clients.index')
                             ->with('success', 'Cliente actualizado con éxito.');
