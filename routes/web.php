@@ -25,6 +25,8 @@ Route::get('clients', 'ClientController@create')->name('create');
 Route::resource('clients','ClientController');
 Auth::routes();
 
+Route::resource('sales','SaleController');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('menu', function () {

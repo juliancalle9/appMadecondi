@@ -26,7 +26,7 @@
                     </a>
                 </div> 
                 <div>
-                    <a href="" class="linkIcono">
+                    <a href="{{route('sales.index')}}" class="linkIcono">
                         Ventas
                         <img src="{{ asset('image/ventas.png')}}" alt="icono ventas">
                     </a>
