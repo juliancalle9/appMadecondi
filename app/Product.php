@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $primarykey = 'idproducto';
+    protected $primaryKey = 'idproducto';
     protected $fillable = [
-        'idproducto','nombre','preciounitario','idcategoria'
+        'nombre','preciounitario','idcategoria'
     ];
+    public $timestamps = false;
 }

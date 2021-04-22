@@ -27,7 +27,6 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'idproducto' => 'required',
             'nombre' => 'required', 
             'preciounitario' => 'required', 
             'idcategoria' => 'required',
@@ -54,13 +53,12 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $request->validate([
-            'idproducto'=>'required',
             'nombre' => 'required', 
             'preciounitario' => 'required',
             'idcategoria' => 'required',
         ]);
 
-        $product->update($request-all());
+        $product->update($request->all());
 
         return redirect()->route('products.index')
                             ->with('success', 'Producto actualizado con éxito.');
