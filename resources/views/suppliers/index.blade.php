@@ -5,10 +5,11 @@
     <div class="col-lg-12 margin-tb">
 
             <div class="pull-left">
-                <h2>proveedores</h2>
+                <h2>Proveedores</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{route('suppliers.create')}}">Agregar proveedor</a>
+                <a class="btn btn-success" href="{{route('suppliers.create')}}">Agregar Proveedor</a>
+                <a class="btn btn-primary" href="{{route('cities.index')}}"> Ciudades</a>
             </div>
     </div>
 </div>
@@ -19,7 +20,7 @@
 
     <tr>
 
-        <th>nit</th>
+        <th>NIT</th>
         <th>Nombre</th>
         <th>Direccion</th>
         <th>Telefono</th>

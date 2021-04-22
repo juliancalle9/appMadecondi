@@ -1,5 +1,3 @@
-
-
 @extends('layouts.app')
 
 @section('content')
@@ -26,40 +24,30 @@
 <form action="{{ route('cities.store') }}" method="POST">
 
     @csrf
-     <div class="row">
+    <div class="row">
 
-        <div class="col-xs-12 col-sm-12 col-md-1
+        <div class="col-xs-12 col-sm-12 col-md-1">
 
-<div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-12 col-md-12">
 
-            
-        </div>
+                <div class="form-group">
 
-        <div class="col-xs-12 col-sm-12 col-md-12">
+                    <strong>Nombre:</strong>
 
-            <div class="form-group">
+                    <input type="text" name="nombre" class="form-control" placeholder="nombre">
 
-                <strong>Nombre:</strong>
+                </div>
 
-                <input type="text" name="nombre" class="form-control" placeholder="nombre">
+            </div>
 
-       
-</div>
-
-        </div>
-
-        
-
-        
+        </div>  
 
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
 
-                <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
 
         </div>
 
     </div>
-
-   
-
 </form>
+@endsection

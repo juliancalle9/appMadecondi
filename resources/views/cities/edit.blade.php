@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="pull-right">
-        <a class="btn btn-primary" href="{{ route('cities.index') }}">Atras</a>
+        <a class="btn btn-primary" href="{{ route('cities.index') }}">Atrás</a>
     </div>
 
     <form action="{{ route('cities.update',$city->idciudad) }}" method="POST">

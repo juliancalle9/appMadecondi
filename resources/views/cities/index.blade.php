@@ -9,6 +9,7 @@
             </div>
             <div class="pull-right">
                 <a class="btn btn-success" href="{{route('cities.create')}}">Agregar ciudad</a>
+                <a class="btn btn-success" href="{{route('suppliers.index')}}">Proveedores</a>
             </div>
     </div>
 </div>
@@ -24,20 +25,19 @@
 
         <th>Acciones</th>
 
-</tr>
+    </tr>
 
-@foreach ($cities as $city)
-<tr>
+    @foreach ($cities as $city)
+    <tr>
 
-<td>{{ $city->idciudad }}</td>
+        <td>{{ $city->idciudad }}</td>
 
-<td>{{ $city->nombre }}</td>
+        <td>{{ $city->nombre }}</td>
 
+        <td><a href="{{route('cities.edit',$city->idciudad)}}" class="btn btn-info">Editar</a>
+    </tr>
 
-<td><a href="{{route('cities.edit',$city->idciudad)}}" class="btn btn-info">Editar</a>
-</tr>
-
-@endforeach
+    @endforeach
 
 </table>
 @endsection
