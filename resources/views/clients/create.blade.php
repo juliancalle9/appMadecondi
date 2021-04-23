@@ -14,6 +14,7 @@
         <div class="pull-right">
 
             <a class="btn btn-primary" href="{{route('clients.index')}}"> Volver</a>
+            <a class="btn btn-primary" href="{{route('home')}}"> Menu</a>
 
         </div>
 
@@ -81,6 +82,18 @@
                 <strong>Correo Electrónico:</strong>
 
                 <input type="text" name="correoElectronico" class="form-control" placeholder="Correo Electrónico">
+
+            </div>
+
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+
+            <div class="form-group">
+
+                <strong>Direccion:</strong>
+
+                <input type="text" name="direccion" class="form-control" placeholder="Direccion">
 
             </div>
 

@@ -11,6 +11,7 @@
             </div>
             <div class="pull-right">
                 <a class="btn btn-success" href="{{route('clients.create')}}">Agregar cliente</a>
+                <a class="btn btn-primary" href="{{route('home')}}"> Menu</a>
             </div>
     </div>
 </div>
@@ -30,6 +31,8 @@
 
         <th>Correo Electrónico</th>
 
+        <th>Direccion</th>
+
         <th>Estado</th>
 
         <th>Acciones</th>
@@ -48,6 +51,8 @@
         <td>{{ $client->telefono }}</td>
 
         <td>{{ $client->correoElectronico }}</td>
+
+        <td>{{ $client->direccion }}</td>
 
         <td>@if($client->estado > 0)
                 <P>HABILITADO</P>

@@ -16,6 +16,7 @@
     <div class="pull-right">
 
         <a class="btn btn-primary" href="{{ route('clients.index') }}"> Volver</a>
+        <a class="btn btn-primary" href="{{route('home')}}"> Menu</a>
 
     </div>
 
@@ -29,15 +30,15 @@
 
 <div class="alert alert-danger">
 
-    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+    <strong>Advertencia!</strong> Hubo algunos problemas con tu entrada.<br><br>
 
     <ul>
 
-        @foreach ($errors->all() as $error)
+       <!--    @foreach ($errors->all() as $error)
 
             <li>{{ $error }}</li>
 
-        @endforeach
+        @endforeach -->
 
     </ul>
 
@@ -114,13 +115,25 @@
 
         <input class="form-control" type="email"  name="correoElectronico" value="{{$client->correoElectronico}}" placeholder="Correo Electrónico">
 
+        </div>
+
     </div>
 
-</div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+
+        <div class="form-group">
+
+        <strong>Direccion:</strong>
+
+        <input class="form-control" type="direccion"  name="direccion" value="{{$client->direccion}}" placeholder="Direccion">
+
+        </div>
+
+    </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
 
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Guardar</button>
 
     </div>
 

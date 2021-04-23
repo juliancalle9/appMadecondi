@@ -8,6 +8,12 @@ class client extends Model
 {
     protected $primaryKey = 'documento';
     protected $fillable = [
-        'documento', 'nombre', 'apellidos', 'telefono', 'correoElectronico'
+        'documento', 'nombre', 'apellidos', 'telefono', 'correoElectronico', 'direccion'
     ];
+
+    public static $rules= [
+        'nombre' => 'required',
+        'apellidos' => 'required',
+    ];
+    
 }
