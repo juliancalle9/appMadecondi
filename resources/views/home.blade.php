@@ -14,7 +14,7 @@
                     </a>
                 </div>
                 <div>
-                    <a href="" class="linkIcono">
+                    <a href="{{ route('suppliers.index')}}">
                         Proveedores
                         <img src="{{ asset('image/proveedores.png')}}" alt="icono proveedores">
                     </a>

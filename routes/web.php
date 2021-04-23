@@ -50,3 +50,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('menu', function () {
     return view('menu');
 });
+
+Route::resource('cities','CityController');
+
+
+Route::resource('suppliers','SupplierController');
