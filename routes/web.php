@@ -18,6 +18,12 @@ Route::get('/', function () {
 Route::get('clients', function () {
     return view('clients');
 });
+Route::get('products', function () {
+    return view('products');
+});
+Route::get('categories', function () {
+    return view('categories');
+});
 
 Route::get('clients', 'ClientController@index')->name('clients');
 Route::get('clients', 'ClientController@create')->name('create');
@@ -27,6 +33,17 @@ Route::resource('clients','ClientController');
 Auth::routes();
 
 Route::resource('sales','SaleController');
+Route::get('products', 'ProductController@index')->name('products');
+Route::get('products', 'ProductController@create')->name('create');
+
+Route::resource('products','ProductController');
+Auth::routes();
+
+Route::get('categories', 'CategoryController@index')->name('categories');
+Route::get('categories', 'CategoryController@create')->name('create');
+
+Route::resource('categories','CategoryController');
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
