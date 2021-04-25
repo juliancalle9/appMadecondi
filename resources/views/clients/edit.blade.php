@@ -1,5 +1,5 @@
 <link href="{{ asset('css/formularioi.css') }}" rel="stylesheet">
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('content')
 
