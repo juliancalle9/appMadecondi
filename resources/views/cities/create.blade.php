@@ -14,6 +14,7 @@
         <div class="pull-right">
 
             <a class="btn btn-primary" href="{{route('cities.index')}}"> Volver</a>
+            <a class="btn btn-primary" href="{{route('home')}}"> menu</a>
 
         </div>
 

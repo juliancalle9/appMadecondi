@@ -16,6 +16,7 @@ class SupplierController extends Controller
     {
         $suppliers = Supplier::all(); // almaneca en la variable los productos
         return view('suppliers.index',compact('suppliers'));
+         
     }
 
     /**
@@ -85,4 +86,5 @@ class SupplierController extends Controller
     {
         //
     }
+
 }
