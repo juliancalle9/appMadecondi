@@ -1,6 +1,7 @@
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
  
     @extends('layouts.app')
+    @section('title', 'Home')
 
     @section('content')
     <link href="/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">

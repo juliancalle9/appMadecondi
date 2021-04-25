@@ -1,6 +1,6 @@
-<link href="{{ asset('css/login.css') }}" rel="stylesheet">
-@extends('layouts.app')
-
+<!--<link href="{{ asset('css/login.css') }}" rel="stylesheet">-->
+@extends('adminlte::auth.login')
+@section('title', 'Login')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
