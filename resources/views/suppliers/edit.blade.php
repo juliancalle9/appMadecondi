@@ -1,16 +1,28 @@
+<link href="{{ asset('css/formularioi.css') }}" rel="stylesheet">
 @extends('layouts.app')
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>editar Proveedor</h2>
-            </div>
-        </div>
+
+<div class="row">
+
+<div class="col-lg-12 margin-tb">
+
+    <div class="pull-left">
+
+        <h2>Editar información cliente</h2>
+
     </div>
+
     <div class="pull-right">
-        <a class="btn btn-primary" href="{{ route('suppliers.index') }}">Atras</a>
+
+        <a class="btn btn-primary" href="{{ route('clients.index') }}"> Volver</a>
+
     </div>
+
+</div>
+</div>
+
+ 
 
     <form action="{{ route('suppliers.update',$supplier->nit) }}" method="POST">
         @csrf
@@ -46,9 +58,10 @@
                     <strong>ciudad:</strong>
                     <input type="text" name="idciudad"  class="form_control" placeholder="idciudad" value="{{$supplier->idciudad}}">
                 </div>
-            </div
+            </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <button type="submit" class="btn btn-primary">Guardar cambios</button>
             </div>
         </div>
+        </form>
 @endsection

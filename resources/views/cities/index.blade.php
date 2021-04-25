@@ -1,20 +1,24 @@
-@extends('layouts.app')
+
+@extends('adminlte::page');
 
 @section('content')
+ 
 <div class="row">
     <div class="col-lg-12 margin-tb">
 
             <div class="pull-left">
                 <h2>ciudades</h2>
             </div>
-            <div class="pull-right">
+           
+      <div class="pull-right">
                 <a class="btn btn-success" href="{{route('cities.create')}}">Agregar ciudad</a>
                 <a class="btn btn-success" href="{{route('suppliers.index')}}">Proveedores</a>
+                <a class="btn btn-primary" href="{{route('home')}}"> menu</a>
             </div>
     </div>
 </div>
 
-<table class="table table-bordered">
+<table class="table table-bordered" id="lista">
     
 
     <tr>
@@ -40,4 +44,9 @@
     @endforeach
 
 </table>
+
+
+ 
+
+      
 @endsection
