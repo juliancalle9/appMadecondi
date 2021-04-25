@@ -1,3 +1,6 @@
+<link href="{{ asset('css/formularioi.css') }}" rel="stylesheet">
+@extends('layouts.app')
+
 
 @section('content')
     <div class="row">
@@ -9,6 +12,7 @@
     </div>
     <div class="pull-right">
         <a class="btn btn-primary" href="{{ route('cities.index') }}">Atrás</a>
+        
     </div>
 
     <form action="{{ route('cities.update',$city->idciudad) }}" method="POST">
@@ -23,4 +27,8 @@
                     <input type="text" name="nombre"  class="form_control" placeholder="nombre" value="{{$city->nombre}}">
                 </div>
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+            </div>
+        </div>
             @endsection

@@ -16,6 +16,7 @@ class CityController extends Controller
     {
         $cities = City::all(); // almaneca en la variable los productos
         return view('cities.index',compact('cities'));
+       
     }
 
     /**
@@ -85,4 +86,5 @@ class CityController extends Controller
     {
         //
     }
+ 
 }

@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+@section('title', 'Productos')
+
 <div class="row">
     <div class="col-lg-12 margin-tb">
 

@@ -52,6 +52,7 @@ Route::get('menu', function () {
 });
 
 Route::resource('cities','CityController');
-
-
+ 
 Route::resource('suppliers','SupplierController');
+
+ 
