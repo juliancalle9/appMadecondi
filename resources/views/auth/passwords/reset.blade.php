@@ -1,5 +1,5 @@
-@extends('layouts.app')
-
+@extends('adminlte::auth.passwords.reset')
+@section('title', 'Restablecer')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
