@@ -11,4 +11,12 @@ class Supplier extends Model
         'nit', 'nombre','direccion','telefono','idciudad'
     ];
     public $timestamps = false;
+
+    public static $rules =[
+        'nit' => 'required|exists:suppliers,nit',
+        'nombre' => 'required',
+        'direccion' => 'required',
+        'telefono' => 'required|numeric',
+        'idciudad' => 'required'
+      ];
 }

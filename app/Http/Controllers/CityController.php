@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\City;
+use Flash;
 use Illuminate\Http\Request;
 
 class CityController extends Controller
@@ -14,7 +15,7 @@ class CityController extends Controller
      */
     public function index()
     {
-        $cities = City::all(); // almaneca en la variable los productos
+        $cities = City::all(); 
         return view('cities.index',compact('cities'));
        
     }
@@ -37,8 +38,21 @@ class CityController extends Controller
      */
     public function store(Request $request)
     {
-      City::create($request->all());
-      return redirect()->route('cities.index');
+        $request->validate(City::$rules);
+     $input = $request->all();
+     //City::create($request->all());
+      try {
+          City::create([
+            "nombre"=>$input["nombre"]
+          ]);
+
+          Flash::success("La ciudad fue creada con exito");
+          return redirect()->route('cities.index');
+      }catch(\Exception $e){
+        Flash::error($e->getMessage());
+          return redirect()->route('cities.create');
+      }
+      
     }
 
     /**

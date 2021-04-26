@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte::page');
 
 @section('content')
 <div class="row">
@@ -12,7 +12,7 @@
             <div class="pull-right">
                 <a class="btn btn-success" href="{{route('suppliers.create')}}">Agregar Proveedor</a>
                 <a class="btn btn-primary" href="{{route('cities.index')}}"> Ciudades</a>
-                <a class="btn btn-primary" href="{{route('home')}}"> menu</a>
+                
             </div>
     </div>
 </div>

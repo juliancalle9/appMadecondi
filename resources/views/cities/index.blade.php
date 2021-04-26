@@ -13,7 +13,7 @@
       <div class="pull-right">
                 <a class="btn btn-success" href="{{route('cities.create')}}">Agregar ciudad</a>
                 <a class="btn btn-success" href="{{route('suppliers.index')}}">Proveedores</a>
-                <a class="btn btn-primary" href="{{route('home')}}"> menu</a>
+                
             </div>
     </div>
 </div>

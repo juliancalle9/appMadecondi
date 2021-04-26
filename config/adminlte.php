@@ -225,9 +225,10 @@ return [
 
     'menu' => [
         [
-            'text' => 'search',
+            'text' => 'Busqueda',
             'search' => true,
             'topnav' => true,
+            'method' => 'post'
         ],
         [
             'text' => 'blog',
