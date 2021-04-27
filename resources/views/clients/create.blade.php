@@ -14,7 +14,6 @@
         <div class="pull-right">
 
             <a class="btn btn-primary" href="{{route('clients.index')}}"> Volver</a>
-            <a class="btn btn-primary" href="{{route('home')}}"> Menu</a>
 
         </div>
 
@@ -110,4 +109,14 @@
    
 
 </form>
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 @endsection

@@ -12,7 +12,6 @@
             </div>
             <div class="pull-right">
                 <a class="btn btn-success" href="{{route('clients.create')}}">Agregar cliente</a>
-                <a class="btn btn-primary" href="{{route('home')}}"> Menu</a>
             </div>
     </div>
 </div>
