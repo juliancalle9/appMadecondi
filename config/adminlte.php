@@ -226,42 +226,8 @@ return [
     'menu' => [
 
         [
-<<<<<<< HEAD
-            'text' => 'Busqueda',
-            'search' => true,
-            'topnav' => true,
-            'method' => 'post'
-        ],
-        [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-=======
             'text'    => 'Menu',
             'icon'    => 'fas fa-fw fa-home',
->>>>>>> 46b74b7b307a8c22a54914df8ea192bb4b79402c
             'submenu' => [
                 [
                     'text' => 'Clientes',
@@ -323,7 +289,6 @@ return [
                     'icon'    => 'fas fa-fw fa-file-pdf',
                     'url'  => 'reports',
                 ],
-
         ],    
     ],    
         [
