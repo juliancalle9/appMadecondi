@@ -11,4 +11,9 @@ class Product extends Model
         'nombre','preciounitario','estado','idcategoria','idlote'
     ];
     public $timestamps = false;
+    public static $rules =[
+        'nombre' => 'required|min:3',
+        'precioUnitario' => 'required|numeric|min:0',
+        'idcategoria' => 'required'
+    ];
 }

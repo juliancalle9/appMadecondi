@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte::page');
 
 @section('content')
 <div class="row">
@@ -14,7 +14,7 @@
         <div class="pull-right">
 
             <a class="btn btn-primary" href="{{route('suppliers.index')}}"> Volver</a>
-            <a class="btn btn-primary" href="{{route('home')}}"> menu</a>
+            
 
         </div>
 
@@ -103,3 +103,13 @@
    
 
 </form>
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif

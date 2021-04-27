@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Supplier;
+use Flash;
 use Illuminate\Http\Request;
 
 class SupplierController extends Controller
@@ -37,8 +38,25 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        Supplier::create($request->all());
-      return redirect()->route('suppliers.index');
+        $request->validate(Supplier::$rules);
+        $input = $request->all();
+        
+         try {
+             Supplier::create([
+                
+                "nit" => $input["nit"],
+                "nombre" => $input["nombre"],
+                "direccion" => $input["direccion"],
+                "telefono" => $input["telefono"],
+                "idciudad"=> $input["idciudad"]
+             ]);
+    
+             Flash::success("el proveedor fue creado con exito");
+             return redirect()->route('suppliers.index');
+         }catch(\Exception $e){
+           Flash::error($e->getMessage());
+             return redirect()->route('suppliers.create');
+         }
     }
 
     /**
@@ -86,5 +104,7 @@ class SupplierController extends Controller
     {
         //
     }
-
+ 
+ 
+     
 }

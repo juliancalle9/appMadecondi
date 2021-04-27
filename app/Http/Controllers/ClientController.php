@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Client; 
+use Flash;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -19,16 +20,28 @@ class ClientController extends Controller
         return view('clients.create');
     }
 
-    public function store(Request $request){
-        $request->validate([
-            'documento' => 'required', 
-            'nombre' => 'required', 
-            'apellidos' => 'required', 
-        ]);
+    public function store(Request $request)
+    {
+        $request->validate(client::$rules);
+        $input = $request->all();
         
-        Client::create($request->all()); 
-        return redirect()->route('clients.index')
-                            ->with('success', 'Cliente agregado con éxito.'); 
+         try {
+             client::create([
+                "documento"=>$input["documento"],
+               "nombre"=>$input["nombre"],
+               "apellidos"=>$input["apellidos"],
+               "telefono"=>$input["telefono"],
+               "direccion"=>$input["direccion"]
+             ]);
+   
+             Flash::success("el cliente fue creado con exito");
+             return redirect()->route('clients.index');
+
+         }catch(\Exception $e){
+           Flash::error($e->getMessage());
+             return redirect()->route('clients.create');
+         }
+          
     }
 
     public function show(Client $client){
