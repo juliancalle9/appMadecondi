@@ -14,9 +14,9 @@ return [
     |
     */
 
-    'title' => '',
+    'title' => 'AdminLTE 3',
     'title_prefix' => '',
-    'title_postfix' => ' | Madecondi',
+    'title_postfix' => '',
 
     /*
     |--------------------------------------------------------------------------
@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>Madecondi</b>',
-    'logo_img' => 'vendor/adminlte/dist/img/Madecondi.png',
-    'logo_img_class' => 'brand-image img-circle elevation-2',
+    'logo' => '<b>Admin</b>LTE',
+    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'Madecondi',
+    'logo_img_alt' => 'AdminLTE',
 
     /*
     |--------------------------------------------------------------------------
@@ -65,9 +65,9 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => true,
+    'usermenu_header' => false,
     'usermenu_header_class' => 'bg-primary',
-    'usermenu_image' => true,
+    'usermenu_image' => false,
     'usermenu_desc' => false,
     'usermenu_profile_url' => false,
 
@@ -85,8 +85,8 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => true,
-    'layout_fixed_navbar' => true,
+    'layout_fixed_sidebar' => null,
+    'layout_fixed_navbar' => null,
     'layout_fixed_footer' => null,
 
     /*
@@ -121,14 +121,14 @@ return [
     */
 
     'classes_body' => '',
-    'classes_brand' => 'bg-red',
+    'classes_brand' => '',
     'classes_brand_text' => '',
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
     'classes_sidebar' => 'sidebar-dark-primary elevation-4',
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-dark navbar-light',
+    'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
 
@@ -144,7 +144,7 @@ return [
     |
     */
 
-    'sidebar_mini' => false,
+    'sidebar_mini' => true,
     'sidebar_collapse' => false,
     'sidebar_collapse_auto_size' => false,
     'sidebar_collapse_remember' => false,
@@ -152,7 +152,7 @@ return [
     'sidebar_scrollbar_theme' => 'os-theme-light',
     'sidebar_scrollbar_auto_hide' => 'l',
     'sidebar_nav_accordion' => true,
-    'sidebar_nav_animation_speed' => 150,
+    'sidebar_nav_animation_speed' => 300,
 
     /*
     |--------------------------------------------------------------------------
@@ -224,83 +224,26 @@ return [
     */
 
     'menu' => [
-
         [
-            'text'    => 'Menu',
-            'icon'    => 'fas fa-fw fa-home',
-            'submenu' => [
-                [
-                    'text' => 'Clientes',
-                    'icon'    => 'fas fa-fw fa-user',
-                    'url'  => 'clients',
-                ],
-
-                [
-                    'text' => 'Sección Proveedores',
-                    'icon'    => 'fas fa-fw fa-ellipsis-v',
-                    'submenu' => [
-                    [
-                        'text' => 'Proveedores',
-                        'icon'    => 'fas fa-fw fa-truck-moving',
-                        'url' => 'suppliers',
-                    ],
-
-                    [
-                        'text' => 'Ciudades',
-                        'icon'    => 'fas fa-fw fa-city',
-                        'url' => 'cities',
-                    ],
-                                ],
-                ],
-
-                [
-                    'text' => 'Sección Productos',
-                    'icon'    => 'fas fa-fw fa-ellipsis-v',
-                    'url'  => 'products',
-                    'submenu' => [
-
-                            [
-                                'text' => 'Productos',
-                                'icon'    => 'fas fa-fw fa-box',
-                                'url' => 'products',
-                            ],
-                        [
-                            'text' => 'Categorias',
-                            'icon'    => 'fas fa-fw fa-th-large',
-                            'url' => 'categories',
-                        ],
-                                    ],
-                ],
-
-                [
-                    'text' => 'Ventas',
-                    'icon'    => 'fas fa-fw fa-tags',
-                    'url'  => 'sales',
-                ],
-
-                [
-                    'text' => 'Compras',
-                    'icon'    => 'fas fa-fw fa-cart-arrow-down',
-                    'url'  => 'purchases',
-                ],
-
-                [
-                    'text' => 'Informes',
-                    'icon'    => 'fas fa-fw fa-file-pdf',
-                    'url'  => 'reports',
-                ],
-
-        ],    
-    ],    
-        [
-            'text' => 'Busqueda',
+            'text' => 'search',
             'search' => true,
             'topnav' => true,
         ],
-
-        ['header' => 'CONFIGURACION DE CUENTA'],
         [
-            'text' => 'Perfil',
+            'text' => 'blog',
+            'url'  => 'admin/blog',
+            'can'  => 'manage-blog',
+        ],
+        [
+            'text'        => 'pages',
+            'url'         => 'admin/pages',
+            'icon'        => 'far fa-fw fa-file',
+            'label'       => 4,
+            'label_color' => 'success',
+        ],
+        ['header' => 'account_settings'],
+        [
+            'text' => 'profile',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
         ],
@@ -308,6 +251,60 @@ return [
             'text' => 'change_password',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
+        ],
+        [
+            'text'    => 'multilevel',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'level_one',
+                    'url'  => '#',
+                ],
+                [
+                    'text'    => 'level_one',
+                    'url'     => '#',
+                    'submenu' => [
+                        [
+                            'text' => 'level_two',
+                            'url'  => '#',
+                        ],
+                        [
+                            'text'    => 'level_two',
+                            'url'     => '#',
+                            'submenu' => [
+                                [
+                                    'text' => 'level_three',
+                                    'url'  => '#',
+                                ],
+                                [
+                                    'text' => 'level_three',
+                                    'url'  => '#',
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+                [
+                    'text' => 'level_one',
+                    'url'  => '#',
+                ],
+            ],
+        ],
+        ['header' => 'labels'],
+        [
+            'text'       => 'important',
+            'icon_color' => 'red',
+            'url'        => '#',
+        ],
+        [
+            'text'       => 'warning',
+            'icon_color' => 'yellow',
+            'url'        => '#',
+        ],
+        [
+            'text'       => 'information',
+            'icon_color' => 'cyan',
+            'url'        => '#',
         ],
     ],
 
