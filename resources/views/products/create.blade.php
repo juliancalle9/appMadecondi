@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('content')
 <div class="row">
@@ -35,6 +35,28 @@
                 <strong>Precio Unitario:</strong>
 
                 <input class="form-control" name="preciounitario" placeholder="Precio Unitario">
+
+            </div>
+
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+
+            <div class="form-group">
+
+                <strong>Estado:</strong>
+
+                <input type="text" name="estado" class="form-control" placeholder="Estado">
+
+            </div>
+
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+
+            <div class="form-group">
+
+                <strong>Id Lote:</strong>
+
+                <input type="text" name="idlote" class="form-control" placeholder="Id lote">
 
             </div>
 

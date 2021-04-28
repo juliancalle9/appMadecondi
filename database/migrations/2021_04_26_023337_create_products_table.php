@@ -17,6 +17,9 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('idproducto');
             $table->string('nombre');
             $table->double('preciounitario');
+            $table->string('estado');
+            $table->bigInteger('idlote')->unsigned();
+            $table->foreign('idlote')->references('idlote')->on('lots');
             $table->bigInteger('idcategoria')->unsigned();
             $table->foreign('idcategoria')->references('idcategoria')->on('categories');
         });
