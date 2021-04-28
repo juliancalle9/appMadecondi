@@ -289,7 +289,6 @@ return [
                     'icon'    => 'fas fa-fw fa-file-pdf',
                     'url'  => 'reports',
                 ],
-
         ],    
     ],    
         [

@@ -12,7 +12,7 @@ class client extends Model
     ];
 
     public static $rules =[
-        'documento' => 'required|exists:clients,documento|numeric',
+        'documento' => 'required|unique:clients,documento|numeric',
         'nombre' => 'required',
         'apellidos' => 'required',
         'telefono' => 'required|numeric',
