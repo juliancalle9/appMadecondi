@@ -16,7 +16,7 @@
     </div>
 </div>
 
-<table class="table table-bordered">
+<table  id="tbl_clients" class="table table-bordered">
     
 
     <tr>
@@ -69,4 +69,24 @@
 </table>
 </div>
 
+@endsection
+
+@section("Scripts")
+<script>
+        $('tbl_clients').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: 'clients/list',
+        columns: [
+            {data: 'documento', name: 'documento'},
+            {data: 'nombre', name: 'nombre'},
+            {data: 'apellidos', name: 'apellidos'},
+            {data: 'telefono', name: 'telefono'},
+            {data: 'correoElectronico', name: 'correoElectronico'},
+            {data: 'direccion', name: 'direccion'},
+            {data: 'editar', name: 'editar', orderable: false, searchable: false}
+            {data: 'cambiar', name: 'cambiar', orderable: false, searchable: false}
+        ]
+    });
+</script>
 @endsection

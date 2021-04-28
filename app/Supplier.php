@@ -13,7 +13,7 @@ class Supplier extends Model
     public $timestamps = false;
 
     public static $rules =[
-        'nit' => 'required|exists:suppliers,nit',
+        'nit' => 'required|unique:suppliers,nit',
         'nombre' => 'required',
         'direccion' => 'required',
         'telefono' => 'required|numeric',

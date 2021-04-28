@@ -12,7 +12,7 @@ class Category extends Model
     ];
     public $timestamps = false;
     public static $rules =[
-        'idcategoria' => 'required|exists:city,nombre',
+        'idcategoria' => 'required|unique:city,nombre',
         'nombre' => 'required'
       ];
 }

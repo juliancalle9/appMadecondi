@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class client extends Model
 {
+    protected $table= "clients";
+
     protected $primaryKey = 'documento';
     protected $fillable = [
-        'documento', 'nombre', 'apellidos', 'telefono', 'correoElectronico', 'direccion'
+        'documento', 'nombre', 'apellidos', 'telefono', 'correoElectronico', 'direccion', 'estado'
     ];
 
     public static $rules =[
@@ -17,7 +19,8 @@ class client extends Model
         'apellidos' => 'required',
         'telefono' => 'required|numeric',
         'correoElectronico',
-        'direccion' => 'required'
+        'direccion' => 'required',
+        'estado' => 'in:1,0',
          
     ];
     
