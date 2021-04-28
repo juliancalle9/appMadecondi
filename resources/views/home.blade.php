@@ -1,6 +1,6 @@
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
  
-    @extends('layouts.app')
+    @extends('adminlte::page')
     @section('title', 'Home')
 
     @section('content')
