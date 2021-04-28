@@ -23,11 +23,15 @@
 
         <th>Id Producto</th>
 
+        <th>Id Lote</th>
+
         <th>Id Categoria</th>
 
         <th>Nombre</th>
 
         <th>Precio Unitario</th>
+
+        <th>Estado</th>
 
         <th>Acciones</th>
 
@@ -36,11 +40,10 @@
     @foreach ($products as $product)
     <tr>
         <td>{{ $product->idproducto }}</td>
-        
+        <td>{{ $product->idlote }}</td>
         <td>{{ $product->idcategoria }}</td>
-
         <td>{{ $product->nombre }}</td>
-
+        <td>{{ $product->estado }}</td>
         <td>{{ $product->preciounitario }}</td>
 
         <td><a href="{{route('products.edit',$product->idproducto)}}" class="btn btn-info">Editar</a>
