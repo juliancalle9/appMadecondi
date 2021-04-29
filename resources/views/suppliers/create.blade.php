@@ -15,7 +15,6 @@
 
             <a class="btn btn-primary" href="{{route('suppliers.index')}}"> Volver</a>
             
-
         </div>
 
     </div>
@@ -25,7 +24,7 @@
 <form action="{{ route('suppliers.store') }}" method="POST">
 
     @csrf
-     <div class="row">
+    <div class="row">
 
         <div class="col-xs-12 col-sm-12 col-md-1">
 
