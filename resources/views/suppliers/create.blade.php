@@ -1,4 +1,4 @@
-@extends('adminlte::page');
+@extends('adminlte::page')
 
 @section('content')
 <div class="row">
@@ -14,7 +14,6 @@
         <div class="pull-right">
 
             <a class="btn btn-primary" href="{{route('suppliers.index')}}"> Volver</a>
-            
 
         </div>
 
@@ -25,72 +24,67 @@
 <form action="{{ route('suppliers.store') }}" method="POST">
 
     @csrf
-     <div class="row">
+    <div class="row">
 
-        <div class="col-xs-12 col-sm-12 col-md-1">
+<div class="col-xs-12 col-sm-12 col-md-12">
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="form-group">
 
-                <div class="form-group">
+        <strong>Nit:</strong>
 
-                <strong>Nit:</strong>
+        <input type="text" name="nit" class="form-control" placeholder="Nit">
 
-                <input type="text" name="nit" class="form-control" placeholder="nit">
+    </div>
 
-                </div>
+</div>
 
-            </div>
-        </div>
+<div class="col-xs-12 col-sm-12 col-md-12">
 
-        <div class="col-xs-12 col-sm-12 col-md-12">
+<div class="form-group">
 
-            <div class="form-group">
+    <strong>Nombre:</strong>
 
-                <strong>Nombre:</strong>
+    <input type="text" name="nombre" class="form-control" placeholder="Nombre">
 
-                <input type="text" name="nombre" class="form-control" placeholder="nombre">
+</div>
 
-       
-            </div>
+</div>
 
-        </div>
+<div class="col-xs-12 col-sm-12 col-md-12">
 
-        <div class="col-xs-12 col-sm-12 col-md-12">
+<div class="form-group">
 
-            <div class="form-group">
+    <strong>Direccion:</strong>
 
-                <strong>Direccion:</strong>
+    <input type="text" name="direccion" class="form-control" placeholder="direccion">
 
-                <input type="text" name="direccion" class="form-control" placeholder="direccion">
+</div>
 
+</div>
 
-            </div>
+<div class="col-xs-12 col-sm-12 col-md-12">
 
-        </div>
+<div class="form-group">
 
-        <div class="col-xs-12 col-sm-12 col-md-12">
+    <strong>Telefono:</strong>
 
-            <div class="form-group">
+    <input type="text" name="telefono" class="form-control" placeholder="Telefono">
 
-            <strong>Telefono:</strong>
+</div>
 
-            <input type="text" name="telefono" class="form-control" placeholder="telefono">
+</div>
 
-            </div>
+<div class="col-xs-12 col-sm-12 col-md-12">
 
-        </div>
+<div class="form-group">
 
-        <div class="col-xs-12 col-sm-12 col-md-12">
+    <strong>Ciudad:</strong>
 
-            <div class="form-group">
+    <input type="text" name="idciudad" class="form-control" placeholder="Ciudad">
 
-                <strong>Ciudad:</strong>
+</div>
 
-                <input type="text" name="idciudad" class="form-control" placeholder="idciudad">
-
-            </div>
-
-        </div>
+</div>
 
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
 
@@ -113,3 +107,4 @@
         </ul>
     </div>
 @endif
+@endsection

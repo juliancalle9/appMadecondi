@@ -12,10 +12,10 @@ class Sale extends Model
     ];
 
     public static $rules =[
-        'nombreCliente' => 'required|min:3',
+        'nombreCliente' => 'required',
         'telefono' => 'required|numeric',
         'direccion' => 'required',
-        'precioUnitario' => 'required|numeric|min:0',
-        'precioTotal' => 'required|numeric|min:0',
+        'precioUnitario' => 'required|numeric',
+        'precioTotal' => 'required|numeric',
     ];
 }

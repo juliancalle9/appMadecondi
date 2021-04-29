@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use Flash;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -24,15 +25,23 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'nombre' => 'required', 
-            'descripcion' => 'required', 
-            
-        ]);
-        
-        Category::create($request->all()); 
-        return redirect()->route('categories.index')
-                            ->with('success', 'Categoria agregado con éxito.'); 
+        $request->validate(Category::$rules);
+        $input = $request->all();
+        //City::create($request->all());
+         try {
+             Category::create([
+               "idcategoria"=>$input["idcategoria"],
+               "nombre"=>$input["nombre"],
+               "descripcion"=>$input["descripcion"]
+             ]);
+   
+             Flash::success("La categoria fue creada con exito");
+             return redirect()->route('categories.index');
+         }catch(\Exception $e){
+           Flash::error($e->getMessage());
+             return redirect()->route('categories.create');
+         }
+          
     }
 
     public function show(Category $category)

@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('content')
-@section('title', 'Productos')
+
 
 <div class="row">
     <div class="col-lg-12 margin-tb">

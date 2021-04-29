@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('content')
 <div class="row">
@@ -25,6 +25,18 @@
 
     @csrf
      <div class="row">
+     
+     <div class="col-xs-12 col-sm-12 col-md-12">
+
+<div class="form-group">
+
+    <strong>Id Categoria:</strong>
+
+    <input type="text" name="idcategoria" class="form-control" placeholder="idCategoria">
+
+</div>
+
+</div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
 
@@ -61,4 +73,13 @@
    
 
 </form>
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 @endsection

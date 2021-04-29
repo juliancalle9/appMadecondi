@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2b7c59029ccd6e07741277124d2734fd",
+    "content-hash": "96ba71764d02b0a92bd691fd7389a482",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -474,17 +474,75 @@
             "time": "2021-03-22T16:23:11+00:00"
         },
         {
-            "name": "laravel/framework",
-            "version": "v6.20.24",
+            "name": "laracasts/flash",
+            "version": "3.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/laravel/framework.git",
-                "reference": "addc44fce390c783b2dee0d617300dce97e895f4"
+                "url": "https://github.com/laracasts/flash.git",
+                "reference": "76c2e200498795bdbeda97b682536130316e8b97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/addc44fce390c783b2dee0d617300dce97e895f4",
-                "reference": "addc44fce390c783b2dee0d617300dce97e895f4",
+                "url": "https://api.github.com/repos/laracasts/flash/zipball/76c2e200498795bdbeda97b682536130316e8b97",
+                "reference": "76c2e200498795bdbeda97b682536130316e8b97",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0|^6.0|^7.0|^8.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "^6.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laracasts\\Flash\\FlashServiceProvider"
+                    ],
+                    "aliases": {
+                        "Flash": "Laracasts\\Flash\\Flash"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Laracasts\\Flash": "src/"
+                },
+                "files": [
+                    "src/Laracasts/Flash/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeffrey Way",
+                    "email": "jeffrey@laracasts.com"
+                }
+            ],
+            "description": "Easy flash notifications",
+            "support": {
+                "issues": "https://github.com/laracasts/flash/issues",
+                "source": "https://github.com/laracasts/flash/tree/master"
+            },
+            "time": "2020-09-07T13:25:35+00:00"
+        },
+        {
+            "name": "laravel/framework",
+            "version": "v6.20.26",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "0117d797dc1ab64b1f88d4f6b966380ea7def091"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/0117d797dc1ab64b1f88d4f6b966380ea7def091",
+                "reference": "0117d797dc1ab64b1f88d4f6b966380ea7def091",
                 "shasum": ""
             },
             "require": {
@@ -624,7 +682,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-04-20T13:46:19+00:00"
+            "time": "2021-04-28T14:38:32+00:00"
         },
         {
             "name": "laravel/tinker",

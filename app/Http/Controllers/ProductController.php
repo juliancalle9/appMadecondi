@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+Use Flash;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -26,15 +27,24 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'nombre' => 'required', 
-            'preciounitario' => 'required', 
-            'idcategoria' => 'required',
-        ]);
-            
-        Product::create($request->all()); 
-        return redirect()->route('products.index');
-                                
+        $request->validate(Product::$rules);
+        $input = $request->all();
+        
+         try {
+             Product::create([
+                "nombre"=>$input["nombre"],
+               "preciounitario"=>$input["preciounitario"],
+               "idcategoria"=>$input["idcategoria"]
+               
+             ]);
+   
+             Flash::success("el Producto fue creado con exito");
+             return redirect()->route('products.index');
+
+         }catch(\Exception $e){
+           Flash::error($e->getMessage());
+             return redirect()->route('products.create');
+         }
         
     }
 

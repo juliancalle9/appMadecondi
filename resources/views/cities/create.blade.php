@@ -1,4 +1,5 @@
-@extends('adminlte::page');
+
+@extends('adminlte::page')
 
 @section('content')
 <div class="row">
@@ -14,7 +15,6 @@
         <div class="pull-right">
 
             <a class="btn btn-primary" href="{{route('cities.index')}}"> Volver</a>
-            
 
         </div>
 
@@ -27,21 +27,17 @@
     @csrf
     <div class="row">
 
-        <div class="col-xs-12 col-sm-12 col-md-1">
+        <div class="col-xs-12 col-sm-12 col-md-12">
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
 
-                <div class="form-group">
+                <strong>Nombre:</strong>
 
-                    <strong>Nombre:</strong>
-
-                    <input type="text" name="nombre" class="form-control" placeholder="nombre">
-
-                </div>
+                <input type="text" name="nombre" class="form-control" placeholder="Documento">
 
             </div>
 
-        </div>  
+        </div> 
 
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
 
@@ -51,4 +47,13 @@
 
     </div>
 </form>
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 @endsection
