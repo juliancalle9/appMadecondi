@@ -31,6 +31,7 @@ class ClientController extends Controller
                "nombre"=>$input["nombre"],
                "apellidos"=>$input["apellidos"],
                "telefono"=>$input["telefono"],
+               "correoElectronico"=>$input["correoElectronico"],
                "direccion"=>$input["direccion"]
              ]);
    

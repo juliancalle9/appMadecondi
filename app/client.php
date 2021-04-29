@@ -17,7 +17,7 @@ class client extends Model
         'apellidos' => 'required',
         'telefono' => 'required|numeric',
         'correoElectronico',
-        'direccion' => 'required'
+        'direccion'
          
     ];
     
