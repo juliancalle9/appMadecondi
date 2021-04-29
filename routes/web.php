@@ -55,4 +55,4 @@ Route::resource('cities','CityController');
  
 Route::resource('suppliers','SupplierController');
 
-Route::resource('lotes','LoteController');
+ 

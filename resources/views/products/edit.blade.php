@@ -1,4 +1,4 @@
-@extends('adminlte::page')
+@extends('layouts.app')
 
 @section('content')
 
@@ -79,36 +79,14 @@
         </div>
 
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-
-<div class="form-group">
-
-    <strong>Estado:</strong>
-
-    <input class="form-control"  type="tel" name="estado" value="{{$product->estado}}" placeholder="Estado">
-
-</div>
-
-</div>
-<div class="col-xs-12 col-sm-12 col-md-12">
-
-<div class="form-group">
-
-    <strong>Id Categoria:</strong>
-
-    <input class="form-control"  type="tel" name="idcategoria" value="{{$product->idcategoria}}" placeholder="Id Categoria">
-
-</div>
-
-</div>
 
     <div class="col-xs-12 col-sm-12 col-md-12">
 
         <div class="form-group">
 
-            <strong>Id Lote:</strong>
+            <strong>Id Categoria:</strong>
 
-            <input class="form-control"  type="tel" name="idlote" value="{{$product->idlote}}" placeholder="Id lote">
+            <input class="form-control"  type="tel" name="idcategoria" value="{{$product->idcategoria}}" placeholder="Id Categoria">
 
         </div>
 
