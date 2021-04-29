@@ -20,7 +20,7 @@
     </div>
 
 </div>
-@section('Datatables')
+
 <form action="{{ route('clients.store') }}" method="POST">
 
     @csrf
