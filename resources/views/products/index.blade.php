@@ -37,9 +37,9 @@
 
                         <th>Nombre</th>
 
-                        <th>Estado</th>
-
                         <th>Precio Unitario</th>
+
+                        <th>Estado</th>
 
                         <th>Acciones</th>
                     </tr>
@@ -65,14 +65,7 @@
                             </td>
 
         <td><a href="{{route('products.edit',$product->idproducto)}}" class="btn btn-info">Editar</a>
-    </tr>
-
-    @endforeach
-
-</table>
-
-                        <td><a href="{{route('products.edit',$product->idproducto)}}" class="btn btn-info">Editar</a>
-                    </tr>
+   
                     @endforeach
                 <tbody>
             </table>

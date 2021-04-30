@@ -7,7 +7,11 @@ use Illuminate\Http\Request;
 
 class LotController extends Controller
 {
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $lots = Lot::all(); // almaneca en la variable los productos
@@ -20,53 +24,50 @@ class LotController extends Controller
         return view('lots.create');
     }
 
-
+    
     public function store(Request $request)
     {
         $request->validate([
-        'nombre' => 'required',
-        'fechaFabricacion' => 'required',
-        'fechaVencimiento' => 'required',
-        'cantidad' => 'required',
-    ]);
-    Lot::create($request->all()); 
-    return redirect()->route('lots.index')
-                        ->with('success', 'lote agregado con éxito.'); 
-}
+            
+            'fechaFabricacion' => 'required',
+            'fechaVencimiento' => 'required',
+            'cantidad' => 'required',
+        ]);
+        Lot::create($request->all()); 
+        return redirect()->route('lots.index')
+                            ->with('success', 'lote agregado con éxito.');
+    }
 
-    
-    public function show(Lot $lote)
+    public function show(Lot $lot)
     {
-        return view('lots.show', compact('lote')); 
+        return view('lots.show', compact('lot')); 
+    }
+
+    public function edit(Lot $lot)
+    {
+        return view('lots.edit', compact('lot')); 
     }
 
 
-    public function edit(Lot $lote)
-    {
-        return view('lots.edit', compact('lote')); 
-    }
-
-    
-    public function update(Request $request, Lot $lote)
+    public function update(Request $request, Lot $lot)
     {
         $request->validate([
-            'nombre' => 'required',
+         
             'fechaFabricacion' => 'required',
             'fechaVencimiento' => 'required',
             'cantidad' => 'required',
     ]);
-    $lote->update($request->all());
+    $lot->update($request->all());
 
     return redirect()->route('lots.index')
                         ->with('success', 'lote actualizada con éxito.');
 
     }
 
-
-    public function destroy(Lot $lote)
-     {
-        $lote->delete(); 
-            return redirect()->route('lots.index')
-                            ->with('success', 'lote eliminado con éxito');
+    public function destroy(Lot $lot)
+    {
+        $lot->delete(); 
+        return redirect()->route('lots.index')
+                        ->with('success', 'lote eliminado con éxito');
     }
 }

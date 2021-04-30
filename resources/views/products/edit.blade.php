@@ -71,18 +71,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
 
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-
-        <div class="form-group">
-
-            <strong>Estado:</strong>
-
-            <input class="form-control"  type="tel" name="estado" value="{{$product->estado}}" placeholder="estado">
-
-        </div>
-
-    </div>
-
+  
                     <strong>Precio Unitario:</strong>
 
                     <input class="form-control"  name="preciounitario" value="{{$product->preciounitario}}" placeholder="Precio Unitario">
