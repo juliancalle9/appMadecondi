@@ -1,9 +1,9 @@
-@extends('layouts.app')
-
+@extends('adminlte::page')
+@section('title', 'Agregar proveedor')
 @section('content')
-<div class="row">
+<div class="card">
 
-    <div class="col-lg-12 margin-tb">
+    <div class="col-lg-12 margin-tb card-header">
 
         <div class="pull-left">
 
@@ -22,44 +22,46 @@
 
 </div>
 
-<form action="{{ route('categories.store') }}" method="POST">
+<div class="card">
+    <div class="card-body">
 
-    @csrf
-     <div class="row">
+        <form action="{{ route('categories.store') }}" method="POST">
 
-        <div class="col-xs-12 col-sm-12 col-md-12">
+            @csrf
+            <div class="row">
 
-            <div class="form-group">
+                <div class="col-xs-12 col-sm-12 col-md-12">
 
-                <strong>Nombre:</strong>
+                    <div class="form-group">
 
-                <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+                        <strong>Nombre:</strong>
+
+                        <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+
+                    </div>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12">
+
+                    <div class="form-group">
+
+                        <strong>Descripcion:</strong>
+
+                        <input class="form-control" name="descripcion" placeholder="Descripcion">
+
+                    </div>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+
+                </div>
 
             </div>
-
-        </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-12">
-
-            <div class="form-group">
-
-                <strong>Descripcion:</strong>
-
-                <input class="form-control" name="descripcion" placeholder="Descripcion">
-
-            </div>
-
-        </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-
-                <button type="submit" class="btn btn-primary">Guardar</button>
-
-        </div>
-
+        </form>
     </div>
-
-   
-
-</form>
+</div>
 @endsection

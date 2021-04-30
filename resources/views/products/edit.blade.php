@@ -1,10 +1,10 @@
-@extends('layouts.app')
-
+@extends('adminlte::page')
+@section('title', 'Editar Producto')
 @section('content')
 
-<div class="row">
+<div class="card">
 
-<div class="col-lg-12 margin-tb">
+<div class="col-lg-12 margin-tb card-body">
 
     <div class="pull-left">
 
@@ -45,26 +45,30 @@
 @endif
 
 
+<div class="card">
+    <div class="card-body">
 
-<form action="{{ route('products.update',$product->idproducto) }}" method="POST">
+        <form action="{{ route('products.update',$product->idproducto) }}" method="POST">
 
-@csrf
+        @csrf
 
-@method('PUT')
+        @method('PUT')
 
+        <div class="row">
 
+            <div class="col-xs-12 col-sm-12 col-md-12">
 
- <div class="row">
+                <div class="form-group">
 
-    <div class="col-xs-12 col-sm-12 col-md-12">
+                    <strong>Nombre:</strong>
 
-        <div class="form-group">
+                    <input type="text" name="nombre" value="{{ $product->nombre }}" class="form-control" placeholder="Nombre">
 
-            <strong>Nombre:</strong>
+                </div>
 
-            <input type="text" name="nombre" value="{{ $product->nombre }}" class="form-control" placeholder="Nombre">
+            </div>
 
-        </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
 
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -79,25 +83,26 @@
 
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-12">
+                    <strong>Precio Unitario:</strong>
 
-        <div class="form-group">
+                    <input class="form-control"  name="preciounitario" value="{{$product->preciounitario}}" placeholder="Precio Unitario">
 
-            <strong>Precio Unitario:</strong>
+                </div>
 
-            <input class="form-control"  name="preciounitario" value="{{$product->preciounitario}}" placeholder="Precio Unitario">
+            </div>
 
-        </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
 
-    </div>
+                <div class="form-group">
 
-    <div class="col-xs-12 col-sm-12 col-md-12">
+                    <strong>Id Categoria:</strong>
 
-        <div class="form-group">
+                    <input class="form-control"  type="tel" name="idcategoria" value="{{$product->idcategoria}}" placeholder="Id Categoria">
 
-            <strong>Id Categoria:</strong>
+                </div>
 
-            <input class="form-control"  type="tel" name="idcategoria" value="{{$product->idcategoria}}" placeholder="Id Categoria">
+            </div>
+
 
         </div>
 
@@ -114,19 +119,13 @@
 
     </div>
 
+            <button type="submit" class="btn btn-primary">Submit</button>
 
-</div>
+            </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+        </div>
 
-      <button type="submit" class="btn btn-primary">Submit</button>
-
+        </form>
     </div>
-
 </div>
-
-
-
-</form>
-
 @endsection
