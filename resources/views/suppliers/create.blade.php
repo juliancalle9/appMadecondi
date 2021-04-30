@@ -65,7 +65,7 @@
 
                         <label>Teléfono:</label>
 
-                        <input type="text" name="teléfono" class="form-control" placeholder="Teléfono">
+                        <input type="text" name="telefono" class="form-control" placeholder="Teléfono">
 
                         </div>
 
@@ -77,7 +77,7 @@
 
                         <label>Correo Electrónico:</label>
 
-                        <input type="text" name="teléfono" class="form-control" placeholder="Correo Electrónico">
+                        <input type="email" name="correoelectronico" class="form-control" placeholder="Correo Electrónico">
 
                         </div>
 

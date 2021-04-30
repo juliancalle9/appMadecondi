@@ -15,7 +15,7 @@
                     <h2>Clientes</h2>
                 </div>
                 <div class="pull-right">
-                    <a class="btn btn-success" href="{{route('clients.create')}}">Agregar cliente</a>
+                    <a class="btn btn-success" href="{{route('clients.create')}}">Agregar Cliente</a>
                 </div>
         </div>
     </div>
@@ -36,7 +36,7 @@
 
                         <th>Correo Electrónico</th>
 
-                        <th>Direccion</th>
+                        <th>Dirección</th>
 
                         <th>Estado</th>
 

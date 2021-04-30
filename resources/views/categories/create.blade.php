@@ -7,7 +7,7 @@
 
         <div class="pull-left">
 
-            <h2>Agregar nueva categoria</h2>
+            <h2>Agregar nueva categoría</h2>
 
         </div>
 
@@ -46,7 +46,7 @@
 
                     <div class="form-group">
 
-                        <strong>Descripcion:</strong>
+                        <strong>Descripción:</strong>
 
                         <input class="form-control" name="descripcion" placeholder="Descripcion">
 

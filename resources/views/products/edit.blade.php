@@ -69,8 +69,7 @@
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-
-    </div>
+                <div class="form-group">
   
                     <strong>Precio Unitario:</strong>
 
@@ -91,29 +90,23 @@
                 </div>
 
             </div>
+    
+            <div class="col-xs-12 col-sm-12 col-md-12">
 
+                <div class="form-group">
 
-        </div>
+                    <strong>Id lote:</strong>
 
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
+                    <input class="form-control"  type="tel" name="idlote" value="{{$product->idlote}}" placeholder="Id Lote">
 
-        <div class="form-group">
+                </div>
 
-            <strong>Id lote:</strong>
-
-            <input class="form-control"  type="tel" name="idlote" value="{{$product->idlote}}" placeholder="Id Lote">
-
-        </div>
-
-    </div>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
-
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
 
         </div>
-
         </form>
     </div>
 </div>

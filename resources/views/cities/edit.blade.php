@@ -12,7 +12,7 @@
             </div>
             <br>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('cities.index') }}"> Atrás</a>
+                <a class="btn btn-primary" href="{{ route('cities.index') }}"> Volver</a>
             </div>
         </div>
     </div>

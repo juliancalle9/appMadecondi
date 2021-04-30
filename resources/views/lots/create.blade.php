@@ -1,9 +1,10 @@
 @extends('adminlte::page')
+@section('title', 'Crear Lote')
 
 @section('content')
-<div class="row">
+<div class="card">
 
-    <div class="col-lg-12 margin-tb">
+    <div class="col-lg-12 margin-tb card-header">
 
         <div class="pull-left">
 
@@ -21,57 +22,58 @@
 
 </div>
 
-<form action="{{ route('lots.store') }}" method="POST">
+<div class="card">
+    <div class="card-body">
 
-    @csrf
-     <div class="row">
+        <form action="{{ route('lots.store') }}" method="POST">
 
-        <div class="col-xs-12 col-sm-12 col-md-12">
+            @csrf
+            <div class="row">
 
-            <div class="form-group">
+                <div class="col-xs-12 col-sm-12 col-md-12">
 
-                <strong>Fecha Fabricacion:</strong>
+                    <div class="form-group">
 
-                <input type="date" name="fechaFabricacion" class="form-control" placeholder="Fecha fabricacion">
+                        <strong>Fecha Fabricación:</strong>
+
+                        <input type="date" name="fechaFabricacion" class="form-control" placeholder="Fecha fabricacion">
+
+                    </div>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12">
+
+                    <div class="form-group">
+
+                        <strong>Fecha Vencimiento:</strong>
+
+                        <input type="date" name="fechaVencimiento" class="form-control" placeholder="Fecha Vencimiento">
+
+                    </div>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12">
+
+                    <div class="form-group">
+
+                        <strong>Cantidad:</strong>
+
+                        <input type="number" class="form-control" name="cantidad" placeholder="Cantidad">
+
+                    </div>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+
+                </div>
 
             </div>
-
-        </div>
-        <div class="row">
-
-        <div class="col-xs-12 col-sm-12 col-md-12">
-
-            <div class="form-group">
-
-                <strong>Fecha Vencimiento:</strong>
-
-                <input type="date" name="fechaVencimiento" class="form-control" placeholder="Fecha Vencimiento">
-
-            </div>
-
-        </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-12">
-
-            <div class="form-group">
-
-                <strong>Cantidad:</strong>
-
-                <input class="form-control" name="cantidad" placeholder="Cantidad">
-
-            </div>
-
-        </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-
-                <button type="submit" class="btn btn-primary">Guardar</button>
-
-        </div>
-
+        </form>
     </div>
-
-   
-
-</form>
-@endsection
+</div>
+        @endsection

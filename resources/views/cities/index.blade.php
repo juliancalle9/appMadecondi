@@ -16,12 +16,13 @@
            
       <div class="pull-right">
                 <a class="btn btn-success" href="{{route('cities.create')}}">Agregar Ciudad</a>
-                <a class="btn btn-success" href="{{route('suppliers.index')}}">Proveedores</a>
+                <a class="btn btn-secondary" href="{{route('suppliers.index')}}">Proveedores</a>
+                
                 
             </div>
     </div>
 </div>
-    <div class="car">
+    <div class="card">
         <div class="card-body">
             <table class="table table-bordered" id="ciudades">
                 <thead>

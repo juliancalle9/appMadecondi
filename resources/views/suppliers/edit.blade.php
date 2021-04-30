@@ -31,8 +31,8 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Nit:</strong>
-                        <input type="text" name="nit"  class="form_control" placeholder="nit" readonly value="{{$supplier->nit}}">
+                        <strong>NIT:</strong>
+                        <input type="text" name="nit"  class="form_control" placeholder="NIT" readonly value="{{$supplier->nit}}">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -45,18 +45,24 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Direccion:</strong>
-                        <input type="text" class="form_control" name="direccion"  placeholder="direccion" value="{{$supplier->direccion}}">      
+                        <input type="text" class="form_control" name="direccion"  placeholder="Dirección" value="{{$supplier->direccion}}">      
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Telefono:</strong>
-                        <input type="text" name="telefono"  class="form_control" placeholder="telefono" value="{{$supplier->telefono}}">
+                        <input type="text" name="telefono"  class="form_control" placeholder="teléfono" value="{{$supplier->telefono}}">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>ciudad:</strong>
+                        <strong>Correo Electrónico:</strong>
+                        <input type="email" name="correoelectronico"  class="form_control" placeholder="Correo Electrónico" value="{{$supplier->correoelectronico}}">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Ciudad:</strong>
                         <input type="text" name="idciudad"  class="form_control" placeholder="idciudad" value="{{$supplier->idciudad}}">
                     </div>
                 </div>

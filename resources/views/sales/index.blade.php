@@ -13,7 +13,7 @@
                 <h2>Ventas</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('sales.create')}}">Agregar venta</a>
+                <a class="btn btn-success" href="{{ route('sales.create')}}">Agregar Venta</a>
             </div>
     </div>
 </div>

@@ -80,7 +80,7 @@
 
                             <strong>Correo Electrónico:</strong>
 
-                            <input type="text" name="correoElectronico" class="form-control" placeholder="Correo Electrónico">
+                            <input type="email" name="correoElectronico" class="form-control" placeholder="Correo Electrónico">
 
                         </div>
 
@@ -90,9 +90,9 @@
 
                         <div class="form-group">
 
-                            <strong>Direccion:</strong>
+                            <strong>Dirección:</strong>
 
-                            <input type="text" name="direccion" class="form-control" placeholder="Direccion">
+                            <input type="text" name="direccion" class="form-control" placeholder="Dirección">
 
                         </div>
 
