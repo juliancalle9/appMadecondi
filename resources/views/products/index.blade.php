@@ -53,16 +53,16 @@
 
                          <td>{{ $product->idlote }}</td>
 
-        <td>{{ $product->nombre }}</td>
+                        <td>{{ $product->nombre }}</td>
 
-        <td>{{ $product->preciounitario }}</td>
+                        <td>{{ $product->preciounitario }}</td>
 
-        <td>@if($product->estado > 0)
-                <P>HABILITADO</P>
-                @else
-                <p>DESHABILITADO</p>
-            @endif
-            </td>
+                        <td>@if($product->estado > 0)
+                                <P>HABILITADO</P>
+                                @else
+                                <p>DESHABILITADO</p>
+                            @endif
+                            </td>
 
         <td><a href="{{route('products.edit',$product->idproducto)}}" class="btn btn-info">Editar</a>
     </tr>
