@@ -2,27 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Lote;
+use App\Lot;
 use Illuminate\Http\Request;
 
-class LoteController extends Controller
+class LotController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        $lotes = Lote::all(); // almaneca en la variable los productos
+        $lots = Lot::all(); // almaneca en la variable los productos
         return view('lots.index',compact('lots'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         return view('lots.create');
@@ -37,25 +29,25 @@ class LoteController extends Controller
         'fechaVencimiento' => 'required',
         'cantidad' => 'required',
     ]);
-    Lote::create($request->all()); 
+    Lot::create($request->all()); 
     return redirect()->route('lots.index')
                         ->with('success', 'lote agregado con éxito.'); 
 }
 
     
-    public function show(Lote $lote)
+    public function show(Lot $lote)
     {
         return view('lots.show', compact('lote')); 
     }
 
 
-    public function edit(Lote $lote)
+    public function edit(Lot $lote)
     {
         return view('lots.edit', compact('lote')); 
     }
 
     
-    public function update(Request $request, Lote $lote)
+    public function update(Request $request, Lot $lote)
     {
         $request->validate([
             'nombre' => 'required',
@@ -71,7 +63,7 @@ class LoteController extends Controller
     }
 
 
-    public function destroy(Lote $lote)
+    public function destroy(Lot $lote)
      {
         $lote->delete(); 
             return redirect()->route('lots.index')

@@ -14,6 +14,7 @@
         <div class="pull-right">
 
             <a class="btn btn-primary" href="{{route('categories.index')}}"> Volver</a>
+          
 
         </div>
 

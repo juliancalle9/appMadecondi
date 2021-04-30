@@ -8,14 +8,16 @@ class Product extends Model
 {
     protected $primaryKey = 'idproducto';
     protected $fillable = [
-        'nombre','estado','preciounitario','idcategoria','idlote'
+        'idcategoria','idlote','nombre','preciounitario','estado'
     ];
     public $timestamps = false;
     public static $rules =[
-        'nombre' => 'required|min:3',
-        'estado' => 'required',
+        'idcategoria' => 'required',
         'idlote' => 'required',
+        'nombre' => 'required|min:3',
+
         'precioUnitario' => 'required|numeric|min:0',
-        'idcategoria' => 'required'
+        'estado' => 'required',
+        
     ];
 }

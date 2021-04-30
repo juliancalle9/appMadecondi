@@ -10,6 +10,8 @@
             <div class="pull-right">
                 <a class="btn btn-success" href="{{route('categories.create')}}">Agregar categoria</a>
                 <a href="{{route('products.index')}}" class="btn btn-secondary">Productos</a>
+                
+                
             </div>
     </div>
 </div>

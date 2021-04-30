@@ -12,7 +12,9 @@
             <div class="pull-right">
                 <a class="btn btn-primary" href="{{route('products.create')}}">Agregar Productos</a>
                 <a href="{{route('categories.index')}}" class="btn btn-secondary">Categorías</a>
+                <a href="{{route('lots.index')}}" class="btn btn-secondary">lotes</a>
                 
+
             </div>
     </div>
 </div>
@@ -30,9 +32,11 @@
 
         <th>Nombre</th>
 
-        <th>EStado</th>
+
 
         <th>Precio Unitario</th>
+
+        <th>Estado</th>
 
         <th>Acciones</th>
 
@@ -46,9 +50,16 @@
 
         <td>{{ $product->idlote }}</td>
 
-        <td>{{ $product->estado }}</td>
+        <td>{{ $product->nombre }}</td>
 
         <td>{{ $product->preciounitario }}</td>
+
+        <td>@if($product->estado > 0)
+                <P>HABILITADO</P>
+                @else
+                <p>DESHABILITADO</p>
+            @endif
+            </td>
 
         <td><a href="{{route('products.edit',$product->idproducto)}}" class="btn btn-info">Editar</a>
     </tr>
