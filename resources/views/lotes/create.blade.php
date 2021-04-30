@@ -32,7 +32,7 @@
 
                 <strong>Fecha Fabricacion:</strong>
 
-                <input type="text" name="fechafabricacion" class="form-control" placeholder="Fecha fabricacion">
+                <input type="text" name="fechaFabricacion" class="form-control" placeholder="Fecha fabricacion">
 
             </div>
 
@@ -45,7 +45,7 @@
 
                 <strong>Fecha Vencimiento:</strong>
 
-                <input type="text" name="fechavencimiento" class="form-control" placeholder="Fecha Vencimiento">
+                <input type="text" name="fechaVencimiento" class="form-control" placeholder="Fecha Vencimiento">
 
             </div>
 

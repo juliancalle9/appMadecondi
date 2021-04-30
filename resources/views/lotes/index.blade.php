@@ -37,8 +37,11 @@
     <tr>
         
         <td>{{ $lot->idlote }}</td>
+
         <td>{{ $lot->fechaFabricacion }}</td>
+
         <td>{{ $lot->fechaVencimiento }}</td>
+        
         <td>{{ $lot->cantidad }}</td>
         
 

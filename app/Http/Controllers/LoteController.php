@@ -25,62 +25,56 @@ class LoteController extends Controller
      */
     public function create()
     {
-        //
+        return view('lots.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+        'nombre' => 'required',
+        'fechaFabricacion' => 'required',
+        'fechaVencimiento' => 'required',
+        'cantidad' => 'required',
+    ]);
+    Lote::create($request->all()); 
+    return redirect()->route('lots.index')
+                        ->with('success', 'lote agregado con éxito.'); 
+}
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Lote  $lote
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show(Lote $lote)
     {
-        //
+        return view('lots.show', compact('lote')); 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Lote  $lote
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Lote $lote)
     {
-        //
+        return view('lots.edit', compact('lote')); 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Lote  $lote
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, Lote $lote)
     {
-        //
+        $request->validate([
+            'nombre' => 'required',
+            'fechaFabricacion' => 'required',
+            'fechaVencimiento' => 'required',
+            'cantidad' => 'required',
+    ]);
+    $lote->update($request->all());
+
+    return redirect()->route('lots.index')
+                        ->with('success', 'lote actualizada con éxito.');
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Lote  $lote
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Lote $lote)
-    {
-        //
+     {
+        $lote->delete(); 
+            return redirect()->route('lots.index')
+                            ->with('success', 'lote eliminado con éxito');
     }
 }
