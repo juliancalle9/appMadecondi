@@ -291,11 +291,6 @@ return [
                 ],
         ],    
     ],    
-        [
-            'text' => 'Busqueda',
-            'search' => true,
-            'topnav' => true,
-        ],
 
         ['header' => 'CONFIGURACION DE CUENTA'],
         [

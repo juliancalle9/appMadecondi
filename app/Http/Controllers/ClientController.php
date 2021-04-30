@@ -17,7 +17,7 @@ class ClientController extends Controller
         return view('clients.index', compact('clients')); 
     }
 
-    public function list(Request $request){
+    /* public function list(Request $request){
         $clients = Client::all();
 
         return DataTables::of($clients)
@@ -36,7 +36,7 @@ class ClientController extends Controller
             })
             ->rawColumns(['editar', 'cambiar'])
             ->make(true);
-    } 
+    } */
 
     public function create(){
         return view('clients.create');
