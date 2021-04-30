@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
 @section('content')
-<div class="row">
+<div class="card">
 
-    <div class="col-lg-12 margin-tb">
+    <div class="col-lg-12 margin-tb card-header">
 
         <div class="pull-left">
 
@@ -20,95 +20,95 @@
     </div>
 
 </div>
+<div class="card">
+    <div class="card-body">
+          <form action="{{ route('clients.store') }}" method="POST">
+                @csrf
+                <div class="row">
 
-<form action="{{ route('clients.store') }}" method="POST">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
 
-    @csrf
-     <div class="row">
+                        <div class="form-group">
 
-        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <strong>Documento:</strong>
 
-            <div class="form-group">
+                            <input type="text" name="documento" class="form-control" placeholder="Documento">
 
-                <strong>Documento:</strong>
+                        </div>
 
-                <input type="text" name="documento" class="form-control" placeholder="Documento">
+                    </div>
 
-            </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
 
+                        <div class="form-group">
+
+                            <strong>Nombre:</strong>
+
+                            <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+
+                        <div class="form-group">
+
+                            <strong>Apellidos:</strong>
+
+                            <input class="form-control" name="apellidos" placeholder="Apellidos">
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+
+                        <div class="form-group">
+
+                            <strong>Teléfono:</strong>
+
+                            <input type="text" name="telefono" class="form-control" placeholder="Teléfono">
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+
+                        <div class="form-group">
+
+                            <strong>Correo Electrónico:</strong>
+
+                            <input type="text" name="correoElectronico" class="form-control" placeholder="Correo Electrónico">
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+
+                        <div class="form-group">
+
+                            <strong>Direccion:</strong>
+
+                            <input type="text" name="direccion" class="form-control" placeholder="Direccion">
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+
+                    </div>
+
+                </div>
+            </form>
         </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-12">
-
-            <div class="form-group">
-
-                <strong>Nombre:</strong>
-
-                <input type="text" name="nombre" class="form-control" placeholder="Nombre">
-
-            </div>
-
-        </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-12">
-
-            <div class="form-group">
-
-                <strong>Apellidos:</strong>
-
-                <input class="form-control" name="apellidos" placeholder="Apellidos">
-
-            </div>
-
-        </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-12">
-
-            <div class="form-group">
-
-                <strong>Teléfono:</strong>
-
-                <input type="text" name="telefono" class="form-control" placeholder="Teléfono">
-
-            </div>
-
-        </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-12">
-
-            <div class="form-group">
-
-                <strong>Correo Electrónico:</strong>
-
-                <input type="text" name="correoElectronico" class="form-control" placeholder="Correo Electrónico">
-
-            </div>
-
-        </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-12">
-
-            <div class="form-group">
-
-                <strong>Direccion:</strong>
-
-                <input type="text" name="direccion" class="form-control" placeholder="Direccion">
-
-            </div>
-
-        </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-
-                <button type="submit" class="btn btn-primary">Guardar</button>
-
-        </div>
-
     </div>
 
-   
-
-</form>
 
 @if ($errors->any())
     <div class="alert alert-danger">

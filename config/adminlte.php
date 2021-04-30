@@ -296,18 +296,6 @@ return [
             'search' => true,
             'topnav' => true,
         ],
-
-        ['header' => 'CONFIGURACION DE CUENTA'],
-        [
-            'text' => 'Perfil',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
     ],
 
     /*
