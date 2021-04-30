@@ -11,4 +11,12 @@ class Lote extends Model
         'nombre','fechaFabricacion','fechaVencimiento','cantidad'
     ];
     public $timestamps = false;
+    public static $rules =[
+        'nombre' => 'required|min:3',
+        'fechaFabricacion' => 'required',
+        'fechaVencimiento' => 'required',
+        'cantidad' => 'required',
+        
+    ];
 }
+

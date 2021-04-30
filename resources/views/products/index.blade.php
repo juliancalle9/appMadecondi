@@ -26,7 +26,11 @@
 
         <th>Id Categoria</th>
 
+        <th>Id Lote</th>
+
         <th>Nombre</th>
+
+        <th>EStado</th>
 
         <th>Precio Unitario</th>
 
@@ -40,7 +44,9 @@
         
         <td>{{ $product->idcategoria }}</td>
 
-        <td>{{ $product->nombre }}</td>
+        <td>{{ $product->idlote }}</td>
+
+        <td>{{ $product->estado }}</td>
 
         <td>{{ $product->preciounitario }}</td>
 

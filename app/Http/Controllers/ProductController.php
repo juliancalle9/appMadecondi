@@ -27,6 +27,7 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+
         $request->validate(Product::$rules);
         $input = $request->all();
         
@@ -45,6 +46,11 @@ class ProductController extends Controller
            Flash::error($e->getMessage());
              return redirect()->route('products.create');
          }
+
+        
+            
+        
+
         
     }
 
@@ -64,8 +70,10 @@ class ProductController extends Controller
     {
         $request->validate([
             'nombre' => 'required', 
-            'preciounitario' => 'required',
+            'estado' => 'required',
+            'preciounitario' => 'required', 
             'idcategoria' => 'required',
+            'idlote' => 'required',
         ]);
 
         $product->update($request->all());
