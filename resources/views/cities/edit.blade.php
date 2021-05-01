@@ -12,7 +12,7 @@
             </div>
             <br>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('cities.index') }}"> Atrás</a>
+                <a class="btn btn-primary" href="{{ route('cities.index') }}"> Volver</a>
             </div>
         </div>
     </div>
@@ -33,5 +33,13 @@
                     </div>
                 </div>
         </div>
+        @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
     </div>
-    @endsection
+@endif
+            @endsection

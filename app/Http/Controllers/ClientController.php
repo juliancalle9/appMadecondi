@@ -53,8 +53,8 @@ class ClientController extends Controller
                "nombre"=>$input["nombre"],
                "apellidos"=>$input["apellidos"],
                "telefono"=>$input["telefono"],
-               "direccion"=>$input["direccion"],
-               "estado" => 1,
+               "correoElectronico"=>$input["correoElectronico"],
+               "direccion"=>$input["direccion"]
              ]);
    
              Flash::success("el cliente fue creado con exito");

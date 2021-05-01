@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Sale;
+use Flash;
 use Illuminate\Http\Request;
 
 class SaleController extends Controller
@@ -36,8 +37,25 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
-        Sale::create($request->all());
-        return redirect()->route('sales.index');
+        $request->validate(Sale::$rules);
+        $input = $request->all();
+        
+         try {
+             Sale::create([
+                
+                "nombreCliente" => $input["nombreCliente"],
+                "telefono" => $input["telefono"],
+                "direccion" => $input["direccion"],
+                "precioUnitario"=> $input["precioUnitario"],
+                "precioTotal" => $input["precioTotal"]
+             ]);
+    
+             Flash::success("la venta fue creada con exito");
+             return redirect()->route('sales.index');
+         }catch(\Exception $e){
+           Flash::error($e->getMessage());
+             return redirect()->route('sales.create');
+         }
     }
 
     /**

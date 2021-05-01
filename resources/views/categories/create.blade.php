@@ -7,7 +7,7 @@
 
         <div class="pull-left">
 
-            <h2>Agregar nueva categoria</h2>
+            <h2>Agregar nueva categoría</h2>
 
         </div>
 
@@ -25,6 +25,20 @@
 <div class="card">
     <div class="card-body">
 
+    @csrf
+     <div class="row">
+     
+     <div class="col-xs-12 col-sm-12 col-md-12">
+
+<div class="form-group">
+
+    <strong>Id Categoria:</strong>
+
+    <input type="text" name="idcategoria" class="form-control" placeholder="idCategoria">
+
+</div>
+
+</div>
         <form action="{{ route('categories.store') }}" method="POST">
 
             @csrf
@@ -46,7 +60,7 @@
 
                     <div class="form-group">
 
-                        <strong>Descripcion:</strong>
+                        <strong>Descripción:</strong>
 
                         <input class="form-control" name="descripcion" placeholder="Descripcion">
 
@@ -60,8 +74,16 @@
 
                 </div>
 
-            </div>
-        </form>
+</form>
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     </div>
 </div>
 @endsection

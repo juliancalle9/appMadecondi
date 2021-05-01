@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use Flash;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    
-    public function categories(){
-    
-    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $categories = Category::all(); // almaneca en la variable los productos
@@ -22,6 +24,7 @@ class CategoryController extends Controller
         return view('categories.create');
     }
 
+    
     public function store(Request $request)
     {
         $request->validate([
@@ -32,8 +35,9 @@ class CategoryController extends Controller
         
         Category::create($request->all()); 
         return redirect()->route('categories.index')
-                            ->with('success', 'Categoria agregado con éxito.'); 
+                            ->with('success', 'Categoria agregado con éxito.');
     }
+
 
     public function show(Category $category)
     {
@@ -45,6 +49,7 @@ class CategoryController extends Controller
         return view('categories.edit', compact('category')); 
     }
 
+    
     public function update(Request $request, Category $category)
     {
         $request->validate([
@@ -58,10 +63,11 @@ class CategoryController extends Controller
                             ->with('success', 'Categoria actualizada con éxito.');
     }
 
+
     public function destroy(Category $category)
     {
         $category->delete(); 
-            return redirect()->route('categories.index')
-                            ->with('success', 'Categoria eliminado con éxito');
+        return redirect()->route('categories.index')
+                        ->with('success', 'Categoria eliminado con éxito');
     }
 }

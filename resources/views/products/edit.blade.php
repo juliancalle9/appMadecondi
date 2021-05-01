@@ -69,20 +69,8 @@
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-
-        <div class="form-group">
-
-            <strong>Estado:</strong>
-
-            <input class="form-control"  type="tel" name="estado" value="{{$product->estado}}" placeholder="estado">
-
-        </div>
-
-    </div>
-
+                <div class="form-group">
+  
                     <strong>Precio Unitario:</strong>
 
                     <input class="form-control"  name="preciounitario" value="{{$product->preciounitario}}" placeholder="Precio Unitario">
@@ -102,29 +90,23 @@
                 </div>
 
             </div>
+    
+            <div class="col-xs-12 col-sm-12 col-md-12">
 
+                <div class="form-group">
 
-        </div>
+                    <strong>Id lote:</strong>
 
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
+                    <input class="form-control"  type="tel" name="idlote" value="{{$product->idlote}}" placeholder="Id Lote">
 
-        <div class="form-group">
+                </div>
 
-            <strong>Id lote:</strong>
-
-            <input class="form-control"  type="tel" name="idlote" value="{{$product->idlote}}" placeholder="Id Lote">
-
-        </div>
-
-    </div>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
-
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
 
         </div>
-
         </form>
     </div>
 </div>

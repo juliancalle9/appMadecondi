@@ -72,9 +72,15 @@ class CityController extends Controller
      * @param  \App\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function edit(City $city)
+    public function edit($idciudad)
     {
-        return view('cities.edit',compact('city'));
+        $city = City::find($idciudad);
+
+        if($city==null){
+            Flash::error("Ciudad no encontrada");
+            return redirect("/city");
+        }
+        return view("cities.edit",compact("city"));
     }
 
     /**
@@ -86,9 +92,29 @@ class CityController extends Controller
      */
     public function update(Request $request, City $city)
     {
-        $city->update($request->all()); //Editar un registro.
-        return redirect()->route('cities.index');
+        
+        $request->validate(City::$rules);
+        $input = $request->all();
+        //City::create($request->all());
+         try {
+            $city = City::find($idciudad);
+
+            if($city==null){
+                Flash::error("Ciudad no encontrada");
+                return redirect("city.edit");
+            }
+            $city->update([
+                "nombre"=>$input["nombre"]
+              ]);
+   
+             Flash::success("su modificacion se realizo correctamente");
+             return redirect()->route('cities.index');
+         }catch(\Exception $e){
+           Flash::error($e->getMessage());
+             return redirect()->route('cities.index');
+      
     }
+}
 
     /**
      * Remove the specified resource from storage.
