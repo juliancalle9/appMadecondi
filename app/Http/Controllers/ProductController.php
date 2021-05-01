@@ -27,6 +27,7 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+<<<<<<< HEAD
 
         $request->validate(Product::$rules);
         $input = $request->all();
@@ -48,6 +49,15 @@ class ProductController extends Controller
          }
 
         
+=======
+        $request->validate([
+            'idcategoria' => 'required',
+            'idlote' => 'required',
+            'nombre' => 'required', 
+            'preciounitario' => 'required',
+            'estado' => 'required',
+        ]);
+>>>>>>> 80ad89ac493c6f9fc6aac77f8188d90b3f6c0b22
             
         
 
@@ -69,11 +79,13 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $request->validate([
-            'nombre' => 'required', 
-            'estado' => 'required',
-            'preciounitario' => 'required', 
             'idcategoria' => 'required',
             'idlote' => 'required',
+            'nombre' => 'required', 
+            'preciounitario' => 'required',
+            'estado' => 'required',
+             
+           
         ]);
 
         $product->update($request->all());

@@ -1,9 +1,9 @@
 @extends('adminlte::page')
-
+@section('title', 'Agregar proveedor')
 @section('content')
-<div class="row">
+<div class="card">
 
-    <div class="col-lg-12 margin-tb">
+    <div class="col-lg-12 margin-tb card-header">
 
         <div class="pull-left">
 
@@ -14,6 +14,7 @@
         <div class="pull-right">
 
             <a class="btn btn-primary" href="{{route('categories.index')}}"> Volver</a>
+          
 
         </div>
 
@@ -21,7 +22,8 @@
 
 </div>
 
-<form action="{{ route('categories.store') }}" method="POST">
+<div class="card">
+    <div class="card-body">
 
     @csrf
      <div class="row">
@@ -37,40 +39,40 @@
 </div>
 
 </div>
+        <form action="{{ route('categories.store') }}" method="POST">
 
-        <div class="col-xs-12 col-sm-12 col-md-12">
+            @csrf
+            <div class="row">
 
-            <div class="form-group">
+                <div class="col-xs-12 col-sm-12 col-md-12">
 
-                <strong>Nombre:</strong>
+                    <div class="form-group">
 
-                <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+                        <strong>Nombre:</strong>
 
-            </div>
+                        <input type="text" name="nombre" class="form-control" placeholder="Nombre">
 
-        </div>
+                    </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-12">
+                </div>
 
-            <div class="form-group">
+                <div class="col-xs-12 col-sm-12 col-md-12">
 
-                <strong>Descripcion:</strong>
+                    <div class="form-group">
 
-                <input class="form-control" name="descripcion" placeholder="Descripcion">
+                        <strong>Descripcion:</strong>
 
-            </div>
+                        <input class="form-control" name="descripcion" placeholder="Descripcion">
 
-        </div>
+                    </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                </div>
 
-                <button type="submit" class="btn btn-primary">Guardar</button>
+                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
 
-        </div>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
 
-    </div>
-
-   
+                </div>
 
 </form>
 @if ($errors->any())
@@ -82,4 +84,6 @@
         </ul>
     </div>
 @endif
+    </div>
+</div>
 @endsection
