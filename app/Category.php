@@ -8,11 +8,13 @@ class Category extends Model
 {
     protected $primaryKey = 'idcategoria';
     protected $fillable = [
-        'idcategoria','nombre', 'descripcion'
+        'nombre', 'descripcion'
     ];
     public $timestamps = false;
     public static $rules =[
-        'idcategoria' => 'required|unique:city,nombre',
-        'nombre' => 'required'
+        'idcategoria' => 'required|exists:city,nombre',
+        'nombre' => 'required',
+        'descripcion' => 'required'
+
       ];
 }

@@ -291,17 +291,10 @@ return [
                 ],
         ],    
     ],    
-
-        ['header' => 'CONFIGURACION DE CUENTA'],
         [
-            'text' => 'Perfil',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'Busqueda',
+            'search' => true,
+            'topnav' => true,
         ],
     ],
 
@@ -347,6 +340,7 @@ return [
                     'type' => 'js',
                     'asset' => false,
                     'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
+                    
                 ],
                 [
                     'type' => 'js',

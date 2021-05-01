@@ -24,6 +24,9 @@ Route::get('products', function () {
 Route::get('categories', function () {
     return view('categories');
 });
+Route::get('lots', function () {
+    return view('lots');
+});
 
 Route::get('clients', 'ClientController@index')->name('clients');
 Route::get('clients', 'ClientController@list');
@@ -37,14 +40,23 @@ Auth::routes();
 Route::resource('sales','SaleController');
 Route::get('products', 'ProductController@index')->name('products');
 Route::get('products', 'ProductController@create')->name('create');
+Route::get('products', 'ProductController@create')->name('edit');
 
 Route::resource('products','ProductController');
 Auth::routes();
 
 Route::get('categories', 'CategoryController@index')->name('categories');
 Route::get('categories', 'CategoryController@create')->name('create');
+Route::get('categories', 'CategoryController@create')->name('edi');
 
 Route::resource('categories','CategoryController');
+Auth::routes();
+
+Route::get('lots', 'LoteController@index')->name('lots');
+Route::get('lots', 'LoteController@create')->name('create');
+Route::get('lots', 'LoteController@create')->name('edi');
+
+Route::resource('lots','LoteController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
