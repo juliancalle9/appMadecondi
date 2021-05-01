@@ -4,18 +4,18 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
 @endsection
-@section('title', 'Categorias')
+@section('title', 'Categorías')
 @section('content')
 <div class="card">
     <div class="col-lg-12 margin-tb card-header">
 
             <div class="pull-left">
-                <h2>Categoria</h2>
+                <h2>Categoría</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{route('categories.create')}}">Agregar categoria</a>
+                <a class="btn btn-success" href="{{route('categories.create')}}">Agregar Categoría</a>
                 <a href="{{route('products.index')}}" class="btn btn-secondary">Productos</a>
-                
+                <a href="{{route('lots.index')}}" class="btn btn-secondary">Lotes</a>
                 
             </div>
     </div>
@@ -25,11 +25,11 @@
             <table class="table table-bordered" id="categorias">
                 <thead>
                     <tr>
-                        <th>Id Categoria</th>
+                        <th>Id Categoría</th>
 
                         <th>Nombre</th>
 
-                        <th>descripcion</th>
+                        <th>Descripción</th>
 
                         <th>Acciones</th>
                     </tr>

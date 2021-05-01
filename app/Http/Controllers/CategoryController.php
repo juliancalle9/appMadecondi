@@ -8,10 +8,11 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    
-    public function categories(){
-    
-    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $categories = Category::all(); // almaneca en la variable los productos
@@ -23,8 +24,10 @@ class CategoryController extends Controller
         return view('categories.create');
     }
 
+    
     public function store(Request $request)
     {
+<<<<<<< HEAD
         $request->validate(Category::$rules);
         $input = $request->all();
         //City::create($request->all());
@@ -42,7 +45,19 @@ class CategoryController extends Controller
              return redirect()->route('categories.create');
          }
           
+=======
+        $request->validate([
+            'nombre' => 'required', 
+            'descripcion' => 'required', 
+            
+        ]);
+        
+        Category::create($request->all()); 
+        return redirect()->route('categories.index')
+                            ->with('success', 'Categoria agregado con éxito.');
+>>>>>>> 45872db7df71d95793d1102a6bd706c4cd06a649
     }
+
 
     public function show(Category $category)
     {
@@ -54,6 +69,7 @@ class CategoryController extends Controller
         return view('categories.edit', compact('category')); 
     }
 
+    
     public function update(Request $request, Category $category)
     {
         $request->validate([
@@ -67,10 +83,11 @@ class CategoryController extends Controller
                             ->with('success', 'Categoria actualizada con éxito.');
     }
 
+
     public function destroy(Category $category)
     {
         $category->delete(); 
-            return redirect()->route('categories.index')
-                            ->with('success', 'Categoria eliminado con éxito');
+        return redirect()->route('categories.index')
+                        ->with('success', 'Categoria eliminado con éxito');
     }
 }

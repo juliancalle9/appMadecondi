@@ -1,53 +1,66 @@
-@extends('adminlte::page');
+@extends('adminlte::page')
 @section('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
 @endsection
-@section('title', 'Ciudades')
 @section('content')
- 
+@section('title', 'Lotes')
+
 <div class="card">
     <div class="col-lg-12 margin-tb card-header">
 
             <div class="pull-left">
-                <h2>Ciudades</h2>
+                <h2>Lotes</h2>
             </div>
-           
-      <div class="pull-right">
-                <a class="btn btn-success" href="{{route('cities.create')}}">Agregar Ciudad</a>
-                <a class="btn btn-secondary" href="{{route('suppliers.index')}}">Proveedores</a>
-                
-                
+            <div class="pull-right">
+                <a class="btn btn-primary" href="{{route('lots.create')}}">Agregar Lotes</a>
+                <a href="{{route('products.index')}}" class="btn btn-secondary">Productos</a>
+                <a href="{{route('categories.index')}}" class="btn btn-secondary">Categorías</a>
+               
             </div>
     </div>
 </div>
-    <div class="card">
-        <div class="card-body">
-            <table class="table table-bordered" id="ciudades">
-                <thead>
-                    <tr>
-                        <th>Id</th>
+<div class="card">
+    <div class="card-body">
 
-                        <th>Nombre</th>
+        <table class="table table-bordered" id="lotes"> 
+            <thead>
+                <tr>
 
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($cities as $city)
-                    <tr>
-                        <td>{{ $city->idciudad }}</td>
+                    <th>Id Lote</th>
 
-                        <td>{{ $city->nombre }}</td>
+                    <th>Fecha Fabricación</th>
 
-                        <td><a href="{{route('cities.edit',$city->idciudad)}}" class="btn btn-info">Editar</a>
-                    </tr>
+                    <th>Fecha Vencimiento</th>
+
+                    <th>Cantidad</th>
+
+                    <th>Acciones</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($lots as $lot)
+                <tr>
+                    
+                    <td>{{ $lot->idlote }}</td>
+
+                    <td>{{ $lot->fechaFabricacion }}</td>
+
+                    <td>{{ $lot->fechaVencimiento }}</td>
+                    
+                    <td>{{ $lot->cantidad }}</td>
+
+                    <td><a href="{{route('lots.edit',$lot->idlote)}}" class="btn btn-info">Editar</a>
+                </tr>
+            </tbody>
                 @endforeach
-                </tbody>
-            </table>
-        </div>
+
+        </table>
     </div>
+</div>
+
 @endsection
 @section('js')
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
@@ -55,7 +68,7 @@
     <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.7/js/responsive.bootstrap4.min.js"></script>
     <script>
-        $('#ciudades').DataTable({
+        $('#lotes').DataTable({
             reponsive: true,
             autowidth: false,
             "language": {

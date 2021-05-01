@@ -8,23 +8,25 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-   
-        public function products(){
-    
-        }
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $products = Product::all(); // almaneca en la variable los productos
         return view('products.index',compact('products'));
 
     }
+
     public function create()
     {
         return view('products.create');
-     
+
     }
 
+    
     public function store(Request $request)
     {
 <<<<<<< HEAD
@@ -54,6 +56,7 @@ class ProductController extends Controller
             'idcategoria' => 'required',
             'idlote' => 'required',
             'nombre' => 'required', 
+<<<<<<< HEAD
             'preciounitario' => 'required',
             'estado' => 'required',
         ]);
@@ -63,17 +66,28 @@ class ProductController extends Controller
 
         
     }
+=======
+            'preciounitario' => 'required', 
+            
+    ]);
+    Product::create($request->all()); 
+    return redirect()->route('products.index');
+
+
+}
+>>>>>>> 45872db7df71d95793d1102a6bd706c4cd06a649
 
     public function show(Product $product)
     {
-        
-            return view('products.show', compact('product')); 
-        
+
+        return view('products.show', compact('product')); 
+    
     }
 
     public function edit(Product $product)
     {
         return view('products.edit', compact('product')); 
+        
     }
 
     public function update(Request $request, Product $product)
@@ -82,10 +96,10 @@ class ProductController extends Controller
             'idcategoria' => 'required',
             'idlote' => 'required',
             'nombre' => 'required', 
-            'preciounitario' => 'required',
-            'estado' => 'required',
-             
+            'preciounitario' => 'required', 
            
+
+
         ]);
 
         $product->update($request->all());
@@ -97,8 +111,8 @@ class ProductController extends Controller
     
     public function destroy(Product $product)
     {
-            $product->delete(); 
-            return redirect()->route('products.index')
-                            ->with('success', 'Producto eliminado con éxito');
+        $product->delete(); 
+        return redirect()->route('products.index')
+                        ->with('success', 'Producto eliminado con éxito');
     }
 }

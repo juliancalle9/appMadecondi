@@ -19,6 +19,7 @@ class CreateLotsTable extends Migration
             $table->date('fechaVencimiento');
             $table->integer('cantidad');
             $table->timestamps();
+        
         });
     }
 

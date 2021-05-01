@@ -50,11 +50,11 @@ Route::get('categories', 'CategoryController@create')->name('edi');
 Route::resource('categories','CategoryController');
 Auth::routes();
 
-Route::get('lots', 'LoteController@index')->name('lots');
-Route::get('lots', 'LoteController@create')->name('create');
-Route::get('lots', 'LoteController@create')->name('edi');
+Route::get('lots', 'LotController@index')->name('lots');
+Route::get('lots', 'LotController@create')->name('create');
+Route::get('lots', 'LotController@create')->name('edi');
 
-Route::resource('lots','LoteController');
+Route::resource('lots','LotController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

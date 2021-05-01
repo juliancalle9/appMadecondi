@@ -117,9 +117,9 @@
 
                     <div class="form-group">
 
-                    <strong>Direccion:</strong>
+                    <strong>Dirección:</strong>
 
-                    <input class="form-control" type="direccion"  name="direccion" value="{{$client->direccion}}" placeholder="Dirección">
+                    <input class="form-control" type="text"  name="direccion" value="{{$client->direccion}}" placeholder="Dirección">
 
                     </div>
 

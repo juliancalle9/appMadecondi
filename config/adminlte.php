@@ -226,7 +226,7 @@ return [
     'menu' => [
 
         [
-            'text'    => 'Menu',
+            'text'    => 'Menú',
             'icon'    => 'fas fa-fw fa-home',
             'submenu' => [
                 [
@@ -268,6 +268,11 @@ return [
                             'text' => 'Categorias',
                             'icon'    => 'fas fa-fw fa-th-large',
                             'url' => 'categories',
+                        ],
+                        [
+                            'text' => 'Lotes',
+                            'icon'    => 'fas fa-boxes',
+                            'url' => 'lots',
                         ],
                                     ],
                 ],
