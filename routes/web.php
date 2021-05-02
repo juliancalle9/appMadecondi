@@ -29,8 +29,10 @@ Route::get('lots', function () {
 });
 
 Route::get('clients', 'ClientController@index')->name('clients');
+Route::get('clients', 'ClientController@list');
 Route::get('clients', 'ClientController@create')->name('create');
 Route::get('clients', 'ClientController@edit')->name('edit');
+/* Route::get('clients/cambiar/estado/{documento}/{estado}', 'ClientController@updateState'); */
 
 Route::resource('clients','ClientController');
 Auth::routes();

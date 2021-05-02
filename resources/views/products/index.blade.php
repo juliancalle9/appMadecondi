@@ -16,7 +16,7 @@
             <div class="pull-right">
                 <a class="btn btn-primary" href="{{route('products.create')}}">Agregar Productos</a>
                 <a href="{{route('categories.index')}}" class="btn btn-secondary">Categorías</a>
-                <a href="{{route('lots.index')}}" class="btn btn-secondary">lotes</a>
+                <a href="{{route('lots.index')}}" class="btn btn-secondary">Lotes</a>
                 
 
             </div>

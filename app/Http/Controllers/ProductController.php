@@ -29,12 +29,39 @@ class ProductController extends Controller
     
     public function store(productFormRequest $request)
     {
+<<<<<<< HEAD
+=======
+
+        $request->validate(Product::$rules);
+>>>>>>> 65e72a41d7c8351a73641f479eb81f17f27353f2
         $input = $request->all();
          Product::create($request->all());
              Flash::success("el producto fue creado con exito");
              return redirect()->route('products.index');
+<<<<<<< HEAD
 }
 
+=======
+
+         }catch(\Exception $e){
+           Flash::error($e->getMessage());
+             return redirect()->route('products.create');
+         }
+
+        $request->validate([
+            'idcategoria' => 'required',
+            'idlote' => 'required',
+            'nombre' => 'required', 
+            'preciounitario' => 'required',
+            'estado' => 'required',
+            'preciounitario' => 'required', 
+            
+    ]);
+    Product::create($request->all()); 
+    return redirect()->route('products.index');
+
+}
+>>>>>>> 65e72a41d7c8351a73641f479eb81f17f27353f2
     public function show(Product $product)
     {
 

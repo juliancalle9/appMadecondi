@@ -1,3 +1,5 @@
+<link href="{{ asset('assets/dashboard/css/datatable.min.css') }}" rel="stylesheet">
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -73,6 +75,8 @@
         </nav>
 
         <main class="py-4">
+        <script src="{{ asset('assets/dashboard/js/jquery-3.6.0.min.js') }}"></script>
+        <script src="{{ asset('assets/dashboard/js/datatables.min.js') }}"></script>
             @yield('content')
         </main>
     </div>
