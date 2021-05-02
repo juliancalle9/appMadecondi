@@ -12,8 +12,6 @@ class City extends Model
     ];
     public $timestamps = false;
 
-    public static $rules =[
-      'nombre' => 'required',
-    ];
+    
 
 }

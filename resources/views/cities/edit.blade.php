@@ -7,7 +7,16 @@
         <div class="card-body">
             <div class="">
                 <div class="pull-left">
-                    <h2>Editar Ciudad</h2>
+                    <h2>Editar Ciudad: {{$city->nombre}}</h2>
+                    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
                 </div>
             </div>
             <br>
@@ -33,13 +42,5 @@
                     </div>
                 </div>
         </div>
-        @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+      
             @endsection

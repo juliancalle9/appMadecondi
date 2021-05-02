@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\productFormRequest;
 use App\Product;
 Use Flash;
 use Illuminate\Http\Request;
@@ -27,55 +27,13 @@ class ProductController extends Controller
     }
 
     
-    public function store(Request $request)
+    public function store(productFormRequest $request)
     {
-<<<<<<< HEAD
-
-        $request->validate(Product::$rules);
         $input = $request->all();
-        
-         try {
-             Product::create([
-                "nombre"=>$input["nombre"],
-               "preciounitario"=>$input["preciounitario"],
-               "idcategoria"=>$input["idcategoria"]
-               
-             ]);
-   
-             Flash::success("el Producto fue creado con exito");
+         Product::create($request->all());
+             Flash::success("el producto fue creado con exito");
              return redirect()->route('products.index');
-
-         }catch(\Exception $e){
-           Flash::error($e->getMessage());
-             return redirect()->route('products.create');
-         }
-
-        
-=======
-        $request->validate([
-            'idcategoria' => 'required',
-            'idlote' => 'required',
-            'nombre' => 'required', 
-<<<<<<< HEAD
-            'preciounitario' => 'required',
-            'estado' => 'required',
-        ]);
->>>>>>> 80ad89ac493c6f9fc6aac77f8188d90b3f6c0b22
-            
-        
-
-        
-    }
-=======
-            'preciounitario' => 'required', 
-            
-    ]);
-    Product::create($request->all()); 
-    return redirect()->route('products.index');
-
-
 }
->>>>>>> 45872db7df71d95793d1102a6bd706c4cd06a649
 
     public function show(Product $product)
     {
@@ -84,28 +42,27 @@ class ProductController extends Controller
     
     }
 
-    public function edit(Product $product)
+    public function edit($idproducto)
     {
-        return view('products.edit', compact('product')); 
+        return view('products.edit',['product' => Product::find($idproducto)]);
         
     }
 
-    public function update(Request $request, Product $product)
+    public function update(productFormRequest $request, $idproducto)
     {
-        $request->validate([
-            'idcategoria' => 'required',
-            'idlote' => 'required',
-            'nombre' => 'required', 
-            'preciounitario' => 'required', 
-           
-
-
-        ]);
-
-        $product->update($request->all());
-
-        return redirect()->route('products.index')
-                            ->with('success', 'Producto actualizado con éxito.');
+        $product = Product::find($idproducto);
+        
+       // $client->documento = $request->get('documento');
+       
+        $product->nombre= $request->get('nombre');
+        $product->preciounitario = $request->get('preciounitario');
+        $product->estado = $request->get('estado');
+        $product->idcategoria = $request->get('idcategoria');
+        $product->idlote = $request->get('idlote');
+        
+        $product->update($request->all()); //Editar un registro.
+        Flash::success("el producto fue modificado con exito");
+        return redirect()->route('products.index');
     }
 
     

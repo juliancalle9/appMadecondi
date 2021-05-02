@@ -9,7 +9,16 @@
 
     <div class="pull-left">
 
-        <h2>Editar información cliente</h2>
+        <h2>Editar información cliente:{{$client->nombre}}</h2></h2>
+        @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
     </div>
 
@@ -23,27 +32,6 @@
 
 </div>
 
-
-
-@if ($errors->any())
-
-<div class="alert alert-danger">
-
-    <strong>Advertencia!</strong> Hubo algunos problemas con tu entrada.<br><br>
-
-    <ul>
-
-       <!--    @foreach ($errors->all() as $error)
-
-            <li>{{ $error }}</li>
-
-        @endforeach -->
-
-    </ul>
-
-</div>
-
-@endif
 
 
 <div class="card">

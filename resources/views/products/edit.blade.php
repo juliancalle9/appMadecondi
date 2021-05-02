@@ -9,6 +9,15 @@
     <div class="pull-left">
 
         <h2>Editar Producto</h2>
+        @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
     </div>
 
@@ -23,26 +32,6 @@
 </div>
 
 
-
-@if ($errors->any())
-
-<div class="alert alert-danger">
-
-    <strong>Whoops!</strong> There were some problems with your input.<br><br>
-
-    <ul>
-
-        @foreach ($errors->all() as $error)
-
-            <li>{{ $error }}</li>
-
-        @endforeach
-
-    </ul>
-
-</div>
-
-@endif
 
 
 <div class="card">

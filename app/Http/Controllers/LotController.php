@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\lotFormRequest;
 use App\Lot;
+use Flash;
 use Illuminate\Http\Request;
 
 class LotController extends Controller
@@ -25,17 +26,12 @@ class LotController extends Controller
     }
 
     
-    public function store(Request $request)
+    public function store(lotFormRequest $request)
     {
-        $request->validate([
-            
-            'fechaFabricacion' => 'required',
-            'fechaVencimiento' => 'required',
-            'cantidad' => 'required',
-        ]);
-        Lot::create($request->all()); 
-        return redirect()->route('lots.index')
-                            ->with('success', 'lote agregado con éxito.');
+        $input = $request->all();
+        Lot::create($request->all());
+             Flash::success("el lote fue creado con exito");
+             return redirect()->route('lots.index');
     }
 
     public function show(Lot $lot)
@@ -43,24 +39,24 @@ class LotController extends Controller
         return view('lots.show', compact('lot')); 
     }
 
-    public function edit(Lot $lot)
+    public function edit($idlote)
     {
-        return view('lots.edit', compact('lot')); 
+        return view('lots.edit',['lot' => Lot::find($idlote)]);
+ 
     }
 
 
-    public function update(Request $request, Lot $lot)
+    public function update(lotFormRequest $request,  $idlote)
     {
-        $request->validate([
+        $lot = Lot::find($idlote);
+        
+         $lot->fechaFabricacion = $request->get('fechaFabricacion');
+         $lot->fechaVencimiento = $request->get('fechaVencimiento');
+         $lot->cantidad = $request->get('cantidad');
          
-            'fechaFabricacion' => 'required',
-            'fechaVencimiento' => 'required',
-            'cantidad' => 'required',
-    ]);
-    $lot->update($request->all());
-
-    return redirect()->route('lots.index')
-                        ->with('success', 'lote actualizada con éxito.');
+         $lot->update($request->all()); //Editar un registro.
+         Flash::success("el lote fue modificado con exito");
+         return redirect()->route('lots.index');
 
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\cityFormRequest;
 use App\City;
 use Flash;
 use Illuminate\Http\Request;
@@ -36,22 +37,14 @@ class CityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(cityFormRequest $request)
     {
-        $request->validate(City::$rules);
+        //$request->validate(City::$rules);
      $input = $request->all();
-     //City::create($request->all());
-      try {
-          City::create([
-            "nombre"=>$input["nombre"]
-          ]);
-
+     City::create($request->all());
           Flash::success("La ciudad fue creada con exito");
           return redirect()->route('cities.index');
-      }catch(\Exception $e){
-        Flash::error($e->getMessage());
-          return redirect()->route('cities.create');
-      }
+      
       
     }
 
@@ -74,13 +67,7 @@ class CityController extends Controller
      */
     public function edit($idciudad)
     {
-        $city = City::find($idciudad);
-
-        if($city==null){
-            Flash::error("Ciudad no encontrada");
-            return redirect("/city");
-        }
-        return view("cities.edit",compact("city"));
+        return view('cities.edit',['city' => City::find($idciudad)]);
     }
 
     /**
@@ -90,30 +77,15 @@ class CityController extends Controller
      * @param  \App\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, City $city)
+    public function update(cityFormRequest $request, $idciudad)
     {
-        
-        $request->validate(City::$rules);
-        $input = $request->all();
-        //City::create($request->all());
-         try {
-            $city = City::find($idciudad);
+        $city = City::find($idciudad);
 
-            if($city==null){
-                Flash::error("Ciudad no encontrada");
-                return redirect("city.edit");
-            }
-            $city->update([
-                "nombre"=>$input["nombre"]
-              ]);
-   
-             Flash::success("su modificacion se realizo correctamente");
-             return redirect()->route('cities.index');
-         }catch(\Exception $e){
-           Flash::error($e->getMessage());
-             return redirect()->route('cities.index');
-      
-    }
+        $city->nombre = $request->get('nombre');
+       
+        $city->update($request->all()); //Editar un registro.
+        Flash::success("La ciudad fue modificada con exito");
+        return redirect()->route('cities.index');
 }
 
     /**
