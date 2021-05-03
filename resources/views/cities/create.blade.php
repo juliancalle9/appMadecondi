@@ -11,6 +11,15 @@
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <h2>Agregar una nueva ciudad</h2>
+            @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
         </div>
         <br>
         <div class="pull-right">
@@ -47,16 +56,6 @@
         </div>
     </div>
 </form>
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
 @endsection
 
 @section('js')
@@ -72,4 +71,3 @@
         )
     }
     </script>
-@endsection

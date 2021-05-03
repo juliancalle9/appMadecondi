@@ -13,14 +13,6 @@ class client extends Model
         'documento', 'nombre', 'apellidos', 'telefono', 'correoElectronico', 'direccion', 'estado'
     ];
 
-    public static $rules =[
-        'documento' => 'required|unique:clients,documento|numeric',
-        'nombre' => 'required',
-        'apellidos' => 'required',
-        'telefono' => 'required|numeric',
-        'correoElectronico',
-        'direccion'
-         
-    ];
+   
     
 }

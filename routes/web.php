@@ -54,7 +54,7 @@ Auth::routes();
 
 Route::get('lots', 'LotController@index')->name('lots');
 Route::get('lots', 'LotController@create')->name('create');
-Route::get('lots', 'LotController@create')->name('edi');
+Route::get('lots', 'LotController@create')->name('edit');
 
 Route::resource('lots','LotController');
 Auth::routes();
@@ -64,8 +64,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('menu', function () {
     return view('menu');
 });
-
 Route::resource('cities','CityController');
+Route::get('cities/{idciudad}', 'CityController@edit');
+
  
 Route::resource('suppliers','SupplierController');
 

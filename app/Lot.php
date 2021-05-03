@@ -12,12 +12,6 @@ class Lot extends Model
         'fechaFabricacion','fechaVencimiento','cantidad'
     ];
     public $timestamps = false;
-    public static $rules =[
-        
-        'fechaFabricacion' => 'required',
-        'fechaVencimiento' => 'required',
-        'cantidad' => 'required',
-        
-    ];
+    
 }
 

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\clientFormRequest;
 use App\Client; 
 use Flash;
 use DataTables;
@@ -42,28 +43,12 @@ class ClientController extends Controller
         return view('clients.create');
     }
 
-    public function store(Request $request)
+    public function store(clientFormRequest $request)
     {
-        $request->validate(client::$rules);
         $input = $request->all();
-        
-         try {
-             client::create([
-                "documento"=>$input["documento"],
-               "nombre"=>$input["nombre"],
-               "apellidos"=>$input["apellidos"],
-               "telefono"=>$input["telefono"],
-               "correoElectronico"=>$input["correoElectronico"],
-               "direccion"=>$input["direccion"]
-             ]);
-   
-             Flash::success("el cliente fue creado con exito");
-             return redirect()->route('clients.index'); 
-
-         }catch(\Exception $e){
-           Flash::error($e->getMessage());
-             return redirect()->route('clients.create');
-         }
+        Client::create($request->all());
+             Flash::success("La ciudad fue creada con exito");
+             return redirect()->route('clients.index');
           
     }
 
@@ -71,14 +56,18 @@ class ClientController extends Controller
         return view('clients.show', compact('client')); 
     }
 
-    public function edit(Client $client){
-        return view('clients.edit', compact('client')); 
+    public function edit($documento){
+        return view('clients.edit',['client' => Client::find($documento)]);
     }
 
+    
     public function update(Request $request, Client $client){
         $request->validate([
             'nombre' => 'required', 
             'apellidos' => 'required',
+            'telefono' => 'required|numeric',
+            'correoElectronico',
+            'direccion'
         ]);
 
         $client->update($request->all());
@@ -86,6 +75,7 @@ class ClientController extends Controller
         return redirect()->route('clients.index')
                             ->with('success', 'Cliente actualizado con éxito.');
     }
+    
 
     public function destroy(Client $client){
         $client->delete(); 

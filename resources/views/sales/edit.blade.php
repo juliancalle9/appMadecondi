@@ -4,7 +4,16 @@
     <div class="card">
         <div class="col-lg-12 margin-tb card-header">
             <div class="pull-left">
-                <h2>Modificar venta</h2>
+                <h2>Modificar venta: {{$sale->nombreCliente}}</h2>
+                @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
             </div>
             <div class="pull-right">
                 <a class="btn btn-primary" href="{{route('sales.index')}}">Volver</a>

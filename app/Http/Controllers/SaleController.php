@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\saleFormRequest;
 use App\Sale;
 use Flash;
 use Illuminate\Http\Request;
@@ -15,8 +15,8 @@ class SaleController extends Controller
      */
     public function index()
     {
-        $sales = Sale::all();
-        return view('sales.index',compact('sales'));
+        $sale = Sale::all();
+        return view('sales.index',compact('sale'));
     }
 
     /**
@@ -35,27 +35,13 @@ class SaleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(saleFormRequest $request)
     {
-        $request->validate(Sale::$rules);
         $input = $request->all();
-        
-         try {
-             Sale::create([
-                
-                "nombreCliente" => $input["nombreCliente"],
-                "telefono" => $input["telefono"],
-                "direccion" => $input["direccion"],
-                "precioUnitario"=> $input["precioUnitario"],
-                "precioTotal" => $input["precioTotal"]
-             ]);
-    
-             Flash::success("la venta fue creada con exito");
+        Sale::create($request->all());
+             Flash::success("La Venta fue creada con exito");
              return redirect()->route('sales.index');
-         }catch(\Exception $e){
-           Flash::error($e->getMessage());
-             return redirect()->route('sales.create');
-         }
+          
     }
 
     /**
@@ -75,9 +61,9 @@ class SaleController extends Controller
      * @param  \App\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function edit(Sale $sale)
+    public function edit($idVenta)
     {
-        return view('sales.edit',compact('sale'));
+        return view('sales.edit',['sale' => Sale::find($idVenta)]);
     }
 
     /**
@@ -87,10 +73,22 @@ class SaleController extends Controller
      * @param  \App\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sale $sale)
+    public function update(saleFormRequest $request, $idVenta)
     {
-        $sale->update($request->all());
-        return redirect()->route('sales.index');
+        $sale = Sale::find($idVenta);
+        
+        
+        
+         $sale->nombreCliente = $request->get('nombreCliente');
+         $sale->telefono = $request->get('telefono');
+         $sale->direccion = $request->get('direccion');
+         $sale-> precioUnitario= $request->get('precioUnitario');
+         $sale-> precioTotal= $request->get('precioTotal');
+
+         
+         $sale->update($request->all()); //Editar un registro.
+         Flash::success("la venta fue modificada con exito");
+         return redirect()->route('sales.index');
     }
 
     /**

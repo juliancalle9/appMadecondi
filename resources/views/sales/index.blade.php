@@ -32,7 +32,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($sales as $sale)
+                @foreach ($sale as $sale)
                 <tr>
                     <td>{{ $sale->idVenta }}</td>
                     <td>{{ $sale->nombreCliente }}</td>

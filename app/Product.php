@@ -13,12 +13,5 @@ class Product extends Model
 
     public $timestamps = false;
 
-    public static $rules =[
-        
-        'idcategoria' => 'required',
-        'idlote' => 'required',
-        'nombre' => 'required|min:3',
-        'precioUnitario' => 'required|numeric|min:0',
-        
-    ];
+    
 }
