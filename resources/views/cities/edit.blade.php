@@ -3,6 +3,12 @@
 @section('title', 'Editar Ciudad')
 
 @section('content')
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/functions.js"></script>
+<script src="js/sweetalert.min.js"></script>
+<link href="css/sweetalert.css" rel="stylesheet">
+
     <div class="card">
         <div class="card-body">
             <div class="">
@@ -29,7 +35,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
-                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                        <button type="submit" class="btn btn-success">Guardar</button>
                     </div>
                 </div>
         </div>
@@ -42,4 +48,4 @@
         </ul>
     </div>
 @endif
-            @endsection
+@endsection

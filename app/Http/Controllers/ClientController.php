@@ -58,7 +58,7 @@ class ClientController extends Controller
              ]);
    
              Flash::success("el cliente fue creado con exito");
-             return redirect()->route('clients.index');
+             return redirect()->route('clients.index'); 
 
          }catch(\Exception $e){
            Flash::error($e->getMessage());
