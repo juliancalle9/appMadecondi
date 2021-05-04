@@ -2,14 +2,11 @@
 @section('title', 'Agregar categoria')
 @section('content')
 
-<<<<<<< HEAD
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/functions.js"></script>
 <script src="js/sweetalert.min.js"></script>
 <link href="css/sweetalert.css" rel="stylesheet">
 
-=======
->>>>>>> 9fe1e8f6527aea0b33a8300a20a7b698fa0c8436
 <div class="card">
 
     <div class="col-lg-12 margin-tb card-header">

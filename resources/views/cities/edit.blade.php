@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
-                        <button type="submit" class="btn btn-success">Guardar</button>
+                        <button type="submit" class="btn btn-info">Guardar</button>
                     </div>
                 </div>
         </div>
@@ -57,4 +57,19 @@
         </ul>
     </div>
 @endif
+@endsection
+
+@section('js')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script>
+    document.querySelector('.btn-info').addEventListener('click', Guardar)
+    function Guardar(){
+        Swal.fire(
+        'Buen trabajo!',
+        'Ciudad modificada con exito',
+        'info'
+        )
+    }
+    </script>
 @endsection
