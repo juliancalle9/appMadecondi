@@ -11,9 +11,4 @@ class Category extends Model
         'idcategoria','nombre', 'descripcion'
     ];
     public $timestamps = false;
-    public static $rules =[
-        'idcategoria' => 'required',
-        'nombre' => 'required',
-        'descripcion' 
-      ];
 }

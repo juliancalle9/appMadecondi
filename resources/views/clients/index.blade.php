@@ -14,7 +14,6 @@
 @section('content')
     <div class="card">
         <div class="col-lg-12 margin-tb card-header">
-
                 <div class="pull-left">
                     <h2>Clientes</h2>
                 </div>

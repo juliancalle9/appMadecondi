@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\supplierFormRequest;
 use App\Supplier;
 use Flash;
 use Illuminate\Http\Request;
@@ -36,27 +37,13 @@ class SupplierController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(supplierFormRequest $request)
     {
-        $request->validate(Supplier::$rules);
         $input = $request->all();
-        
-         try {
-             Supplier::create([
-                
-                "nit" => $input["nit"],
-                "nombre" => $input["nombre"],
-                "direccion" => $input["direccion"],
-                "telefono" => $input["telefono"],
-                "idciudad"=> $input["idciudad"]
-             ]);
-    
+        Supplier::create($request->all());
              Flash::success("el proveedor fue creado con exito");
              return redirect()->route('suppliers.index');
-         }catch(\Exception $e){
-           Flash::error($e->getMessage());
-             return redirect()->route('suppliers.create');
-         }
+         
     }
 
     /**
@@ -76,9 +63,9 @@ class SupplierController extends Controller
      * @param  \App\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function edit(Supplier $supplier)
+    public function edit($nit)
     {
-        return view('suppliers.edit',compact('supplier'));
+        return view('suppliers.edit',['supplier' => Supplier::find($nit)]);
     }
 
     /**
@@ -88,10 +75,19 @@ class SupplierController extends Controller
      * @param  \App\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Supplier $supplier)
-    {
-        $supplier->update($request->all()); //Editar un registro.
-        return redirect()->route('suppliers.index');
+    public function update(Request $request, Supplier $supplier){
+        $request->validate([
+            
+            'nombre' => 'required',
+            'direccion' => 'required',
+            'telefono' => 'required|numeric',
+            'idciudad' => 'required'
+        ]);
+
+        $supplier->update($request->all());
+
+        return redirect()->route('suppliers.index')
+                            ->with('success', 'proveedor actualizado con éxito.');
     }
 
     /**
