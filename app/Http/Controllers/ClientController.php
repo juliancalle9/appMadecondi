@@ -17,7 +17,7 @@ class ClientController extends Controller
         return view('clients.index', compact('clients')); 
     }
 
-    /* public function list(Request $request){
+    /*public function list(Request $request){
         $clients = Client::all();
 
         return DataTables::of($clients)
@@ -36,7 +36,7 @@ class ClientController extends Controller
             })
             ->rawColumns(['editar', 'cambiar'])
             ->make(true);
-    } */
+    }*/
 
     public function create(){
         return view('clients.create');
@@ -110,5 +110,15 @@ class ClientController extends Controller
             return redirect("clients.index");
         }
     } 
+
+    public function cambiarEstado(Request $request)
+    {
+        $clients = Client::findOrFail($request->documento);
+        $clients->estado = $request->estado;
+        $clients->save();
+    
+        return response()->json(['message' => 'User status updated successfully.']); 
+    }
+    
 
 }

@@ -4,6 +4,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
+
+@endsection
+@section('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/css/bootstrap-toggle.css" integrity="sha512-9tISBnhZjiw7MV4a1gbemtB9tmPcoJ7ahj8QWIc0daBCdvlKjEA48oLlo6zALYm3037tPYYulT0YQyJIJJoyMQ==" crossorigin="anonymous" />
 @endsection
 @section('title', 'Clientes')
 
@@ -22,7 +26,7 @@
 
     <div class="card">
         <div class="card-body">
-            <table class="table table-bordered" id="clientes">
+            <table class="table table-bordered table-striped" id="clientes">
                 
                 <thead>
                     <tr>
@@ -60,14 +64,15 @@
 
                         <td>{{ $client->direccion }}</td>
 
-                        <td>@if($client->estado > 0)
-                                <P>HABILITADO</P>
-                                @else
-                                <p>DESHABILITADO</p>
-                            @endif
+                        <td><input type="checkbox" data-id="{{ $client->documento }}" name="estado" class="toggle-class" data-onstyle="success"
+                            data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="Inactive"
+                        {{ $client->estado ? 'checked' : '' }}>
+                            
+                            
                             </td>
 
                         <td><a href="{{route('clients.edit',$client->documento)}}" class="btn btn-info">Editar</a>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -103,3 +108,30 @@
         });
     </script>
 @endsection
+@section('js')
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" integrity="sha512-F636MAkMAhtTplahL9F6KmTfxTmYcAcjcCkyu0f0voT3N/6vzAuJ4Num55a0gEJ+hRLHhdz3vDvZpf6kqgEa5w==" crossorigin="anonymous">
+    $(document).ready(function(){
+        
+        $("#clientes").DataTable()
+        });
+    $(function(){
+        $('.toggle-class').change(function(){
+        var estado = $(this).prop('checked')== true ? 1 : 0; 
+        var documento = $(this).data('documento');
+            $.ajax({
+                type: "GET",
+                dataType: "json", 
+                url: '/cambioEstado', 
+                data: {'estado': estado, 'documento': documento}, 
+                success: function(data){
+                    console.log(data.success)
+                }
+            });
+        }); 
+    });    
+</script>
+@endsection
+
+
+
