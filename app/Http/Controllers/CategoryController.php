@@ -28,23 +28,11 @@ class CategoryController extends Controller
     
     public function store(categoryFormRequest $request)
     {
-<<<<<<< HEAD
         $input = $request->all();
         Category::create($request->all());
              Flash::success("La Categoria fue creada con exito");
              return redirect()->route('categories.index');
           
-=======
-        $request->validate([
-            'nombre' => 'required', 
-            'descripcion' => 'required', 
-            
-        ]);
-        
-        Category::create($request->all()); 
-        return redirect()->route('categories.index')
-                            ->with('success', 'Categoria agregado con éxito.');
->>>>>>> 65e72a41d7c8351a73641f479eb81f17f27353f2
     }
 
 
