@@ -69,5 +69,5 @@ Route::get('cities/{idciudad}', 'CityController@edit');
 
  
 Route::resource('suppliers','SupplierController');
-
+Route::resource('purchases','purchaseController');
  

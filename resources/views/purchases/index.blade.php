@@ -40,7 +40,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($pruchases as $purchase)
+                    @foreach ($purchases as $purchase)
                     <tr>
                         <td>{{ $purchase->idcompra }}</td>
                         
@@ -49,7 +49,7 @@
                          <td>{{ $purchase->nit }}</td>
 
 
-                        <td>@if($product->estado > 0)
+                        <td>@if($purchase->estado > 0)
                                 <P>HABILITADO</P>
                                 @else
                                 <p>DESHABILITADO</p>

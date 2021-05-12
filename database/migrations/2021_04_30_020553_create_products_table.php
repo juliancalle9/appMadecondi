@@ -14,12 +14,12 @@ class CreateProductsTable extends Migration
     public function up()
     {
             Schema::create('products', function (Blueprint $table) {
-                $table->bigIncrements('idproducto');
+              $table->boolean('estado')->default(1); 
+                $table->bigInteger('idlote')->unsigned();
+                $table->foreign('idlote')->references('idlote')->on('lots');   $table->bigIncrements('idproducto');
                 $table->string('nombre');
                 $table->double('preciounitario');
-                $table->boolean('estado')->default(1); 
-                $table->bigInteger('idlote')->unsigned();
-                $table->foreign('idlote')->references('idlote')->on('lots');
+               
                 $table->bigInteger('idcategoria')->unsigned();
                 $table->foreign('idcategoria')->references('idcategoria')->on('categories');
             

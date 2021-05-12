@@ -56,7 +56,7 @@
 
                     <strong>Fecha compra:</strong>
 
-                    <input type="text" name="nombre" value="{{ $purchase->fechacompra }}" class="form-control" placeholder="Fecha Compra">
+                    <input type="text" name="fechacompra" value="{{ $purchase->fechacompra }}" class="form-control" placeholder="Fechacompra">
 
                 </div>
 
@@ -67,7 +67,7 @@
   
                     <strong>Proveedor:</strong>
 
-                    <input class="form-control"  name="nit" value="{{$puchase->nit}}" placeholder="Proveedor">
+                    <input class="form-control"  name="nit" value="{{$purchase->nit}}" placeholder="Proveedor">
 
                 </div>
 
