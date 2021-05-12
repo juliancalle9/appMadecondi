@@ -3,10 +3,18 @@
 @section('title', 'Editar Ciudad')
 
 @section('content')
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1743379039b0dcf332661be51ab77a3d1b40089e
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/functions.js"></script>
 <script src="js/sweetalert.min.js"></script>
 <link href="css/sweetalert.css" rel="stylesheet">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1743379039b0dcf332661be51ab77a3d1b40089e
     <div class="card">
         <div class="card-body">
             <div class="">
@@ -42,6 +50,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
+<<<<<<< HEAD
                         <button type="submit" class="btn btn-success">Guardar cambios</button>
                     </div>
                 </div>
@@ -67,3 +76,34 @@
         </script>
       
             @endsection
+=======
+                        <button type="submit" class="btn btn-info">Guardar</button>
+                    </div>
+                </div>
+        </div>
+        @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+@endsection
+
+@section('js')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script>
+    document.querySelector('.btn-info').addEventListener('click', Guardar)
+    function Guardar(){
+        Swal.fire(
+        'Buen trabajo!',
+        'Ciudad modificada con exito',
+        'info'
+        )
+    }
+    </script>
+@endsection
+>>>>>>> 1743379039b0dcf332661be51ab77a3d1b40089e

@@ -35,7 +35,6 @@ class ProductController extends Controller
              Flash::success("el producto fue creado con exito");
              return redirect()->route('products.index');
 }
-
     public function show(Product $product)
     {
 

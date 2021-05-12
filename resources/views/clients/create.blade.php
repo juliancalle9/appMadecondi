@@ -1,6 +1,12 @@
 @extends('adminlte::page')
 
 @section('content')
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/functions.js"></script>
+<script src="js/sweetalert.min.js"></script>
+<link href="css/sweetalert.css" rel="stylesheet">
+
 <div class="card">
 
     <div class="col-lg-12 margin-tb card-header">
@@ -109,7 +115,7 @@
 
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
 
-                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <button type="submit" class="btn btn-success">Guardar</button>
 
                     </div>
 
@@ -119,5 +125,28 @@
     </div>
 
 
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+@endsection
 
+@section('js')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script>
+    document.querySelector('.btn-success').addEventListener('click', Guardar)
+    function Guardar(){
+        Swal.fire(
+        'Buen trabajo!',
+        'Cliente agregado con exito',
+        'success'
+        )
+    }
+    </script>
 @endsection
