@@ -103,8 +103,13 @@
 
                             <label>Ciudad:</label>
 
-                            <input type="text" name="idciudad" class="form-control" placeholder="idciudad">
+                            <select name="idciudad" id="idciudad" class="form-control" placeholder="idciudad">
+                            <option value="">Seleccione la ciudad</option>
+                                   @foreach ($cities as $city)
+                                   <option value="{{ $city['idciudad'] }}">{{ $city['nombre'] }}</option>
 
+                                   @endforeach
+                                   </select>
                         </div>
 
                     </div>

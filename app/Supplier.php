@@ -11,6 +11,9 @@ class Supplier extends Model
         'nit', 'nombre','direccion','telefono','idciudad'
     ];
     public $timestamps = false;
-
+    public function cities()
+    {
+     return $this->hasMany('App\City');
+    }
     
 }

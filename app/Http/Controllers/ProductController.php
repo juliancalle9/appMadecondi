@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 use App\Http\Requests\productFormRequest;
 use App\Product;
+use App\Category;
 Use Flash;
+use DB;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -15,14 +17,20 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all(); // almaneca en la variable los productos
+        $categories = Category::all();
+    
+      $products =DB::table('products')
+      ->join('categories', 'categories.idcategoria', '=', 'products.idcategoria')
+      ->select('products.idproducto','products.nombre', 'products.preciounitario','categories.nombre as categoria')
+      ->get();
         return view('products.index',compact('products'));
 
     }
 
     public function create()
-    {
-        return view('products.create');
+    {  
+        $categories = Category::all();
+        return view('products.create', compact('categories'));
 
     }
 

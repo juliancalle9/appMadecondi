@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 use App\Http\Requests\purchaseFormRequest;
 use App\Purchase;
+use App\Supplier;
 Use Flash;
+use DB;
 use Illuminate\Http\Request;
 
 class purchaseController extends Controller
@@ -15,7 +17,14 @@ class purchaseController extends Controller
      */
     public function index()
     {
-        $purchases = Purchase::all(); // almaneca en la variable los productos
+        $suppliers = Supplier::all();
+        //$supliers = Supplier::all();
+      $purchases =DB::table('purchases')
+      ->join('suppliers', 'suppliers.nit', '=', 'purchases.nit')
+      ->select('purchases.idcompra','purchases.fechacompra', 'suppliers.nombre as proveedor')
+      ->get();
+      //dd($suppliers);
+  
         return view('purchases.index',compact('purchases'));
     }
 
@@ -25,8 +34,9 @@ class purchaseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('purchases.create');
+    { 
+        $suppliers = Supplier::all();
+        return view('purchases.create' , compact('suppliers'));
     }
 
     /**

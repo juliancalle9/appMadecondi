@@ -34,7 +34,7 @@
 
                         <th>Proveedor</th>
 
-                        <th>Estado</th>
+                        
 
                         <th>Acciones</th>
                     </tr>
@@ -46,15 +46,10 @@
                         
                         <td>{{ $purchase->fechacompra }}</td>
 
-                         <td>{{ $purchase->nit }}</td>
+                         <td>{{ $purchase->proveedor }}</td>
 
 
-                        <td>@if($purchase->estado > 0)
-                                <P>HABILITADO</P>
-                                @else
-                                <p>DESHABILITADO</p>
-                            @endif
-                            </td>
+                        
 
         <td><a href="{{route('purchases.edit',$purchase->idcompra)}}" class="btn btn-info">Editar</a>
    

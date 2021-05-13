@@ -54,15 +54,22 @@
 
                 </div>
 
+               
                 <div class="col-xs-12 col-sm-12 col-md-12">
 
-                    <div class="form-group">
+<div class="form-group">
 
-                        <strong>Id Categoria:</strong>
+    <label>Categoria:</label>
 
-                        <input type="text" name="idcategoria" class="form-control" placeholder="Id categoria">
+    <select name="idcategoria" id="idcategoria" class="form-control" placeholder="idcategoria">
+    <option value="">Seleccione la categoria</option>
+           @foreach ($categories as $category)
+           <option value="{{ $category['idcategoria'] }}">{{ $category['nombre'] }}</option>
 
-                    </div>
+           @endforeach
+           </select>
+</div>
+
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
 

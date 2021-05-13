@@ -38,19 +38,24 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Fecha compra:</strong>
-                        <input type="text" name="fechacompra" class="form-control" placeholder="Fecha Compra">
+                        <input type="date" name="fechacompra" class="form-control" placeholder="Fecha Compra">
                     </div>
                 </div>
 
                 <div class="col-xs-12 col-sm-12 col-md-12">
 
-                    <div class="form-group">
+<div class="form-group">
 
-                        <strong>Proveedor:</strong>
+    <label>Proveedor:</label>
 
-                        <input class="form-control" name="nit" placeholder="Proveedor">
+    <select name="nit" id="nit" class="form-control" placeholder="nit">
+    <option value="">Seleccione el proveedor</option>
+           @foreach ($suppliers as $supplier)
+           <option value="{{ $supplier['nit'] }}">{{ $supplier['nombre'] }}</option>
 
-                    </div>
+           @endforeach
+           </select>
+</div>
 
                 </div>
 

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\supplierFormRequest;
 use App\Supplier;
+use App\City;
 use Flash;
+use DB;
 use Illuminate\Http\Request;
 
 class SupplierController extends Controller
@@ -15,9 +17,16 @@ class SupplierController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $suppliers = Supplier::all(); // almaneca en la variable los productos
-        return view('suppliers.index',compact('suppliers'));
+
+    {  $cities = City::all();
+          //$supliers = Supplier::all();
+        $suppliers =DB::table('suppliers')
+        ->join('cities', 'cities.idciudad', '=', 'suppliers.idciudad')
+        ->select('suppliers.nit','suppliers.nombre', 'suppliers.direccion','suppliers.telefono', 'cities.nombre as ciudad')
+        ->get();
+        //dd($suppliers);
+    
+        return view('suppliers.index', compact('suppliers'));
          
     }
 
@@ -27,8 +36,9 @@ class SupplierController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('suppliers.create');
+    {    
+        $cities = City::all();
+        return view('suppliers.create', compact('cities'));
     }
 
     /**
