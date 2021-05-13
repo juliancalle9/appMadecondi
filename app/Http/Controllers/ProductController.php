@@ -56,9 +56,10 @@ class ProductController extends Controller
        
         $product->nombre= $request->get('nombre');
         $product->preciounitario = $request->get('preciounitario');
+        $product->cantidad = $request->get('cantidad');
         $product->estado = $request->get('estado');
         $product->idcategoria = $request->get('idcategoria');
-        $product->idlote = $request->get('idlote');
+       
         
         $product->update($request->all()); //Editar un registro.
         Flash::success("el producto fue modificado con exito");

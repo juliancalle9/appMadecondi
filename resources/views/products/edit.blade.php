@@ -72,6 +72,17 @@
                 </div>
 
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+
+                <div class="form-group">
+
+                    <strong>cantidad:</strong>
+
+                    <input class="form-control"  type="tel" name="cantidad" value="{{$product->cantidad}}" placeholder="cantidad">
+
+                </div>
+
+            </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
 
@@ -85,17 +96,7 @@
 
             </div>
     
-            <div class="col-xs-12 col-sm-12 col-md-12">
-
-                <div class="form-group">
-
-                    <strong>Id lote:</strong>
-
-                    <input class="form-control"  type="tel" name="idlote" value="{{$product->idlote}}" placeholder="Id Lote">
-
-                </div>
-
-            </div>
+            
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-info">Guardar</button>
             </div>

@@ -33,11 +33,11 @@
 
                         <th>Id Categoria</th>
 
-                        <th>Id Lote</th>
-
                         <th>Nombre</th>
 
                         <th>Precio Unitario</th>
+
+                        <th>Cantidad</th>
 
                         <th>Estado</th>
 
@@ -51,11 +51,11 @@
                         
                         <td>{{ $product->idcategoria }}</td>
 
-                         <td>{{ $product->idlote }}</td>
-
                         <td>{{ $product->nombre }}</td>
 
                         <td>{{ $product->preciounitario }}</td>
+
+                        <td>{{ $product->cantidad }}</td>
 
                         <td>@if($product->estado > 0)
                                 <P>HABILITADO</P>
