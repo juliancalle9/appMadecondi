@@ -71,4 +71,6 @@ Route::get('cities/{idciudad}', 'CityController@edit');
  
 Route::resource('suppliers','SupplierController');
 
- 
+Route::get('PaginaWeb', function () {
+    return view('index');
+});
