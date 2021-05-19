@@ -53,6 +53,17 @@
                     </div>
 
                 </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+
+                    <div class="form-group">
+
+                        <strong>cantidad:</strong>
+
+                        <input type="text" name="cantidad" class="form-control" placeholder="cantidad">
+
+                    </div>
+
+                </div>
 
                 <div class="col-xs-12 col-sm-12 col-md-12">
 
@@ -63,17 +74,6 @@
                         <input type="text" name="idcategoria" class="form-control" placeholder="Id categoria">
 
                     </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-
-                    <div class="form-group">
-
-                        <strong>Id lote:</strong>
-
-                        <input type="text" name="idlote" class="form-control" placeholder="Id lote">
-
-                    </div>
-
                 </div>
 
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
