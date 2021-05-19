@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\ClientController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,7 +33,11 @@ Route::get('clients', 'ClientController@list');
 Route::get('clients', 'ClientController@create')->name('create');
 Route::get('clients', 'ClientController@edit')->name('edit');
 /*Route::get('clients/{documento}/{estado}', 'ClientController@updateState');*/
-Route::get('cambioEstado', 'ClientController@cambiarEstado')->name('cambioEstado'); 
+/*Route::get('cambiarEstado', 'ClientController@cambiarEstado');*/
+Route::get('/estado/update', 'ClientController@updateStatus')->name('clients.update.status');
+
+
+
 
 Route::resource('clients','ClientController');
 Auth::routes();
@@ -74,3 +78,5 @@ Route::resource('suppliers','SupplierController');
 Route::get('PaginaWeb', function () {
     return view('index');
 });
+Route::resource('purchases','purchaseController');
+ 

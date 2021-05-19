@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function clients(){
 
     }
@@ -101,14 +105,15 @@ class ClientController extends Controller
         }
     } 
 
-    public function cambiarEstado(Request $request)
-    {
-        $clients = Client::findOrFail($request->documento);
-        $clients->estado = $request->estado;
-        $clients->save();
+    public function updateStatus(Request $request)
+{
+    $client = Client::findOrFail($request->documento);
+    $client->estado = $request->estado;
+    $client->save();
+
+    return response()->json(['message' => 'User status updated successfully.']);
+}
     
-        return response()->json(['message' => 'User status updated successfully.']); 
-    }
     
 
 }

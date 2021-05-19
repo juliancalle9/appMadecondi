@@ -3,12 +3,10 @@
 @section('title', 'Editar Ciudad')
 
 @section('content')
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/functions.js"></script>
 <script src="js/sweetalert.min.js"></script>
 <link href="css/sweetalert.css" rel="stylesheet">
-
     <div class="card">
         <div class="card-body">
             <div class="">
