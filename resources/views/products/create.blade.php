@@ -57,9 +57,9 @@
 
                     <div class="form-group">
 
-                        <strong>cantidad:</strong>
+                        <strong>Cantidad:</strong>
 
-                        <input type="text" name="cantidad" class="form-control" placeholder="cantidad">
+                        <input type="text" name="cantidad" class="form-control" placeholder="Cantidad">
 
                     </div>
 
@@ -69,9 +69,9 @@
 
                     <div class="form-group">
 
-                        <strong>Id Categoria:</strong>
+                        <strong>Id Categoría:</strong>
 
-                        <input type="text" name="idcategoria" class="form-control" placeholder="Id categoria">
+                        <input type="text" name="idcategoria" class="form-control" placeholder="Id categoría">
 
                     </div>
                 </div>
@@ -105,7 +105,7 @@
     function Guardar(){
         Swal.fire(
         'Buen trabajo!',
-        'Producto agregado con exito',
+        'Producto agregado con éxito',
         'success'
         )
     }

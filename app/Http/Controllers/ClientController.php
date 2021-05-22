@@ -51,7 +51,7 @@ class ClientController extends Controller
     {
         $input = $request->all();
         Client::create($request->all());
-             Flash::success("La ciudad fue creada con exito");
+             Flash::success("Cliente agregado con éxito");
              return redirect()->route('clients.index');
           
     }

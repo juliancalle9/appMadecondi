@@ -58,11 +58,11 @@ class ProductController extends Controller
         $product = Product::find($idproducto);
         
        // $client->documento = $request->get('documento');
-       
+        
         $product->nombre= $request->get('nombre');
         $product->preciounitario = $request->get('preciounitario');
         $product->cantidad = $request->get('cantidad');
-        $product->estado = $request->get('estado');
+    
         $product->idcategoria = $request->get('idcategoria');
        
         

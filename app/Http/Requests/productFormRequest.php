@@ -29,7 +29,7 @@ class productFormRequest extends FormRequest
         'preciounitario' => 'required|numeric|min:0',
         'estado',
         'idcategoria' => 'required',
-        'idlote' => 'required',
+        
         ];
     }
 }

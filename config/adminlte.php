@@ -46,7 +46,7 @@ return [
     */
 
     'logo' => '<b>Madecondi</b>',
-    'logo_img' => 'vendor/adminlte/dist/img/Madecondi.png',
+    'logo_img' => 'vendor/adminlte/dist/img/logoMadecondi.jpeg',
     'logo_img_class' => 'brand-image img-circle elevation-2',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -269,11 +269,7 @@ return [
                             'icon'    => 'fas fa-fw fa-th-large',
                             'url' => 'categories',
                         ],
-                        [
-                            'text' => 'Lotes',
-                            'icon'    => 'fas fa-boxes',
-                            'url' => 'lots',
-                        ],
+                        
                                     ],
                 ],
 

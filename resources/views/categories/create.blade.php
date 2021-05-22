@@ -13,13 +13,14 @@
 
         <div class="pull-left">
 
-            <h2>Agregar un nueva categoria</h2>
-            @if ($errors->any())
+            <h2>Agregar un nueva categoría</h2>
+           @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
+            
         </ul>
     </div>
 @endif
@@ -37,47 +38,42 @@
 
     @csrf
     <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
+    
+        <div class="col-xs-12 col-sm-12 col-md-12">
 
-<div class="form-group">
+            <div class="form-group">
 
-    <strong>categoria:</strong>
+                <strong>Nombre:</strong>
 
-    <input type="text" name="idcategoria"  class="form-control" placeholder="idcategoria">
+                <input type="text" name="nombre"  class="form-control" placeholder="Nombre">
+                @error('title')
+                    <p class="error-message">{{ $message }}</p>
+                @enderror
 
-</div>
+            </div>
 
-</div>
-<div class="col-xs-12 col-sm-12 col-md-12">
+        </div>
 
-    <div class="form-group">
+        <div class="col-xs-12 col-sm-12 col-md-12">
 
-        <strong>Nombre:</strong>
+            <div class="form-group">
 
-        <input type="text" name="nombre"  class="form-control" placeholder="Nombre">
+                <strong>Descripción</strong>
 
-    </div>
+                <input class="form-control"  name="descripcion" placeholder="Descripción">
+                @error('title')
+                    <p class="error-message">{{ $message }}</p>
+                @enderror
+            </div>
 
-</div>
-
-<div class="col-xs-12 col-sm-12 col-md-12">
-
-    <div class="form-group">
-
-        <strong>Descripción</strong>
-
-        <input class="form-control"  name="descripcion" placeholder="descripción">
-
-    </div>
-
-</div>
+        </div>
 
 
-<div class="col-xs-12 col-sm-12 col-md-12 text-center">
+        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
 
-<button type="submit" class="btn btn-success">Guardar</button>
+        <button type="submit" class="btn btn-success">Guardar</button>
 
-</div>
+        </div>
 
 </div>
 </form>

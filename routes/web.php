@@ -43,14 +43,14 @@ Auth::routes();
 Route::resource('sales','SaleController');
 Route::get('products', 'ProductController@index')->name('products');
 Route::get('products', 'ProductController@create')->name('create');
-Route::get('products', 'ProductController@create')->name('edit');
+Route::get('products', 'ProductController@edit')->name('edit');
 
 Route::resource('products','ProductController');
 Auth::routes();
 
 Route::get('categories', 'CategoryController@index')->name('categories');
 Route::get('categories', 'CategoryController@create')->name('create');
-Route::get('categories', 'CategoryController@create')->name('edi');
+Route::get('categories', 'CategoryController@edit')->name('edit');
 
 Route::resource('categories','CategoryController');
 Auth::routes();
