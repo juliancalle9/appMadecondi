@@ -24,6 +24,9 @@ Route::get('products', function () {
 Route::get('categories', function () {
     return view('categories');
 });
+Route::get('sales', function () {
+    return view('sales');
+});
 
 
 Route::get('clients', 'ClientController@index')->name('clients');
@@ -41,9 +44,8 @@ Route::resource('clients','ClientController');
 Auth::routes();
 
 Route::resource('sales','SaleController');
-Route::get('products', 'ProductController@index')->name('products');
-Route::get('products', 'ProductController@create')->name('create');
-Route::get('products', 'ProductController@edit')->name('edit');
+
+
 
 Route::resource('products','ProductController');
 Auth::routes();

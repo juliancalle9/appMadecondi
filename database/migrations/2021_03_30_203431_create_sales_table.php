@@ -15,12 +15,10 @@ class CreateSalesTable extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->bigIncrements('idVenta');
-            $table->string('nombreCliente');
-            $table->string('telefono');
-            $table->string('direccion');
-            $table->double('precioUnitario');
-            $table->double('precioTotal');
-            $table->timestamps();
+            $table->string('documento');
+            $table->date('fechaVenta'); 
+            $table->foreign('documento')->references('documento')->on('clients'); 
+            
         });
     }
 

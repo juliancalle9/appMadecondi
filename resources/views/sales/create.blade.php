@@ -34,8 +34,12 @@
 
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Nombre Cliente:</strong>
-                        <input type="text" name="nombreCliente" class="form-control" placeholder="Nombre Cliente">
+                        <label for="client">Cliente</label>
+                        <select name="documento" id="documento" class="form-control selectpicker">
+                            @foreach($clients as $client)
+                            <option value="{{$client->documento}}">{{$client->nombre}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">

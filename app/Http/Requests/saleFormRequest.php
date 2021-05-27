@@ -24,13 +24,11 @@ class saleFormRequest extends FormRequest
     public function rules()
     {
         return [
-            
-                'nombreCliente' => 'required',
-                'telefono' => 'required|numeric',
-                'direccion' => 'required',
-                'precioUnitario' => 'required|numeric',
-                'precioTotal' => 'required|numeric',
-            
+                'documento' => 'required',
+                'idProducto' => 'required',
+                'fechaVenta' => 'required',
+                'cantidad' => 'required|numeric',
+                'valorTotal' => 'required|numeric',
         ];
     }
 }
