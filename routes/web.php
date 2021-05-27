@@ -24,9 +24,7 @@ Route::get('products', function () {
 Route::get('categories', function () {
     return view('categories');
 });
-Route::get('lots', function () {
-    return view('lots');
-});
+
 
 Route::get('clients', 'ClientController@index')->name('clients');
 Route::get('clients', 'ClientController@list');
@@ -50,13 +48,6 @@ Route::get('categories', 'CategoryController@create')->name('create');
 Route::get('categories', 'CategoryController@create')->name('edi');
 
 Route::resource('categories','CategoryController');
-Auth::routes();
-
-Route::get('lots', 'LotController@index')->name('lots');
-Route::get('lots', 'LotController@create')->name('create');
-Route::get('lots', 'LotController@create')->name('edit');
-
-Route::resource('lots','LotController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
