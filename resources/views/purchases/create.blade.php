@@ -37,15 +37,12 @@
 
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Fecha compra:</strong>
-                        <input type="date" name="fechacompra" class="form-control" placeholder="Fecha Compra">
+                        <strong>Nit:</strong>
+                        <input type="text" name="nit" class="form-control" placeholder="Nit">
                     </div>
                 </div>
-
+                <div class="form-group">
                 <div class="col-xs-12 col-sm-12 col-md-12">
-
-<div class="form-group">
-
     <label>Proveedor:</label>
 
     <select name="nit" id="nit" class="form-control" placeholder="nit">
@@ -58,6 +55,26 @@
 </div>
 
                 </div>
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Fecha compra:</strong>
+                        <input type="date" name="fechacompra" class="form-control" placeholder="Fecha Compra">
+                    </div>
+                </div>
+                <div class="row">
+
+<div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="form-group">
+        <strong>Precio Final:</strong>
+        <input type="number" name="precioFinal" class="form-control" placeholder="Precio final">
+    </div>
+</div>
+
+                
+
+
 
                
 

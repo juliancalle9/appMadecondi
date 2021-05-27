@@ -15,9 +15,8 @@ class CreateProductsTable extends Migration
     {
             Schema::create('products', function (Blueprint $table) {
               $table->boolean('estado')->default(1); 
-                $table->bigInteger('idlote')->unsigned();
-                $table->foreign('idlote')->references('idlote')->on('lots');   $table->bigIncrements('idproducto');
                 $table->string('nombre');
+                $table->Integer('cantidad');
                 $table->double('preciounitario');
                
                 $table->bigInteger('idcategoria')->unsigned();

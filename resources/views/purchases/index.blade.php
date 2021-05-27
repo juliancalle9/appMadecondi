@@ -29,13 +29,10 @@
                     <tr>
 
                         <th>Id Compra</th>
-
-                        <th>Fecha compra</th>
-
+                        <th>Nit</th>
                         <th>Proveedor</th>
-
-                        
-
+                        <th>Fecha compra</th>
+                        <th>Precio final</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -43,15 +40,18 @@
                     @foreach ($purchases as $purchase)
                     <tr>
                         <td>{{ $purchase->idcompra }}</td>
-                        
+                        <td>{{ $purchase->nit }}</td>
+                        <td>{{ $purchase->nombre }}</td>
                         <td>{{ $purchase->fechacompra }}</td>
 
-                         <td>{{ $purchase->proveedor }}</td>
+                         <td>{{ $purchase->precioFinal }}</td>
 
 
-                        
+                         <td>
+                         <a href="{{URL::action('purchaseController@show',$purchase->idcompra)}}" class="btn btn-primary">Detalles</a>
 
-        <td><a href="{{route('purchases.edit',$purchase->idcompra)}}" class="btn btn-info">Editar</a>
+                          <a href="{{route('purchases.edit',$purchase->idcompra)}}" class="btn btn-info">Editar</a>
+                          </td>
    
                     @endforeach
                 <tbody>
