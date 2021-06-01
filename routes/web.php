@@ -36,6 +36,7 @@ Route::get('clients', 'ClientController@edit')->name('edit');
 /*Route::get('clients/{documento}/{estado}', 'ClientController@updateState');*/
 /*Route::get('cambiarEstado', 'ClientController@cambiarEstado');*/
 Route::get('/estado/update', 'ClientController@updateStatus')->name('clients.update.status');
+Route::get('change-status', 'ClientController@changeStatus');
 
 
 

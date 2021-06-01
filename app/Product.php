@@ -8,7 +8,7 @@ class Product extends Model
 {
     protected $primaryKey = 'idproducto';
     protected $fillable = [
-        'nombre','preciounitario','cantidad','idcategoria'
+        'nombre','preciounitario','stock','idcategoria'
     ];
 
     public $timestamps = false;

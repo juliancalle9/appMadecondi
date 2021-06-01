@@ -36,7 +36,7 @@
 
                         <th>Precio Unitario</th>
 
-                        <th>Cantidad</th>
+                        <th>Stock</th>
 
                         <th>Estado</th>
 
@@ -54,7 +54,7 @@
 
                         <td>{{ $product->preciounitario }}</td>
 
-                        <td>{{ $product->cantidad }}</td>
+                        <td>{{ $product->stock }}</td>
 
                         <td>@if($product->estado > 0)
                                 <P>HABILITADO</P>

@@ -113,6 +113,13 @@ class ClientController extends Controller
 
     return response()->json(['message' => 'User status updated successfully.']);
 }
+
+public function changeStatus(Request $request)
+    {
+        $client = Client::find($request->documento)->update(['estado' => $request->estado]);
+
+        return response()->json(['success'=>'Status changed successfully.']);
+    }
     
     
 

@@ -57,9 +57,9 @@
 
                     <div class="form-group">
 
-                        <strong>Cantidad:</strong>
+                        <strong>Stock:</strong>
 
-                        <input type="text" name="cantidad" class="form-control" placeholder="Cantidad">
+                        <input type="text" name="stock" class="form-control" placeholder="Stock">
 
                     </div>
 

@@ -56,13 +56,9 @@ class ProductController extends Controller
     public function update(productFormRequest $request, $idproducto)
     {
         $product = Product::find($idproducto);
-        
-       // $client->documento = $request->get('documento');
-        
         $product->nombre= $request->get('nombre');
         $product->preciounitario = $request->get('preciounitario');
-        $product->cantidad = $request->get('cantidad');
-    
+        $product->stock = $request->get('stock');
         $product->idcategoria = $request->get('idcategoria');
        
         

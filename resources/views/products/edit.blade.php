@@ -76,9 +76,9 @@
 
                 <div class="form-group">
 
-                    <strong>cantidad:</strong>
+                    <strong>Stock:</strong>
 
-                    <input class="form-control"  type="tel" name="cantidad" value="{{$product->cantidad}}" placeholder="cantidad">
+                    <input class="form-control"  type="numeric" name="stock" value="{{$product->stock}}" placeholder="Stock">
 
                 </div>
 

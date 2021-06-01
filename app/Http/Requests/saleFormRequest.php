@@ -25,9 +25,9 @@ class saleFormRequest extends FormRequest
     {
         return [
                 'documento' => 'required',
-                'idProducto' => 'required',
+                'idproducto' => 'required',
                 'fechaVenta' => 'required',
-                'cantidad' => 'required|numeric',
+                'cantidad' => 'required',
                 'valorTotal' => 'required|numeric',
         ];
     }

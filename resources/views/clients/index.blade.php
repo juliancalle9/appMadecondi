@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+</style>
    
 @endsection
 
@@ -78,6 +80,7 @@
                             <input type="checkbox" data-id="{{ $client->documento }}"
                              name="status" class="js-switch" {{ $client->estado == 1 ? 'checked' : '' }}>
                         </td>
+                        
                         <td>
                             <a href="{{route('clients.edit',$client->documento)}}" class="btn btn-info">Editar</a>
                         </td>
@@ -140,6 +143,7 @@
             });
         });
     </script>
+    
 @endsection
 <!--@section('js')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
