@@ -12,6 +12,10 @@ class City extends Model
     ];
     public $timestamps = false;
 
+    public function suppliers()
+  {
+    return $this->belongsTo('App\Supplier');
     
+  }
 
 }

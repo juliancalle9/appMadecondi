@@ -17,9 +17,8 @@ class CreateProductsTable extends Migration
                 $table->bigIncrements('idproducto');
                 $table->boolean('estado')->default(1); 
                 $table->string('nombre');
-                $table->integer('stock');
+                $table->integer('stock'); 
                 $table->double('preciounitario');
-               
                 $table->bigInteger('idcategoria')->unsigned();
                 $table->foreign('idcategoria')->references('idcategoria')->on('categories');
             

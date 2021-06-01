@@ -16,7 +16,7 @@
         
                 <div class="pull-right">
                     <a class="btn btn-success" href="{{route('suppliers.create')}}">Agregar Proveedor</a>
-                    <a class="btn btn-secondary" href="{{route('cities.index')}}"> Ciudades</a>
+                  
                     
                 </div>
         </div>
@@ -37,6 +37,10 @@
                     </tr>
                 </thead>
                 <tbody>
+
+                
+
+                
                     @foreach ($suppliers as $supplier)
                     <tr>
 
@@ -48,12 +52,13 @@
 
                     <td>{{ $supplier->telefono }}</td>
 
-                    <td>{{ $supplier->idciudad }}</td>
+                    <td>{{ $supplier->ciudad }}</td>
 
 
                     <td><a href="{{route('suppliers.edit',$supplier->nit)}}" class="btn btn-info">Editar</a>
                     </tr>
 
+                    
                     @endforeach
                 <tbody>
             </table>

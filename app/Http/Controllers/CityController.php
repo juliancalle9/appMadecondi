@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\cityFormRequest;
 use App\City;
+use App\Supplier;
 use Flash;
 use Illuminate\Http\Request;
 

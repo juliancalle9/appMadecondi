@@ -30,7 +30,7 @@
 
                         <th>Id Producto</th>
 
-                        <th>Categora</th>
+                        <th>Categoría</th>
 
                         <th>Nombre</th>
 
@@ -48,13 +48,13 @@
                     <tr>
                         <td>{{ $product->idproducto }}</td>
                         
-                        <td>{{ $product->idcategoria }}</td>
+                        <td>{{ $product->categoria }}</td>
 
                         <td>{{ $product->nombre }}</td>
 
-                        <td>{{ $product->preciounitario }}</td>
-
                         <td>{{ $product->stock }}</td>
+
+                        <td>{{ $product->preciounitario }}</td>
 
                         <td>@if($product->estado > 0)
                                 <P>HABILITADO</P>

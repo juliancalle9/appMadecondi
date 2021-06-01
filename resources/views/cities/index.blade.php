@@ -31,7 +31,7 @@
 
                         <th>Nombre</th>
 
-                        <th>Acciones</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -41,7 +41,7 @@
 
                         <td>{{ $city->nombre }}</td>
 
-                        <td><a href="{{route('cities.edit',$city->idciudad)}}" class="btn btn-info">Editar</a>
+                       
                     </tr>
                 @endforeach
                 </tbody>
