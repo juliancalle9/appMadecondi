@@ -16,7 +16,7 @@
             <div class="pull-right">
                 <a class="btn btn-primary" href="{{route('products.create')}}">Agregar Productos</a>
                 <a href="{{route('categories.index')}}" class="btn btn-secondary">Categorías</a>
-                <a href="{{route('lots.index')}}" class="btn btn-secondary">Lotes</a>
+                
                 
 
             </div>
@@ -29,11 +29,13 @@
                 <thead>
                     <tr>
 
-                        <th>Id Producto</th>
+                        <th>Id </th>
 
                         <th>Categoria</th>
 
                         <th>Nombre</th>
+
+                        <th>Descripcion</th>
 
                         <th>Precio Unitario</th>
 
@@ -47,11 +49,13 @@
                 <tbody>
                     @foreach ($products as $product)
                     <tr>
-                        <td>{{ $product->idproducto }}</td>
+                        <td>{{ $product->idproducto}}</td>
                         
                         <td>{{ $product->categoria }}</td>
 
                         <td>{{ $product->nombre }}</td>
+
+                        <td>{{ $product->descripcion }}</td>
 
                         <td>{{ $product->preciounitario }}</td>
 

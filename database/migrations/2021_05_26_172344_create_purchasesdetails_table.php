@@ -19,7 +19,7 @@ class CreatePurchasesdetailsTable extends Migration
             $table->foreign('idcompra')->references('idcompra')->on('purchases'); 
             $table->bigInteger('idproducto')->unsigned();
             $table->foreign('idproducto')->references('idproducto')->on('products'); 
-            $table->integer('cantidad');
+            $table->Integer('cantidad');
             $table->double('precioFinal');
         });
     }

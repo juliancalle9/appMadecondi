@@ -21,7 +21,8 @@ class ProductController extends Controller
     
       $products =DB::table('products')
       ->join('categories', 'categories.idcategoria', '=', 'products.idcategoria')
-      ->select('products.idproducto','products.nombre', 'products.preciounitario','categories.nombre as categoria')
+      ->select('products.idproducto','products.nombre', 'products.preciounitario',
+      'products.cantidad','products.estado','categories.nombre as categoria','categories.descripcion')
       ->get();
         return view('products.index',compact('products'));
 

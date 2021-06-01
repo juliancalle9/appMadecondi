@@ -76,9 +76,9 @@
 
                     <div class="form-group">
 
-                        <strong>Id Categoria:</strong>
+                        <strong>Cantidad:</strong>
 
-                        <input type="text" name="idcategoria" class="form-control" placeholder="Id categoria">
+                        <input type="number" name="cantidad" class="form-control" placeholder="cantidad">
 
                     </div>
                 </div>
@@ -93,18 +93,7 @@
 </form>
 </div>
             </div>
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-@endsection
 
-@section('js')
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <script>
