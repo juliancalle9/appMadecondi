@@ -44,7 +44,6 @@
                 <div class="form-group">
                 <div class="col-xs-12 col-sm-12 col-md-12">
     <label>Proveedor:</label>
-
     <select name="nit" id="nit" class="form-control" placeholder="nit">
     <option value="">Seleccione el proveedor</option>
            @foreach ($suppliers as $supplier)
@@ -55,6 +54,7 @@
 </div>
 
                 </div>
+    
             <div class="row">
 
                 <div class="col-xs-12 col-sm-12 col-md-12">

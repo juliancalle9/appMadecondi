@@ -51,16 +51,30 @@
 
                
                 <div class="col-xs-12 col-sm-12 col-md-12">
-                     <div class="form-group">
+
+                <div class="form-group">
+
+                <label>Categoria:</label>
+
+                <select name="idcategoria" id="idcategoria" class="form-control" placeholder="idcategoria">
+                <option value="">Seleccione la categoria</option>
+                    @foreach ($categories as $category)
+                    <option value="{{ $category['idcategoria'] }}">{{ $category['nombre'] }}</option>
+
+                    @endforeach
+                </select>
+                </div>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12">
+
+                    <div class="form-group">
+
                         <strong>Stock:</strong>
-                        <input type="text" name="stock" class="form-control" placeholder="Stock">
-                        <label>Categoria:</label>
-                        <select name="idcategoria" id="idcategoria" class="form-control" placeholder="idcategoria">
-                        <option value="">Seleccione la categoría</option>
-                        @foreach ($categories as $category)
-                        <option value="{{ $category['idcategoria'] }}">{{ $category['nombre'] }}</option>
-                        @endforeach
-                        </select>
+
+                        <input type="number" name="stock" class="form-control" placeholder="stock">
+
                     </div>
                 </div>
 
@@ -73,18 +87,7 @@
 </form>
 </div>
             </div>
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-@endsection
 
-@section('js')
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <script>

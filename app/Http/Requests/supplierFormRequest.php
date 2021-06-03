@@ -24,10 +24,10 @@ class supplierFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'nit' => 'required|unique:suppliers,nit',
-            'nombre' => 'required',
-            'direccion' => 'required',
-            'telefono' => 'required|numeric',
+            'nit' => 'required|unique:suppliers,nit|min:9',
+            'nombre' => 'required|min:4',
+            'direccion' => 'required|min:8|max:50',
+            'telefono' => 'required||min:7|max:15',
             'idciudad' => 'required'
         ];
     }

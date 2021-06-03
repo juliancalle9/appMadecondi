@@ -28,11 +28,13 @@
                 <thead>
                     <tr>
 
-                        <th>Id Producto</th>
+                        <th>Id </th>
 
                         <th>Categoría</th>
 
                         <th>Nombre</th>
+
+                        <th>Descripcion</th>
 
                         <th>Precio Unitario</th>
 
@@ -46,11 +48,13 @@
                 <tbody>
                     @foreach ($products as $product)
                     <tr>
-                        <td>{{ $product->idproducto }}</td>
+                        <td>{{ $product->idproducto}}</td>
                         
                         <td>{{ $product->categoria }}</td>
 
                         <td>{{ $product->nombre }}</td>
+
+                        <td>{{ $product->descripcion }}</td>
 
                         <td>{{ $product->preciounitario }}</td>
 
