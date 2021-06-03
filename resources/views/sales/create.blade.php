@@ -34,12 +34,23 @@
 
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <label for="client">Cliente</label>
+                        <label for="client">Cliente</label><br>
+                        <input list="documentos" name="documento" id="documento" class="form-control">
+                        <datalist name="documento" id="documentos" class="">
+                            @foreach($clients as $client)
+                            <option value="{{$client->documento}}" id="documento"> {{$client->nombre}} {{$client->apellidos}}</option>
+                            @endforeach
+                        </datalist>
+                        <input type="hidden" id="documento">
+
+
+
+                        <!--<label for="client">Cliente</label>
                         <select name="documento" id="documento" class="form-control selectpicker">
                             @foreach($clients as $client)
                             <option value="{{$client->documento}}">Documento: {{$client->documento}} - {{$client->nombre}} {{$client->apellidos}}</option>
                             @endforeach
-                        </select>
+                        </select>-->
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -48,10 +59,8 @@
                         <input type="date" class="form-control" id="fechaVenta" name="fechaVenta" placeholder="Fecha Venta">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="panel panel-primary">
-                        <div class="panel-body">      
-                            <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+                     
+                            <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="">Producto:</label>
                                     <select name="idproducto" id="idproducto" class="form-control selectpicker" >
@@ -100,7 +109,7 @@
                             <th></th>
                             <th></th>
                             <th><h4 id="total">s/ . 0.00</h4>
-                                <input type="number" name="valorTotal" id="valorTotal">
+                                <input type="hidden" name="valorTotal" id="valorTotal">
                             </th>
                         </tfoot>
                     </table>
@@ -116,9 +125,7 @@
             </div>
             </div>
             </div>
-            </div>
-            </div>
-            </div>
+          
         </form>
     </div>
 </div>
@@ -171,7 +178,7 @@ $(document).ready(function(){
   }
  function agregar() 
  {
-    datosProductos=document.getElementById('idproducto').value.split('_');
+  datosProductos=document.getElementById('idproducto').value.split('_');
   idproducto=datosProductos[0];
   Producto =$("#idproducto option:selected").text();
   cantidad =parseInt($("#cantidad").val(),10);
@@ -188,11 +195,10 @@ $(document).ready(function(){
         +cont+'); ">X</button></td><td><input type="hidden" name="idproducto[]" value="'+idproducto+'">'+Producto+'</td><td><input type="number" name="cantidad[]" value="'
         +cantidad+'"></td><td><input type="number" name="preciounitario[]" value="'+preciounitario+'"></td><td>'
         +subtotal[cont]+'</td></tr>';
-
         cont++;
         limpiar();
         $("#total").html("$/. "+ total);
-        parseFloat($("#valorTotal").val(total));
+        $("#valorTotal").val(total);
         console.log(total); 
         evaluar();
         $("#details").append(fila);

@@ -11,7 +11,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="form-group">
             <label for="cliente">Cliente</label>
-            <p>{{$sale->nombre}}</p>
+           <p>{{$sales->documento}}</p>
         </div>
     </div>
 </div>

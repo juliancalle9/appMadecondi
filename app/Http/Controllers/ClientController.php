@@ -49,11 +49,20 @@ class ClientController extends Controller
 
     public function store(clientFormRequest $request)
     {
+        try{
         $input = $request->all();
         Client::create($request->all());
-             Flash::success("Cliente agregado con éxito");
-             return redirect()->route('clients.index');
-          
+        Flash::success("Cliente agregado con éxito");
+        //return redirect()->route('clients.index');
+        
+            return redirect()->route('clients.index')
+            ->with('error','Error');
+        }catch(Throwable $e){
+            report($e);
+            
+        }
+        
+        
     }
 
     public function show(Client $client){
@@ -81,11 +90,7 @@ class ClientController extends Controller
     }
     
 
-    public function destroy(Client $client){
-        $client->delete(); 
-        return redirect()->route('clients.index')
-                        ->with('success', 'Cliente eliminado con éxito');
-    }
+   
 
     public function updateState($documento, $estado){
         $client = Client::find($documento);

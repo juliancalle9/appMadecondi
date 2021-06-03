@@ -1,0 +1,5 @@
+CREATE TRIGGER `updateStockVenta` AFTER INSERT ON `salesdetail`
+ FOR EACH ROW BEGIN
+     UPDATE products SET stock = stock - NEW.cantidad
+        WHERE products.idproducto =NEW.idproducto;
+END

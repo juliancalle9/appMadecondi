@@ -52,9 +52,9 @@
 
                         <td>{{ $product->nombre }}</td>
 
-                        <td>{{ $product->stock }}</td>
-
                         <td>{{ $product->preciounitario }}</td>
+
+                        <td>{{ $product->stock }}</td>
 
                         <td>@if($product->estado > 0)
                                 <P>HABILITADO</P>

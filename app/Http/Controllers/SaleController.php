@@ -89,7 +89,7 @@ class SaleController extends Controller
                 $detalle->idVenta= $sale->idVenta;
                 $detalle->idProducto=$idproducto[$cont];
                 $detalle->cantidad=$cantidad[$cont];
-                $detalle->valorTotal=$valorTotal[$cont];
+                $detalle->valorTotal=$valorTotal;
                 $detalle->save(); 
                 $cont=$cont+1; 
             }
@@ -99,8 +99,8 @@ class SaleController extends Controller
         /*return redirect::to('sales.index');
         $input = $request->all();*/
         Sale::create($request->all());
-             Flash::success("La Venta fue creada con exito");
-             return redirect()->route('sales.index');
+        Flash::success("La Venta fue creada con exito");
+        return redirect()->route('sales.index');
           
     }
 
@@ -112,12 +112,12 @@ class SaleController extends Controller
      */
     public function show($idVenta)
     {
-        $sale=DB::table('sales as v')
+        $sales=DB::table('sales as v')
             ->join('clients as c', 'v.documento', '=', 'c.documento')
             ->join('salesdetail as sv', 'v.idVenta', '=', 'sv.idVenta')
             ->select('v.idVenta', 'c.documento', 'c.nombre', 'c.apellidos', 'v.fechaVenta', 'sv.valorTotal')
             ->where('v.idVenta', '=', $idVenta)
-            ->first(); 
+            ->get(); 
 
             //tabla detalles
             $detalles = DB::table('salesDetail as dv')
@@ -125,7 +125,7 @@ class SaleController extends Controller
             ->select('p.nombre as producto', 'dv.cantidad', 'p.preciounitario')
             ->where('dv.idVenta', '=', $idVenta)
             ->get();
-            return view('sales.show', ["sales"=>$sale, "salesDetail"=>$detalles]);
+            return view('sales.show', ["sales"=>$sales, "salesDetail"=>$detalles]);
 
     }
 
