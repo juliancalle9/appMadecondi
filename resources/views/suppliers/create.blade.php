@@ -101,15 +101,15 @@
 
                         <div class="form-group">
 
-                            <label>Ciudad:</label>
-
-                            <select name="idciudad" id="idciudad" class="form-control" placeholder="idciudad">
-                            <option value="">Seleccione la ciudad</option>
-                                   @foreach ($cities as $city)
-                                   <option value="{{ $city['idciudad'] }}">{{ $city['nombre'] }}</option>
-
-                                   @endforeach
-                                   </select>
+                        <label for="city">Ciudad:</label><br>
+                        <input list="idciudades" name="idciudad" id="idciudad" class="form-control">
+                        <datalist name="idciudad" id="idciudades" class="">
+                            <option>--Seleccionar--</option>
+                            @foreach($cities as $city)
+                            <option value="{{$city->idciudad}}" id="idciudad"> {{$city->nombre}}</option>
+                            @endforeach
+                        </datalist>
+                        <input type="hidden" id="idciudad">
                         </div>
 
                     </div>
