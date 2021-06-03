@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
 @endsection
 @section('content')
+@section('title', 'Productos')
 
 
 <div class="card">
@@ -16,8 +17,6 @@
             <div class="pull-right">
                 <a class="btn btn-primary" href="{{route('products.create')}}">Agregar Productos</a>
                 <a href="{{route('categories.index')}}" class="btn btn-secondary">Categorías</a>
-                
-                
 
             </div>
     </div>
@@ -31,7 +30,7 @@
 
                         <th>Id </th>
 
-                        <th>Categoria</th>
+                        <th>Categoría</th>
 
                         <th>Nombre</th>
 
@@ -39,7 +38,7 @@
 
                         <th>Precio Unitario</th>
 
-                        <th>Cantidad</th>
+                        <th>Stock</th>
 
                         <th>Estado</th>
 
@@ -59,7 +58,7 @@
 
                         <td>{{ $product->preciounitario }}</td>
 
-                        <td>{{ $product->cantidad }}</td>
+                        <td>{{ $product->stock }}</td>
 
                         <td>@if($product->estado > 0)
                                 <P>HABILITADO</P>
@@ -68,7 +67,7 @@
                             @endif
                             </td>
 
-        <td><a href="{{route('products.edit',$product->idproducto)}}" class="btn btn-info">Editar</a>
+        <td><a href="{{route('products.edit',$product->idproducto)}}" class="btn btn-info">Editar</a></td>
    
                     @endforeach
                 <tbody>

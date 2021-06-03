@@ -20,6 +20,10 @@ use Illuminate\Support\Collection;
 
 class purchaseController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -52,7 +56,7 @@ class purchaseController extends Controller
         ->select(DB::raw('CONCAT(pro.idproducto, " ", pro.nombre) as producto'),
         'pro.preciounitario')
         ->where('pro.estado', '=', '1')
-        ->where('pro.cantidad', '>', '0')
+        ->where('pro.stock', '>', '0')
         ->get();    
         return view('purchases.create', ["suppliers"=>$suppliers, "products"=>$products]);
     }
@@ -75,7 +79,7 @@ class purchaseController extends Controller
             
             //productos
             $idproducto= $request->get('idproducto');
-            $cantidad = $request->get('cantidad'); 
+            $stock = $request->get('stock'); 
             $precioUnitario = $request->get('preciounitario'); 
 
             //detalles de compra
@@ -85,7 +89,7 @@ class purchaseController extends Controller
                 $detalle->idcompra= $purchase->idcompra;
                 $detalle->idproducto=$idproducto[$cont];
                 $detalle->cantidad=$cantidad[$cont];
-                $detalle->precioFinal=$precioFinal[$cont];
+                $detalle->precioFinal=$precioFinal;
                 $detalle->save(); 
                 $cont=$cont+1; 
             }

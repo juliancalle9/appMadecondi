@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function clients(){
 
     }
@@ -18,7 +22,7 @@ class ClientController extends Controller
         return view('clients.index', compact('clients')); 
     }
 
-    /* public function list(Request $request){
+    /*public function list(Request $request){
         $clients = Client::all();
 
         return DataTables::of($clients)
@@ -37,7 +41,7 @@ class ClientController extends Controller
             })
             ->rawColumns(['editar', 'cambiar'])
             ->make(true);
-    } */
+    }*/
 
     public function create(){
         return view('clients.create');
@@ -45,11 +49,20 @@ class ClientController extends Controller
 
     public function store(clientFormRequest $request)
     {
+        try{
         $input = $request->all();
         Client::create($request->all());
-             Flash::success("La ciudad fue creada con exito");
-             return redirect()->route('clients.index');
-          
+        Flash::success("Cliente agregado con éxito");
+        //return redirect()->route('clients.index');
+        
+            return redirect()->route('clients.index')
+            ->with('error','Error');
+        }catch(Throwable $e){
+            report($e);
+            
+        }
+        
+        
     }
 
     public function show(Client $client){
@@ -77,11 +90,7 @@ class ClientController extends Controller
     }
     
 
-    public function destroy(Client $client){
-        $client->delete(); 
-        return redirect()->route('clients.index')
-                        ->with('success', 'Cliente eliminado con éxito');
-    }
+   
 
     public function updateState($documento, $estado){
         $client = Client::find($documento);
@@ -100,5 +109,23 @@ class ClientController extends Controller
             return redirect("clients.index");
         }
     } 
+
+    public function updateStatus(Request $request)
+{
+    $client = Client::findOrFail($request->documento);
+    $client->estado = $request->estado;
+    $client->save();
+
+    return response()->json(['message' => 'User status updated successfully.']);
+}
+
+public function changeStatus(Request $request)
+    {
+        $client = Client::find($request->documento)->update(['estado' => $request->estado]);
+
+        return response()->json(['success'=>'Status changed successfully.']);
+    }
+    
+    
 
 }

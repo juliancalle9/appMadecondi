@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +27,7 @@ class ProductController extends Controller
       $products =DB::table('products')
       ->join('categories', 'categories.idcategoria', '=', 'products.idcategoria')
       ->select('products.idproducto','products.nombre', 'products.preciounitario',
-      'products.cantidad','products.estado','categories.nombre as categoria','categories.descripcion')
+      'products.stock','products.estado','categories.nombre as categoria','categories.descripcion')
       ->get();
         return view('products.index',compact('products'));
 
@@ -60,13 +65,9 @@ class ProductController extends Controller
     public function update(productFormRequest $request, $idproducto)
     {
         $product = Product::find($idproducto);
-        
-       // $client->documento = $request->get('documento');
-       
         $product->nombre= $request->get('nombre');
+        $product->stock = $request->get('stock');
         $product->preciounitario = $request->get('preciounitario');
-        $product->cantidad = $request->get('cantidad');
-        $product->estado = $request->get('estado');
         $product->idcategoria = $request->get('idcategoria');
        
         

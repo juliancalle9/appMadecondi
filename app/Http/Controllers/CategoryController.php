@@ -16,7 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all(); // almaneca en la variable los productos
+        $categories = Category::all(); 
         return view('categories.index',compact('categories'));
     }
 
@@ -30,7 +30,7 @@ class CategoryController extends Controller
     {
         $input = $request->all();
         Category::create($request->all());
-             Flash::success("La Categoria fue creada con exito");
+             Flash::success("La Categoría fue creada con éxito");
              return redirect()->route('categories.index');
           
     }

@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\ClientController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,28 +24,36 @@ Route::get('products', function () {
 Route::get('categories', function () {
     return view('categories');
 });
+Route::get('sales', function () {
+    return view('sales');
+});
 
 
 Route::get('clients', 'ClientController@index')->name('clients');
 Route::get('clients', 'ClientController@list');
 Route::get('clients', 'ClientController@create')->name('create');
 Route::get('clients', 'ClientController@edit')->name('edit');
-/* Route::get('clients/cambiar/estado/{documento}/{estado}', 'ClientController@updateState'); */
+/*Route::get('clients/{documento}/{estado}', 'ClientController@updateState');*/
+/*Route::get('cambiarEstado', 'ClientController@cambiarEstado');*/
+Route::get('/estado/update', 'ClientController@updateStatus')->name('clients.update.status');
+Route::get('change-status', 'ClientController@changeStatus');
+
+
+
 
 Route::resource('clients','ClientController');
 Auth::routes();
 
 Route::resource('sales','SaleController');
-Route::get('products', 'ProductController@index')->name('products');
-Route::get('products', 'ProductController@create')->name('create');
-Route::get('products', 'ProductController@create')->name('edit');
+
+
 
 Route::resource('products','ProductController');
 Auth::routes();
 
 Route::get('categories', 'CategoryController@index')->name('categories');
 Route::get('categories', 'CategoryController@create')->name('create');
-Route::get('categories', 'CategoryController@create')->name('edi');
+Route::get('categories', 'CategoryController@edit')->name('edit');
 
 Route::resource('categories','CategoryController');
 Auth::routes();
@@ -60,5 +68,9 @@ Route::get('cities/{idciudad}', 'CityController@edit');
 
  
 Route::resource('suppliers','SupplierController');
+
+Route::get('PaginaWeb', function () {
+    return view('index');
+});
 Route::resource('purchases','purchaseController');
  

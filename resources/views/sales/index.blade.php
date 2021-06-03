@@ -23,25 +23,24 @@
             <thead>
                 <tr>
                     <th>Id Venta</th>
-                    <th>Nombre Cliente</th>
-                    <th>Telefono</th>
-                    <th>Direccion</th>
-                    <th>Precio Unitario</th>
+                    <th>Documento Cliente</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Fecha Venta</th>
                     <th>Precio Total</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($sale as $sale)
+                @foreach ($sales as $sale)
                 <tr>
                     <td>{{ $sale->idVenta }}</td>
-                    <td>{{ $sale->nombreCliente }}</td>
-                    <td>{{ $sale->telefono }}</td>
-                    <td>{{ $sale->direccion }}</td>
-                    <td>{{ $sale->precioUnitario }}</td>
-                    <td>{{ $sale->precioTotal }}</td>
-
-                    <td><a href="{{route('sales.edit',$sale->idVenta)}}" class="btn btn-info">Editar</a>
+                    <td>{{ $sale->documento }}</td>
+                    <td>{{ $sale->nombre }}</td>
+                    <td>{{ $sale->apellidos }}</td>
+                    <td>{{ $sale->fechaVenta }}</td>
+                    <td>{{ $sale->valorTotal }}</td>
+                    <td><a href="{{route('sales.show',$sale->idVenta)}}" class="btn btn-info">Detalles</a>
                 </tr>
                 @endforeach
             </tbody>

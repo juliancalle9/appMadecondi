@@ -43,21 +43,16 @@
                 </div>
 
                 <div class="col-xs-12 col-sm-12 col-md-12">
-
                     <div class="form-group">
-
                         <strong>Precio Unitario:</strong>
-
                         <input class="form-control" name="preciounitario" placeholder="Precio Unitario">
-
                     </div>
-
                 </div>
 
                
                 <div class="col-xs-12 col-sm-12 col-md-12">
 
-<div class="form-group">
+                <div class="form-group">
 
     <label for="category">Categoria:</label>
 
@@ -69,7 +64,7 @@
 
            @endforeach
                         </datalist>
-                        <input type="hidden" id="documento">
+                        <input type="hidden" id="idcategoria">
 </div>
 
                 </div>
@@ -78,16 +73,15 @@
 
                     <div class="form-group">
 
-                        <strong>Cantidad:</strong>
+                        <strong>Stock:</strong>
 
-                        <input type="number" name="cantidad" class="form-control" placeholder="cantidad">
+                        <input type="number" name="stock" class="form-control" placeholder="stock">
 
                     </div>
                 </div>
 
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-
-                        <button type="submit" class="btn btn-success">Guardar</button>
+                    <button type="submit" class="btn btn-success">Guardar</button>
                 </div>
             </div>
         </form>
@@ -103,7 +97,7 @@
     function Guardar(){
         Swal.fire(
         'Buen trabajo!',
-        'Producto agregado con exito',
+        'Producto agregado con éxito',
         'success'
         )
     }

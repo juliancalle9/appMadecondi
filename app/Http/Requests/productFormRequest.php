@@ -27,9 +27,9 @@ class productFormRequest extends FormRequest
             
         'nombre' => 'unique:products,nombre|required|min:3',
         'preciounitario' => 'required|numeric|min:0',
+        'stock'=> 'required|numeric|min:0', 
         'estado',
         'idcategoria' => 'required',
-        'cantidad'=> 'required|numeric|min:0'
         ];
     }
 

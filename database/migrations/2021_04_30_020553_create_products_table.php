@@ -15,11 +15,10 @@ class CreateProductsTable extends Migration
     {
             Schema::create('products', function (Blueprint $table) {
                 $table->bigIncrements('idproducto');
-              $table->boolean('estado')->default(1); 
+                $table->boolean('estado')->default(1); 
                 $table->string('nombre');
-                $table->Integer('cantidad');
+                $table->integer('stock'); 
                 $table->double('preciounitario');
-               
                 $table->bigInteger('idcategoria')->unsigned();
                 $table->foreign('idcategoria')->references('idcategoria')->on('categories');
             

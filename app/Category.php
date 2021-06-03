@@ -8,7 +8,7 @@ class Category extends Model
 {
     protected $primaryKey = 'idcategoria';
     protected $fillable = [
-        'idcategoria','nombre', 'descripcion'
+        'nombre', 'descripcion'
     ];
     public $timestamps = false;
 }
