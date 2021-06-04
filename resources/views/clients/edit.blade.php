@@ -2,7 +2,6 @@
 @extends('adminlte::page')
 @section('title', 'Editar cliente')
 @section('content')
-@include('flash-message')
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/functions.js"></script>
@@ -129,19 +128,4 @@
         </form>
     </div>
 </div>
-@endsection
-
-@section('js')
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
-    <script>
-    document.querySelector('.btn-info').addEventListener('click', Guardar)
-    function Guardar(){
-        Swal.fire(
-        'Buen trabajo!',
-        'Cliente modificado con exito',
-        'info'
-        )
-    }
-    </script>
 @endsection

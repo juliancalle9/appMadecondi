@@ -88,28 +88,6 @@
 </form>
 </div>
             </div>
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+
 @endsection
 
-@section('js')
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
-    <script>
-    document.querySelector('.btn-success').addEventListener('click', Guardar)
-    function Guardar(){
-        Swal.fire(
-        'Buen trabajo!',
-        'Compra agregada con exito',
-        'success'
-        )
-    }
-    </script>
-@endsection

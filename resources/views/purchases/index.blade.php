@@ -8,6 +8,13 @@
 
 
 <div class="card">
+        <div>
+            @if(session('status'))
+                <div class="alert alert-success">
+                {{session('status')}}
+                </div>
+            @endif
+        </div>                
     <div class="col-lg-12 margin-tb card-header">
 
             <div class="pull-left">
@@ -15,9 +22,6 @@
             </div>
             <div class="pull-right">
                 <a class="btn btn-primary" href="{{route('purchases.create')}}">Agregar Compras</a>
-                
-                
-
             </div>
     </div>
 </div>

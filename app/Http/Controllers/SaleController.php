@@ -99,8 +99,7 @@ class SaleController extends Controller
         /*return redirect::to('sales.index');
         $input = $request->all();*/
         Sale::create($request->all());
-        Flash::success("La Venta fue creada con exito");
-        return redirect()->route('sales.index');
+        return redirect()->route('sales.index')->with('status', 'Venta agregada con éxito.');
           
     }
 

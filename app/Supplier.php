@@ -8,7 +8,7 @@ class Supplier extends Model
 {
     protected $primaryKey = 'nit';
     protected $fillable = [
-        'nit', 'nombre','direccion','telefono','idciudad'
+        'nit', 'nombre','direccion','telefono','idciudad', 'correoelectronico'
     ];
     public $timestamps = false;
     public function cities()

@@ -58,16 +58,3 @@
 </form>
 @endsection
 
-@section('js')
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
-    <script>
-    document.querySelector('.btn-success').addEventListener('click', Guardar)
-    function Guardar(){
-        Swal.fire(
-        'Buen trabajo!',
-        'Ciudad agregada con exito',
-        'success'
-        )
-    }
-    </script>

@@ -84,17 +84,3 @@
 </div>
 @endsection
 
-@section('js')
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
-    <script>
-    document.querySelector('.btn-info').addEventListener('click', Guardar)
-    function Guardar(){
-        Swal.fire(
-        'Buen trabajo!',
-        'Compra modificada con exito',
-        'info'
-        )
-    }
-    </script>
-@endsection

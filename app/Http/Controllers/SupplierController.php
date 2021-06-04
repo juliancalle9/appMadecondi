@@ -26,7 +26,7 @@ class SupplierController extends Controller
           //$supliers = Supplier::all();
         $suppliers =DB::table('suppliers')
         ->join('cities', 'cities.idciudad', '=', 'suppliers.idciudad')
-        ->select('suppliers.nit','suppliers.nombre', 'suppliers.direccion','suppliers.telefono', 'cities.nombre as ciudad')
+        ->select('suppliers.nit','suppliers.nombre', 'suppliers.direccion','suppliers.telefono', 'suppliers.correoelectronico','cities.nombre as ciudad')
         ->get();
         //dd($suppliers);
     
@@ -56,7 +56,7 @@ class SupplierController extends Controller
         $input = $request->all();
         Supplier::create($request->all());
              Flash::success("el proveedor fue creado con exito");
-             return redirect()->route('suppliers.index');
+             return redirect()->route('suppliers.index')->with('status', 'Proveedor guardada con éxito.');
          
     }
 
@@ -95,13 +95,14 @@ class SupplierController extends Controller
             'nombre' => 'required',
             'direccion' => 'required',
             'telefono' => 'required|numeric',
+            'correoelectronico'=>'required',
             'idciudad' => 'required'
         ]);
 
         $supplier->update($request->all());
 
         return redirect()->route('suppliers.index')
-                            ->with('success', 'proveedor actualizado con éxito.');
+                            ->with('success', 'Proveedor actualizado con éxito.');
     }
 
     /**

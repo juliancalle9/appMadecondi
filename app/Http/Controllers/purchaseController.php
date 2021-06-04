@@ -89,7 +89,7 @@ class purchaseController extends Controller
                 $detalle->idcompra= $purchase->idcompra;
                 $detalle->idproducto=$idproducto[$cont];
                 $detalle->cantidad=$cantidad[$cont];
-                $detalle->precioFinal=$precioFinal[$cont];
+                $detalle->precioFinal=$precioFinal;
                 $detalle->save(); 
                 $cont=$cont+1; 
             }
@@ -101,8 +101,7 @@ class purchaseController extends Controller
         return redirect::to('purchases.index');
         $input = $request->all();
         Purchase::create($request->all());
-             Flash::success("La compra fue creada con exito");
-             return redirect()->route('purchases.index');
+        return redirect()->route('purchases.index')->with('success', 'Compra agregada con éxito.');
     }
 
     /**
@@ -162,7 +161,7 @@ class purchaseController extends Controller
         
         $sale->update($request->all()); //Editar un registro.
         Flash::success("la compra fue modificada con exito");
-        return redirect()->route('purchases.index');
+        return redirect()->route('purchases.index')->with('success', 'Compra actualizada con éxito.');
 
          
     }

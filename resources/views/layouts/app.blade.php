@@ -78,6 +78,7 @@
         <script src="{{ asset('assets/dashboard/js/jquery-3.6.0.min.js') }}"></script>
         <script src="{{ asset('assets/dashboard/js/datatables.min.js') }}"></script>
             @yield('content')
+            
         </main>
     </div>
 </body>

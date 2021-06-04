@@ -47,7 +47,7 @@ class ProductController extends Controller
         $input = $request->all();
         Product::create($request->all());
              Flash::success("el producto fue creado con exito");
-             return redirect()->route('products.index');
+             return redirect()->route('products.index')->with('status', 'Producto guardado con éxito.');
 }
     public function show(Product $product)
     {
@@ -73,7 +73,7 @@ class ProductController extends Controller
         
         $product->update($request->all()); //Editar un registro.
         Flash::success("el producto fue modificado con exito");
-        return redirect()->route('products.index');
+        return redirect()->route('products.index')->with('status', 'Producto actualizado con éxito.');
     }
 
     
