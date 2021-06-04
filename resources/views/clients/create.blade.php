@@ -1,5 +1,6 @@
 @extends('adminlte::page')
 @section('content')
+@section('title', 'Agregar Cliente')
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/functions.js"></script>
@@ -13,16 +14,16 @@
         <div class="pull-left">
 
             <h2>Agregar un nuevo cliente</h2>
+            
             @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
 
         </div>
 
@@ -37,6 +38,9 @@
 </div>
 <div class="card">
     <div class="card-body">
+  
+    
+
           <form action="{{ route('clients.store') }}" method="POST">
                 @csrf
                 <div class="row">
@@ -121,73 +125,4 @@
         </div>
     </div>
 
-
-@if ($errors->any())
-
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error}}</li>
-                
-            @endforeach
-        </ul>
-        <script>
-
-    document.querySelector('.btn-success').addEventListener('click', Guardar)
-    function Guardar(){
-            
-           
-            
-                 Swal.fire(
-            'Error!',
-            'error',
-            'danger'
-            )
-            
-        
-        
-    }
-    </script>
-    </div>
-@else
-<script>
-
-    document.querySelector('.btn-success').addEventListener('click', Guardar)
-    function Guardar(){
-            
-           
-            
-                 Swal.fire(
-            'Buen trabajo!',
-            'Cliente agregado con exito',
-            'success'
-            )
-            
-        
-        
-    }
-    </script>
-@endif
-@endsection
-
-@section('js')
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
-    <!--<script>
-
-    document.querySelector('.btn-success').addEventListener('click', Guardar)
-    function Guardar(){
-            
-           
-            
-                 Swal.fire(
-            'Buen trabajo!',
-            'Cliente agregado con exito',
-            'success'
-            )
-            
-        
-        
-    }
-    </script>-->
 @endsection

@@ -7,6 +7,13 @@
 @section('title', 'Proveedores')
 @section('content')
     <div class="card">
+        <div>
+            @if(session('status'))
+                <div class="alert alert-success">
+                {{session('status')}}
+                </div>
+            @endif
+        </div>
         <div class="col-lg-12 margin-tb card-header">
 
                 <div class="pull-left">
@@ -30,8 +37,9 @@
 
                         <th>NIT</th>
                         <th>Nombre</th>
-                        <th>Direccion</th>
-                        <th>Telefono</th>
+                        <th>Dirección</th>
+                        <th>Teléfono</th>
+                        <th>Correo Electrónico</th>
                         <th>Ciudad</th>
                         <th>Acciones</th>
                     </tr>
@@ -51,6 +59,8 @@
                     <td>{{ $supplier->direccion }}</td>
 
                     <td>{{ $supplier->telefono }}</td>
+
+                    <td>{{ $supplier->correoelectronico }}</td>
 
                     <td>{{ $supplier->ciudad }}</td>
 

@@ -9,6 +9,13 @@
 
 
 <div class="card">
+    <div>
+        @if(session('status'))
+            <div class="alert alert-success">
+            {{session('status')}}
+            </div>
+        @endif
+    </div>
     <div class="col-lg-12 margin-tb card-header">
 
             <div class="pull-left">

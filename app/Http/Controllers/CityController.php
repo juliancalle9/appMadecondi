@@ -48,7 +48,7 @@ class CityController extends Controller
      $input = $request->all();
      City::create($request->all());
           Flash::success("La ciudad fue creada con exito");
-          return redirect()->route('cities.index');
+          return redirect()->route('cities.index')->with('status', 'Ciudad guardada con éxito.');
       
       
     }
@@ -90,7 +90,7 @@ class CityController extends Controller
        
         $city->update($request->all()); //Editar un registro.
         Flash::success("La ciudad fue modificada con exito");
-        return redirect()->route('cities.index');
+        return redirect()->route('cities.index')->with('status', 'Ciudad actualizado con éxito.');
 }
 
     /**

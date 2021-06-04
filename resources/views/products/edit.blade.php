@@ -15,14 +15,14 @@
 
         <h2>Editar Producto</h2>
         @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
 
     </div>
 
@@ -113,17 +113,3 @@
 </div>
 @endsection
 
-@section('js')
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
-    <script>
-    document.querySelector('.btn-info').addEventListener('click', Guardar)
-    function Guardar(){
-        Swal.fire(
-        'Buen trabajo!',
-        'Producto modificado con exito',
-        'info'
-        )
-    }
-    </script>
-@endsection

@@ -31,7 +31,7 @@ class CategoryController extends Controller
         $input = $request->all();
         Category::create($request->all());
              Flash::success("La Categoría fue creada con éxito");
-             return redirect()->route('categories.index');
+             return redirect()->route('categories.index')->with('status', 'Categoría actualizada con éxito.');;
           
     }
 
@@ -58,7 +58,7 @@ class CategoryController extends Controller
             $category->update($request->all());
     
             return redirect()->route('categories.index')
-                                ->with('success', 'Categoria actualizada con éxito.');
+                                ->with('status', 'Categoría actualizada con éxito.');
         }
     
 
@@ -67,6 +67,6 @@ class CategoryController extends Controller
     {
         $category->delete(); 
         return redirect()->route('categories.index')
-                        ->with('success', 'Categoria eliminado con éxito');
+                        ->with('status', 'Categoria eliminado con éxito');
     }
 }

@@ -12,14 +12,14 @@
         <div class="pull-left">
             <h2>Agregar un nuevo producto</h2>
             @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         </div>
         <div class="pull-right">
             <a class="btn btn-primary" href="{{route('products.index')}}"> Volver</a>
@@ -89,17 +89,4 @@
 </form>
 </div>
             </div>
-
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
-    <script>
-    document.querySelector('.btn-success').addEventListener('click', Guardar)
-    function Guardar(){
-        Swal.fire(
-        'Buen trabajo!',
-        'Producto agregado con éxito',
-        'success'
-        )
-    }
-    </script>
 @endsection

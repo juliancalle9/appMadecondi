@@ -56,7 +56,7 @@ class ClientController extends Controller
         //return redirect()->route('clients.index');
         
             return redirect()->route('clients.index')
-            ->with('error','Error');
+            ->with('status','Cliente agregado correctamente');
         }catch(Throwable $e){
             report($e);
             
@@ -86,7 +86,7 @@ class ClientController extends Controller
         $client->update($request->all());
 
         return redirect()->route('clients.index')
-                            ->with('success', 'Cliente actualizado con éxito.');
+                            ->with('status', 'Cliente actualizado con éxito.');
     }
     
 
