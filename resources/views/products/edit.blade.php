@@ -88,13 +88,19 @@
 
                 <div class="form-group">
 
-                    <strong>Id Categoria:</strong>
+                <label for="category">Categoria:</label>
 
-                    <input class="form-control"  type="tel" name="idcategoria" value="{{$product->idcategoria}}" placeholder="Id Categoria">
+<input list="categorias"  name="idcategoria" id="idcategoria" class="form-control" placeholder="idcategoria">
+<datalist name="idcategoria" id="categorias" class="">
+<option value="">--Seleccionar--</option>
+       @foreach ($categories as $category)
+       <option value="{{ $category['idcategoria'] }}">{{ $category['nombre'] }}</option>
 
-                </div>
-
-            </div>
+       @endforeach
+                    </datalist>
+                    <input type="hidden" id="idcategoria">
+                    </div>
+                    </div>
     
             
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

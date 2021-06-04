@@ -7,7 +7,7 @@ use App\Http\Requests\purchaseFormRequest;
 use Illuminate\Http\Request;
 
 use App\Purchase;
-//use App\Supplier;
+use App\Product;
 use App\purchasedetail; 
 Use Flash;
 use DB;
@@ -54,9 +54,9 @@ class purchaseController extends Controller
         $suppliers=DB::table('suppliers')->get();
         $products=DB::table('products as pro')
         ->select(DB::raw('CONCAT(pro.idproducto, " ", pro.nombre) as producto'),
-        'pro.preciounitario')
+        'pro.idproducto','pro.stock','pro.preciounitario')
         ->where('pro.estado', '=', '1')
-        ->where('pro.cantidad', '>', '0')
+        ->where('pro.stock', '>', '0')
         ->get();    
         return view('purchases.create', ["suppliers"=>$suppliers, "products"=>$products]);
     }
@@ -79,8 +79,11 @@ class purchaseController extends Controller
             
             //productos
             $idproducto= $request->get('idproducto');
+            $nombre = $request->get('nombre');
+            $stock = $request->get('stock');
             $cantidad = $request->get('cantidad'); 
-            $precioUnitario = $request->get('preciounitario'); 
+            $precioUnitario = $request->get('precioUnitario');
+            $precioFinal = $request->get('precioFinal'); 
 
             //detalles de compra
             $cont = 0;
