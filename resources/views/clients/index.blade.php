@@ -16,7 +16,7 @@
 </style>
    
 @endsection
-@include('flash-message')
+
 @section('title', 'Clientes')
 
 @section('content')

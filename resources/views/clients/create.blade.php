@@ -1,5 +1,4 @@
 @extends('adminlte::page')
-@include('flash-message')
 @section('content')
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -23,11 +22,6 @@
         </ul>
     </div>
 @endif
-@foreach (['danger', 'warning', 'success', 'info'] as $key)
- @if(Session::has($key))
-     <p class="alert alert-{{ $key }}">{{ Session::get($key) }}</p>
- @endif
-@endforeach
 
 
         </div>

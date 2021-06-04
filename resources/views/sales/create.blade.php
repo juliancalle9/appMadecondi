@@ -43,14 +43,6 @@
                         </datalist>
                         <input type="hidden" id="documento">
 
-
-
-                        <!--<label for="client">Cliente</label>
-                        <select name="documento" id="documento" class="form-control selectpicker">
-                            @foreach($clients as $client)
-                            <option value="{{$client->documento}}">Documento: {{$client->documento}} - {{$client->nombre}} {{$client->apellidos}}</option>
-                            @endforeach
-                        </select>-->
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -145,16 +137,6 @@
 @section('js')
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-    <!--<script>
-    document.querySelector('.btn-success').addEventListener('click', Guardar)
-    function Guardar(){
-        Swal.fire(
-        'Buen trabajo!',
-        'Venta agregada con exito',
-        'success'
-        )
-    }
-    </script>-->
     <script>
 $(document).ready(function(){
   $("#bt_add").click(function()

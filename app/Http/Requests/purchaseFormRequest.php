@@ -24,12 +24,13 @@ class purchaseFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'idcompra' => 'required',
-            'idproucto' => 'required',
-            'cantidad' => 'required',
-            'precioFinal' => 'required',
+            'nit' => 'required',
+            'idproducto' => 'required',
             'fechacompra' => 'required',
-            'nit' => 'required'
+            'cantidad' => 'required',
+            'precioFinal' => 'required|numeric'
+            
+            
             ];
     }
 }
