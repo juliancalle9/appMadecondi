@@ -101,7 +101,6 @@ class purchaseController extends Controller
         }catch(\Exception $e){
             DB::rollback(); 
         }
-        return redirect::to('purchases.index');
         $input = $request->all();
         Purchase::create($request->all());
         return redirect()->route('purchases.index')->with('success', 'Compra agregada con éxito.');

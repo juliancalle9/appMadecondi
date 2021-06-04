@@ -4,23 +4,21 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/functions.js"></script>
-<script src="js/sweetalert.min.js"></script>
-<link href="css/sweetalert.css" rel="stylesheet">
 
     <div class="card">
         <div class="col-lg-12 margin-tb card-header">
             <div class="pull-left">
                 <h2>Agregar una nueva venta</h2>
                 @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-            </div>
+                @endforeach
+            </ul>
+        </div>
+            @endif
+        </div>
             <div class="pull-right">
                  <a class="btn btn-primary" href="{{route('sales.index')}}">Volver</a>
             </div>
@@ -127,12 +125,9 @@
 @endsection
 
 @section('js')
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
-    <script>
+<script>
 $(document).ready(function(){
   $("#bt_add").click(function()
-
   {
    agregar();
   });

@@ -29,7 +29,7 @@
         <table class="table table-bordered" id="ventas">
             <thead>
                 <tr>
-                    <th>Id Venta</th>
+                    <th>Id</th>
                     <th>Documento Cliente</th>
                     <th>Nombre</th>
                     <th>Apellidos</th>

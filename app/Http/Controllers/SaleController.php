@@ -30,7 +30,7 @@ class SaleController extends Controller
             $sales=DB::table('sales as v')
             ->join('clients as c', 'v.documento', '=', 'c.documento')
             ->join('salesDetail as sc', 'v.idVenta', '=', 'sc.idVenta')
-            ->select('v.idVenta', 'v.documento', 'c.nombre', 'c.apellidos',
+            ->select('sc.idVenta', 'v.documento', 'c.nombre', 'c.apellidos',
             'v.fechaVenta', 'sc.valorTotal');
             $sales = $sales->get();
             return view('sales.index', compact('sales'));
@@ -68,7 +68,7 @@ class SaleController extends Controller
     {
         
             DB::beginTransaction(); 
-            $sale = new Sale; 
+            $sale = new Sale(); 
             //campos de ventas
             $sale->documento= $request->get('documento');
             $sale->fechaVenta= $request->get('fechaVenta');
@@ -90,7 +90,7 @@ class SaleController extends Controller
                 $detalle->idProducto=$idproducto[$cont];
                 $detalle->cantidad=$cantidad[$cont];
                 $detalle->valorTotal=$valorTotal;
-                $detalle->save(); 
+                $detalle->save();
                 $cont=$cont+1; 
             }
             DB::commit(); 

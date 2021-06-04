@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
 @endsection
+@section('title', 'Compras')
 @section('content')
 
 
@@ -47,7 +48,6 @@
                         <td>{{ $purchase->nit }}</td>
                         <td>{{ $purchase->nombre }}</td>
                         <td>{{ $purchase->fechacompra }}</td>
-
                          <td>{{ $purchase->precioFinal }}</td>
 
 
