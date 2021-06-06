@@ -74,58 +74,12 @@ class ClientController extends Controller
     }
 
     
-    public function update(Request $request, Client $client){
-        $request->validate([
-            'nombre' => 'required', 
-            'apellidos' => 'required',
-            'telefono' => 'required|numeric',
-            'correoElectronico',
-            'direccion'
-        ]);
-
-        $client->update($request->all());
-
-        return redirect()->route('clients.index')
-                            ->with('status', 'Cliente actualizado con éxito.');
+    public function changeStatus(Request $request) {
+        $client = Client::find($request->documento);
+        $client->estado = $request->estado;
+        $client->save();
+        return response()->json(['success' => 'Status Changed Successfully']);
     }
-    
-
-   
-
-    public function updateState($documento, $estado){
-        $client = Client::find($documento);
-
-        if($client==null){
-            Flash::error("Cliente no encontrado");
-            return redirect("clients.index");
-        }
-
-        try{
-            $client->update(["estado"=>$estado]);
-            Flash::success("Se modifico el estado del cliente");
-            return redirect("clients.index");
-        }catch(\Exception $e){
-            Flash::error($e->getMessage());
-            return redirect("clients.index");
-        }
-    } 
-
-    public function updateStatus(Request $request)
-{
-    $client = Client::findOrFail($request->documento);
-    $client->estado = $request->estado;
-    $client->save();
-
-    return response()->json(['message' => 'User status updated successfully.']);
-}
-
-public function changeStatus(Request $request)
-    {
-        $client = Client::find($request->documento)->update(['estado' => $request->estado]);
-
-        return response()->json(['success'=>'Status changed successfully.']);
-    }
-    
     
 
 }

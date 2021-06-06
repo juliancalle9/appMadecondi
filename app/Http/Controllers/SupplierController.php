@@ -26,7 +26,7 @@ class SupplierController extends Controller
           //$supliers = Supplier::all();
         $suppliers =DB::table('suppliers')
         ->join('cities', 'cities.idciudad', '=', 'suppliers.idciudad')
-        ->select('suppliers.nit','suppliers.nombre', 'suppliers.direccion','suppliers.telefono', 'suppliers.correoelectronico','cities.nombre as ciudad')
+        ->select('suppliers.nit','suppliers.nombre', 'suppliers.direccion','suppliers.telefono', 'suppliers.correoelectronico','suppliers.estado','cities.nombre as ciudad')
         ->get();
         //dd($suppliers);
     
@@ -105,15 +105,11 @@ class SupplierController extends Controller
                             ->with('success', 'Proveedor actualizado con éxito.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Supplier  $supplier
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Supplier $supplier)
-    {
-        //
+    public function changeStatus(Request $request) {
+        $supplier = Supplier::find($request->nit);
+        $supplier->estado = $request->estado;
+        $supplier->save();
+        return response()->json(['success' => 'Status Changed Successfully']);
     }
  
  

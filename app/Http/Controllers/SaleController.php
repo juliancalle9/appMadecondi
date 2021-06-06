@@ -66,7 +66,7 @@ class SaleController extends Controller
      */
     public function store(saleFormRequest $request)
     {
-        
+        try{
             DB::beginTransaction(); 
             $sale = new Sale(); 
             //campos de ventas
@@ -93,7 +93,10 @@ class SaleController extends Controller
                 $detalle->save();
                 $cont=$cont+1; 
             }
-            DB::commit(); 
+            DB::commit();
+        }catch(\Exception $e){
+            DB::rollback(); 
+        }
 
         
         /*return redirect::to('sales.index');

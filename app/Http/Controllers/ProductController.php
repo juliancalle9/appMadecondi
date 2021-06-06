@@ -76,6 +76,13 @@ class ProductController extends Controller
         return redirect()->route('products.index')->with('status', 'Producto actualizado con éxito.');
     }
 
+    public function changeStatus(Request $request) {
+        $product = Product::find($request->idproducto);
+        $product->estado = $request->estado;
+        $product->save();
+        return response()->json(['success' => 'Status Changed Successfully']);
+    }
+
     
     public function destroy(Product $product)
     {

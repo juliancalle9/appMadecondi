@@ -19,6 +19,7 @@ class CreateSuppliersTable extends Migration
             $table->string('direccion');
             $table->string('telefono');
             $table->string('correoelectronico');
+            $table->boolean('estado')->default(1); 
             $table->bigInteger('idciudad')->unsigned();
             $table->foreign('idciudad')->references('idciudad')->on('cities'); 
             
