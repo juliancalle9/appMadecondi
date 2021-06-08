@@ -36,15 +36,17 @@
                 <thead>
                     <tr>
 
-                        <th>Id </th>
+                        <th>ID</th>
 
                         <th>Categoría</th>
 
                         <th>Nombre</th>
 
-                        <th>Descripcion</th>
+                        <th>Descripción</th>
 
-                        <th>Precio Unitario</th>
+                        <th>Precio Venta</th>
+
+                        <th>Precio Compra</th>
 
                         <th>Stock</th>
 
@@ -64,14 +66,16 @@
 
                         <td>{{ $product->descripcion }}</td>
 
-                        <td>{{ $product->preciounitario }}</td>
+                        <td>{{ $product->precioventa }}</td>
+
+                        <td>{{ $product->preciocompra }}</td>
 
                         <td>{{ $product->stock }}</td>
 
-                        <td><input  type="checkbox" data-id="{{ $product->idproducto }}" name="estado" class="toggle-class" data-onstyle="success"
+                        <td><input  type="checkbox" data-id="{{$product->idproducto}}" name="estado" class="toggle-class" data-onstyle="success"
                             data-offstyle="danger" data-toggle="toggle" data-on="Activo" data-off="inactivo"
                             {{$product->estado ? 'checked' :''}}>
-                            </td>
+                        </td>
 
                         <td><a href="{{route('products.edit',$product->idproducto)}}" class="btn btn-info">Editar</a></td>
                     </tr>
@@ -81,6 +85,7 @@
         </div>
     </div>
 @endsection
+
 @section('js')
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
@@ -110,6 +115,7 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
 <script>
   $(function() {
     $('#toggle-two').bootstrapToggle({

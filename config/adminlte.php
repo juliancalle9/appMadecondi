@@ -236,21 +236,9 @@ return [
                 ],
 
                 [
-                    'text' => 'Sección Proveedores',
-                    'icon'    => 'fas fa-fw fa-ellipsis-v',
-                    'submenu' => [
-                    [
-                        'text' => 'Proveedores',
-                        'icon'    => 'fas fa-fw fa-truck-moving',
-                        'url' => 'suppliers',
-                    ],
-
-                    [
-                        'text' => 'Ciudades',
-                        'icon'    => 'fas fa-fw fa-city',
-                        'url' => 'cities',
-                    ],
-                                ],
+                    'text' => 'Proveedores',
+                    'icon'    => 'fas fa-fw fa-truck-moving',
+                    'url' => 'suppliers',
                 ],
 
                 [

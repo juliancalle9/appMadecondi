@@ -3,8 +3,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
-     <!-- cambio de estado -->
-     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- cambio de estado -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet"> 
 @endsection
 @section('title', 'Proveedores')
@@ -68,12 +68,10 @@
 
                     <td>{{ $supplier->ciudad }}</td>
 
-                    <td><input  type="checkbox" data-id="{{ $supplier->nit }}" name="estado" class="toggle-class" data-onstyle="success"
+                    <td><input  type="checkbox" data-id="{{ $supplier->id }}" name="estado" class="toggle-class" data-onstyle="success"
                             data-offstyle="danger" data-toggle="toggle" data-on="Activo" data-off="inactivo"
                             {{$supplier->estado ? 'checked' :''}}></td>
-
-
-                    <td><a href="{{route('suppliers.edit',$supplier->nit)}}" class="btn btn-info">Editar</a>
+                    <td><a href="{{route('suppliers.edit',$supplier->id)}}" class="btn btn-info">Editar</a>
                     </tr>
 
                     
@@ -124,14 +122,14 @@
 <script>
     $('.toggle-class').on('change', function(){
         var estado = $(this).prop('checked') == true ? 1 : 0;
-        var nit = $(this).data('id');
+        var id = $(this).data('id');
         $.ajax({
             type: 'GET',
             dataType: 'JSON',
             url: '{{ route('changeStatus') }}',
             data: {
                 'estado': estado,
-                'nit': nit
+                'id': id
             }
             
         });

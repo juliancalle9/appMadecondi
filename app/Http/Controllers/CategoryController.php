@@ -31,7 +31,7 @@ class CategoryController extends Controller
         $input = $request->all();
         Category::create($request->all());
              Flash::success("La Categoría fue creada con éxito");
-             return redirect()->route('categories.index')->with('status', 'Categoría actualizada con éxito.');;
+             return redirect()->route('categories.index')->with('status', 'Categoría agregada con éxito.');;
           
     }
 

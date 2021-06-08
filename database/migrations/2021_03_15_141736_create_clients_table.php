@@ -17,7 +17,7 @@ class CreateClientsTable extends Migration
             $table->string('documento')->primary();
             $table->string('nombre'); 
             $table->string('apellidos'); 
-            $table->string('telefono');
+            $table->string('telefono')->nullable();
             $table->string('correoElectronico')->nullable();
             $table->string('direccion')->nullable();
             $table->boolean('estado')->default(1);  

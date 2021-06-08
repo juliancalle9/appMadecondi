@@ -27,7 +27,7 @@ class clientFormRequest extends FormRequest
             'documento' => 'required|unique:clients,documento|numeric',
             'nombre' => 'required',
             'apellidos' => 'required',
-            'telefono' => 'required|numeric',
+            'telefono',
             'correoElectronico',
             'direccion'
         ];

@@ -3,7 +3,7 @@
 @section('content')
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="js/functions.js"></script>
+
 
     <div class="card">
         <div class="col-lg-12 margin-tb card-header">
@@ -56,7 +56,7 @@
                                     <select name="idproducto" id="idproducto" class="form-control selectpicker" >
                                         <option>--Seleccionar--</option>
                                         @foreach($products as $product)
-                                            <option value="{{$product->idproducto}}_{{$product->stock}}_{{$product->preciounitario}}">{{$product->Producto}}</option>
+                                            <option value="{{$product->idproducto}}_{{$product->stock}}_{{$product->precioventa}}">{{$product->Producto}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -70,7 +70,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Precio de venta:</strong>
-                                    <input value="" type="number" class="form-control" name="preciounitario" id="preciounitario" placeholder="Precio de venta">
+                                    <input value="" type="number" class="form-control" name="precioventa" id="precioventa" placeholder="Precio de venta">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -119,8 +119,6 @@
         </form>
     </div>
 </div>
-            
-
 
 @endsection
 
@@ -141,7 +139,7 @@ $(document).ready(function(){
   function mostrarValores()
   {
    datosProductos=document.getElementById('idproducto').value.split('_');
-   $("#preciounitario").val(datosProductos[2]);
+   $("#precioventa").val(datosProductos[2]);
    $("#stock").val(datosProductos[1]);
     
   }
@@ -151,18 +149,18 @@ $(document).ready(function(){
   idproducto=datosProductos[0];
   Producto =$("#idproducto option:selected").text();
   cantidad =parseInt($("#cantidad").val(),10);
-  preciounitario = parseFloat($("#preciounitario").val());
+  precioventa = parseFloat($("#precioventa").val());
   stock=parseInt($('#stock').val(),10); 
 
-  if (idproducto!="" && cantidad!="" && cantidad>0 && preciounitario!="") 
+  if (idproducto!="" && cantidad!="" && cantidad>0 && precioventa!="") 
   {
     if(stock>=cantidad){
-        subtotal[cont] = (cantidad*preciounitario);
+        subtotal[cont] = (cantidad*precioventa);
         total = total + subtotal[cont];
 
         var fila = '<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('
         +cont+'); ">X</button></td><td><input type="hidden" name="idproducto[]" value="'+idproducto+'">'+Producto+'</td><td><input type="number" name="cantidad[]" value="'
-        +cantidad+'"></td><td><input type="number" name="preciounitario[]" value="'+preciounitario+'"></td><td>'
+        +cantidad+'"></td><td><input type="number" name="precioventa[]" value="'+precioventa+'"></td><td>'
         +subtotal[cont]+'</td></tr>';
         cont++;
         limpiar();

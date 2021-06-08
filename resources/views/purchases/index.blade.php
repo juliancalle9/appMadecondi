@@ -48,13 +48,12 @@
                         <td>{{ $purchase->nit }}</td>
                         <td>{{ $purchase->nombre }}</td>
                         <td>{{ $purchase->fechacompra }}</td>
-                         <td>{{ $purchase->precioFinal }}</td>
+                        <td>{{ $purchase->precioFinal }}</td>
 
 
                          <td>
-                         <a href="{{URL::action('purchaseController@show',$purchase->idcompra)}}" class="btn btn-primary">Detalles</a>
+                         <a href="{{route('purchases.show', $purchase->idcompra)}}" class="btn btn-primary">Detalles</a>
 
-                          <a href="{{route('purchases.edit',$purchase->idcompra)}}" class="btn btn-info">Editar</a>
                           </td>
    
                     @endforeach

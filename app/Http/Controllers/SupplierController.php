@@ -26,7 +26,7 @@ class SupplierController extends Controller
           //$supliers = Supplier::all();
         $suppliers =DB::table('suppliers')
         ->join('cities', 'cities.idciudad', '=', 'suppliers.idciudad')
-        ->select('suppliers.nit','suppliers.nombre', 'suppliers.direccion','suppliers.telefono', 'suppliers.correoelectronico','suppliers.estado','cities.nombre as ciudad')
+        ->select('suppliers.id','suppliers.nit','suppliers.nombre', 'suppliers.direccion','suppliers.telefono', 'suppliers.correoelectronico','suppliers.estado','cities.nombre as ciudad')
         ->get();
         //dd($suppliers);
     
@@ -56,7 +56,7 @@ class SupplierController extends Controller
         $input = $request->all();
         Supplier::create($request->all());
              Flash::success("el proveedor fue creado con exito");
-             return redirect()->route('suppliers.index')->with('status', 'Proveedor guardada con éxito.');
+             return redirect()->route('suppliers.index')->with('status', 'Proveedor guardado con éxito.');
          
     }
 
@@ -77,9 +77,10 @@ class SupplierController extends Controller
      * @param  \App\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function edit($nit)
+    public function edit($id)
     {
-        return view('suppliers.edit',['supplier' => Supplier::find($nit)]);
+        $cities = City::all();
+        return view('suppliers.edit',['supplier' => Supplier::find($id)],compact('cities'));
     }
 
     /**
@@ -90,23 +91,22 @@ class SupplierController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Supplier $supplier){
+        
         $request->validate([
             
             'nombre' => 'required',
             'direccion' => 'required',
-            'telefono' => 'required|numeric',
-            'correoelectronico'=>'required',
+            'telefono' => 'required',
             'idciudad' => 'required'
         ]);
 
         $supplier->update($request->all());
 
-        return redirect()->route('suppliers.index')
-                            ->with('success', 'Proveedor actualizado con éxito.');
+        return redirect()->route('suppliers.index')->with('status', 'Proveedor actualizado con éxito.');
     }
 
     public function changeStatus(Request $request) {
-        $supplier = Supplier::find($request->nit);
+        $supplier = Supplier::find($request->id);
         $supplier->estado = $request->estado;
         $supplier->save();
         return response()->json(['success' => 'Status Changed Successfully']);

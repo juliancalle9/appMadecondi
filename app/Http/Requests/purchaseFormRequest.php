@@ -24,7 +24,7 @@ class purchaseFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'nit' => 'required',
+            'id' => 'required',
             'idproducto' => 'required',
             'fechacompra' => 'required',
             'cantidad' => 'required',

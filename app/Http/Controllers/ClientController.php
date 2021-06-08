@@ -22,27 +22,6 @@ class ClientController extends Controller
         return view('clients.index', compact('clients')); 
     }
 
-    /*public function list(Request $request){
-        $clients = Client::all();
-
-        return DataTables::of($clients)
-            ->editColumn("estado", function($client){
-                return $clients->estado == 1 ? "Activo" : "Inactivo";
-            })
-            ->addColumn('editar', function ($clients) {
-                return '<a class="btn btn-pimary bt-sm" href="clients.edit' .$clients->documento.'"> Editar</a>';
-            })
-            ->addColumn('cambiar', function ($clients) {
-                if($clients->estado == 1){
-                    return '<a class="btn btn-danger bt-sm" href="clients.edit/cambiar/estado/' .$clients->documento.'/0"> Inactivar</a>';
-                }else{
-                    return '<a class="btn btn-success bt-sm" href="clients.edit/cambiar/estado/' .$clients->documento.'/1"> Activar</a>';
-                }
-            })
-            ->rawColumns(['editar', 'cambiar'])
-            ->make(true);
-    }*/
-
     public function create(){
         return view('clients.create');
     }
@@ -71,6 +50,19 @@ class ClientController extends Controller
 
     public function edit($documento){
         return view('clients.edit',['client' => Client::find($documento)]);
+    }
+
+    public function update(Request $request, Client $client){
+        $request->validate([
+            'nombre' => 'required', 
+            'apellidos' => 'required',
+            'telefono' => 'required'
+        ]);
+
+        $client->update($request->all());
+
+        return redirect()->route('clients.index')
+                            ->with('status', 'Cliente actualizado con éxito.');
     }
 
     

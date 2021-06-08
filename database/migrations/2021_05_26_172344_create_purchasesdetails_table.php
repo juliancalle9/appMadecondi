@@ -13,6 +13,7 @@ class CreatePurchasesdetailsTable extends Migration
      */
     public function up()
     {
+        
         Schema::create('purchasesdetails', function (Blueprint $table) {
             $table->bigIncrements('iddetallecompra');
             $table->bigInteger('idcompra')->unsigned();
