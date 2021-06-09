@@ -27,8 +27,8 @@ Route::get('categories', function () {
 Route::get('sales', function () {
     return view('sales');
 });
-
-
+Route::get('/pdfVenta', 'PDFVentaController@pdf')->name('descargarpdfVenta');
+Route::get('/pdf', 'PDFController@pdf')->name('descargarpdf');
 Route::get('clients', 'ClientController@index')->name('clients');
 Route::get('clients', 'ClientController@list');
 Route::get('clients', 'ClientController@create')->name('create');
