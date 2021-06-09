@@ -9,10 +9,10 @@ use DB;
 use Flash;
 use Illuminate\Http\Request;
 use Response;  
-
+use Barryvdh\DomPDF\Facade as PDF;
 class SaleController extends Controller
 {
-    public function __construct()
+    /*public function __construct()
     {
         $this->middleware('auth');
     }
@@ -21,11 +21,11 @@ class SaleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+  /**  public function index(Request $request)
     {
         /**$sale = Sale::all();
         return view('sales.index',compact('sale'));**/
-        if($request)
+       /** if($request)
         {
             $sales=DB::table('sales as v')
             ->join('clients as c', 'v.documento', '=', 'c.documento')
@@ -43,7 +43,7 @@ class SaleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+   /** public function create()
     {
         $clients=DB::table('clients as c')
         ->where('c.estado', '=', '1')
@@ -64,7 +64,7 @@ class SaleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(saleFormRequest $request)
+   /** public function store(saleFormRequest $request)
     {
         
             DB::beginTransaction(); 
@@ -98,7 +98,7 @@ class SaleController extends Controller
         
         /*return redirect::to('sales.index');
         $input = $request->all();*/
-        Sale::create($request->all());
+      /**  Sale::create($request->all());
         return redirect()->route('sales.index')->with('status', 'Venta agregada con éxito.');
           
     }
@@ -109,12 +109,12 @@ class SaleController extends Controller
      * @param  \App\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function show($idVenta)
+   public function show($idVenta)
     {
         $sales=DB::table('sales as v')
             ->join('clients as c', 'v.documento', '=', 'c.documento')
             ->join('salesdetail as sv', 'v.idVenta', '=', 'sv.idVenta')
-            ->select('v.idVenta', 'c.documento', 'c.nombre', 'c.apellidos', 'v.fechaVenta', 'sv.valorTotal')
+            ->select('v.idVenta', 'c.direccion', 'c.nombre', 'c.apellidos', 'v.fechaVenta', 'sv.valorTotal')
             ->where('v.idVenta', '=', $idVenta)
             ->get(); 
 
@@ -146,7 +146,7 @@ class SaleController extends Controller
      * @param  \App\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function update(saleFormRequest $request, $idVenta)
+   /** public function update(saleFormRequest $request, $idVenta)
     {
         $sale = Sale::find($idVenta);
         $sale->nombreCliente = $request->get('nombreCliente');
@@ -165,8 +165,31 @@ class SaleController extends Controller
      * @param  \App\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sale $sale)
+   /** public function destroy(Sale $sale)
     {
         //
+    }
+    public function pdf(Sale $sale)
+    {
+        
+        $sales=DB::table('sales as v')
+           ->join('clients as c', 'v.documento', '=', 'c.documento')
+            ->join('salesdetail as sv', 'v.idVenta', '=', 'sv.idVenta')
+            ->select('v.idVenta', 'c.documento', 'c.nombre', 'c.apellidos', 'v.fechaVenta', 'sv.valorTotal')
+            ->where('v.idVenta', '=', $idVenta)
+            ->get(); 
+
+            //tabla detalles
+            $detalles = DB::table('salesDetail as dv')
+            ->join('products as p', 'dv.idproducto', '=', 'p.idproducto')
+            ->select('p.nombre as producto', 'dv.cantidad', 'p.preciounitario')
+            ->where('dv.idVenta', '=', $idVenta)
+            ->get();
+           // $pdf = \PDF::loadView('sales.pdf', compact('sales','detalles'));
+            return $pdf->download('reporte_compra-'.$sale->idventa.'.pdf');
+            
+    }*/
+    public function informe(){
+        echo"hola";
     }
 }

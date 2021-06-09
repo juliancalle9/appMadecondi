@@ -53,7 +53,7 @@
 
                          <td>
                          <a href="{{URL::action('purchaseController@show',$purchase->idcompra)}}" class="btn btn-primary">Detalles</a>
-
+                         <a href="{{route('purchases.pdf',$purchase)}}" class="jsgrid-button jsgrid-edit-button"><i class="fas fa-print"></i></a>
                           <a href="{{route('purchases.edit',$purchase->idcompra)}}" class="btn btn-info">Editar</a>
                           </td>
    

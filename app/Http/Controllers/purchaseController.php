@@ -181,4 +181,23 @@ class purchaseController extends Controller
         return redirect()->route('purchases.index')
                         ->with('success', 'compra eliminada con éxito');
     }
+    public function pdf(Purchase $purchase)
+    {
+        $purchase=DB::table('purchases as c')
+            ->join('suppliers as p', 'c.nit', '=', 'p.nit')
+            ->join('purchasesdetails as dp', 'c.idcompra', '=', 'dp.idcompra')
+            ->select('c.idcompra', 'p.nit', 'p.nombre',  'c.fechacompra', 'dp.precioFinal')
+            ->where('c.idcompra', '=', $idcompra)
+            ->first(); 
+
+            //tabla detalles
+            $detalles = DB::table('purchasesdetails as dp')
+            ->join('products as p', 'dp.idproducto', '=', 'p.producto')
+            ->select('p.nombre as producto', 'dp.cantidad')
+            ->where('c.idcompra', '=', $idcompra)
+            ->get();
+            return view('purchases.pdf', ["purchases"=>$purchases, "purchasesdetails"=>$purchasesdetails]);
+
+    }
+    
 }
