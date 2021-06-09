@@ -33,10 +33,7 @@ Route::get('clients', 'ClientController@index')->name('clients');
 Route::get('clients', 'ClientController@list');
 Route::get('clients', 'ClientController@create')->name('create');
 Route::get('clients', 'ClientController@edit')->name('edit');
-/*Route::get('clients/{documento}/{estado}', 'ClientController@updateState');*/
-/*Route::get('cambiarEstado', 'ClientController@cambiarEstado');*/
-Route::get('/estado/update', 'ClientController@updateStatus')->name('clients.update.status');
-Route::get('change-status', 'ClientController@changeStatus');
+Route::get('changeStatus', 'ClientController@changeStatus')->name('changeStatus');
 
 
 
@@ -52,6 +49,7 @@ Route::get('sales/informe', 'SaleController@informe')->name('sales.informe');
 
 
 Route::resource('products','ProductController');
+Route::get('changeStatus', 'ProductController@changeStatus')->name('changeStatus');
 Auth::routes();
 
 Route::get('categories', 'CategoryController@index')->name('categories');
@@ -72,6 +70,7 @@ Route::get('cities/{idciudad}', 'CityController@edit');
 
  
 Route::resource('suppliers','SupplierController');
+Route::get('changeStatus', 'SupplierController@changeStatus')->name('changeStatus');
 
 Route::get('PaginaWeb', function () {
     return view('index');

@@ -3,19 +3,13 @@
 namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Requests\purchaseFormRequest;
-
 use Illuminate\Http\Request;
-
 use App\Purchase;
 use App\Product;
-use App\purchasedetail; 
+use App\Purchasedetail; 
 Use Flash;
 use DB;
-use Carbon\Carbon;
-use Carbon\Response;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Collection;
+use Response;
 
 
 class purchaseController extends Controller
@@ -35,10 +29,11 @@ class purchaseController extends Controller
         {
         
             $purchases=DB::table('purchases as c')
-            ->join('suppliers as p', 'c.nit', '=', 'p.nit')
+            ->join('suppliers as p', 'c.id', '=', 'p.id')
             ->join('purchasesdetails as pd', 'c.idcompra', '=', 'pd.idcompra')
-            ->select('c.idcompra', 'c.nit', 'p.nombre', 
-            'c.fechacompra', 'pd.precioFinal');
+            ->select('c.idcompra', 'p.nit', 'p.nombre', 
+            'c.fechacompra', 'pd.precioFinal')
+            ->DISTINCT();
             $purchases = $purchases->get();
             return view('purchases.index', compact('purchases'));
    }
@@ -51,12 +46,13 @@ class purchaseController extends Controller
      */
     public function create()
     { 
-        $suppliers=DB::table('suppliers')->get();
+        $suppliers=DB::table('suppliers as s')
+        ->where('s.estado', '=', '1' )
+        ->get();
         $products=DB::table('products as pro')
         ->select(DB::raw('CONCAT(pro.idproducto, " ", pro.nombre) as producto'),
-        'pro.idproducto','pro.stock','pro.preciounitario')
+        'pro.idproducto','pro.stock','pro.preciocompra')
         ->where('pro.estado', '=', '1')
-        ->where('pro.stock', '>', '0')
         ->get();    
         return view('purchases.create', ["suppliers"=>$suppliers, "products"=>$products]);
     }
@@ -69,11 +65,11 @@ class purchaseController extends Controller
      */
     public function store(purchaseFormRequest $request)
     {
-        try{
+        
             DB::beginTransaction(); 
-            $purchase = new Purchase; 
+            $purchase = new Purchase(); 
             //campos de compras
-            $purchase->nit= $request->get('nit');
+            $purchase->id= $request->get('id');
             $purchase->fechacompra= $request->get('fechacompra');
             $purchase->save(); 
             
@@ -82,13 +78,13 @@ class purchaseController extends Controller
             $nombre = $request->get('nombre');
             $stock = $request->get('stock');
             $cantidad = $request->get('cantidad'); 
-            $precioUnitario = $request->get('precioUnitario');
+            $preciocompra = $request->get('preciocompra');
             $precioFinal = $request->get('precioFinal'); 
 
             //detalles de compra
             $cont = 0;
             while($cont < count($idproducto)){
-                $detalle  = new purchasedetail();
+                $detalle  = new Purchasedetail();
                 $detalle->idcompra= $purchase->idcompra;
                 $detalle->idproducto=$idproducto[$cont];
                 $detalle->cantidad=$cantidad[$cont];
@@ -98,13 +94,10 @@ class purchaseController extends Controller
             }
             DB::commit(); 
 
-        }catch(\Exception $e){
-            DB::rollback(); 
-        }
-        return redirect::to('purchases.index');
-        $input = $request->all();
+            
+
         Purchase::create($request->all());
-        return redirect()->route('purchases.index')->with('success', 'Compra agregada con éxito.');
+        return redirect()->route('purchases.index')->with('status', 'Compra agregada con éxito.');
     }
 
     /**
@@ -113,10 +106,10 @@ class purchaseController extends Controller
      * @param  \App\Purchase  $purchase
      * @return \Illuminate\Http\Response
      */
-    public function show(Purchase $purchase)
+    public function show($idcompra)
     {
-        $purchase=DB::table('purchases as c')
-            ->join('suppliers as p', 'c.nit', '=', 'p.nit')
+        $purchases=DB::table('purchases as c')
+            ->join('suppliers as p', 'c.id', '=', 'p.id')
             ->join('purchasesdetails as dp', 'c.idcompra', '=', 'dp.idcompra')
             ->select('c.idcompra', 'p.nit', 'p.nombre',  'c.fechacompra', 'dp.precioFinal')
             ->where('c.idcompra', '=', $idcompra)
@@ -124,11 +117,13 @@ class purchaseController extends Controller
 
             //tabla detalles
             $detalles = DB::table('purchasesdetails as dp')
-            ->join('products as p', 'dp.idproducto', '=', 'p.producto')
-            ->select('p.nombre as producto', 'dp.cantidad')
-            ->where('c.idcompra', '=', $idcompra)
+            ->join('products as p', 'dp.idproducto', '=', 'p.idproducto')
+            ->select('p.nombre as producto', 'dp.cantidad', 'p.preciocompra','dp.precioFinal')
+            ->where('dp.idcompra', '=', $idcompra)
             ->get();
-            return view('purchases.show', ["purchases"=>$purchases, "purchasesdetails"=>$purchasesdetails]);
+            return 
+            view('purchases.show', ["purchases"=>$purchases, "purchasesdetails"=>$detalles],
+             compact('detalles'));
     }
 
     /**
@@ -158,7 +153,7 @@ class purchaseController extends Controller
         $purchase->nombre = $request->get('nombre');
         $purchase->direccion = $request->get('direccion');
         $purchase->telefono = $request->get('telefono');
-        $purchase-> precioUnitario= $request->get('precioUnitario');
+        $purchase-> precioUnitario= $request->get('preciocompra');
         $sale-> precioTotal= $request->get('precioTotal');
 
         

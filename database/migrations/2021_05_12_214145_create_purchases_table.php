@@ -15,10 +15,9 @@ class CreatePurchasesTable extends Migration
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->bigIncrements('idcompra');
-            $table->date('fechacompra');
-            $table->boolean('estado')->default(1); 
-            $table->string('nit');
-            $table->foreign('nit')->references('nit')->on('suppliers');
+            $table->date('fechacompra'); 
+            $table->bigInteger('id')->unsigned();
+            $table->foreign('id')->references('id')->on('suppliers');
         });
     }
 

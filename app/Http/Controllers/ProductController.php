@@ -26,7 +26,7 @@ class ProductController extends Controller
     
       $products =DB::table('products')
       ->join('categories', 'categories.idcategoria', '=', 'products.idcategoria')
-      ->select('products.idproducto','products.nombre', 'products.preciounitario',
+      ->select('products.idproducto','products.nombre', 'products.precioventa','preciocompra',
       'products.stock','products.estado','categories.nombre as categoria','categories.descripcion')
       ->get();
         return view('products.index',compact('products'));
@@ -43,7 +43,13 @@ class ProductController extends Controller
     
     public function store(productFormRequest $request)
     {
-
+        $request->validate([
+            'nombre' => 'required', 
+            'stock' => 'required',
+            'precioventa' => 'required',
+            'preciocompra' => 'required',
+            'idcategoria' => 'required'
+        ]);
         $input = $request->all();
         Product::create($request->all());
              Flash::success("el producto fue creado con exito");
@@ -58,22 +64,34 @@ class ProductController extends Controller
 
     public function edit($idproducto)
     {
-        return view('products.edit',['product' => Product::find($idproducto)]);
+        $categories = Category::all();
+        return view('products.edit',['product' => Product::find($idproducto)],compact('categories'));
         
     }
 
-    public function update(productFormRequest $request, $idproducto)
+    public function update(productFormRequest $request, Product $product)
     {
-        $product = Product::find($idproducto);
-        $product->nombre= $request->get('nombre');
-        $product->stock = $request->get('stock');
-        $product->preciounitario = $request->get('preciounitario');
-        $product->idcategoria = $request->get('idcategoria');
+        $request->validate([
+            'nombre' => 'required', 
+            'stock' => 'required',
+            'precioventa' => 'required',
+            'preciocompra' => 'required',
+            'idcategoria' => 'required'
+        ]);
+        
+        
        
         
         $product->update($request->all()); //Editar un registro.
-        Flash::success("el producto fue modificado con exito");
+        
         return redirect()->route('products.index')->with('status', 'Producto actualizado con éxito.');
+    }
+
+    public function changeStatus(Request $request) {
+        $product = Product::find($request->idproducto);
+        $product->estado = $request->estado;
+        $product->save();
+        return response()->json(['success' => 'Status Changed Successfully']);
     }
 
     

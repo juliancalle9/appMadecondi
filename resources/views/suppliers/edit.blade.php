@@ -11,7 +11,7 @@
 <div class="card">
         <div class="col-lg-12 margin-tb card-header">
             <div class="pull-left">
-                <h2>Editar informacion del proveedor : {{$supplier->nombre}}</h2>
+                <h2>Editar informacion del proveedor</h2>
                 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -31,14 +31,14 @@
 
 <div class="card">
     <div class="card-body">
-        <form action="{{ route('suppliers.update',$supplier->nit) }}" method="POST">
+        <form action="{{ route('suppliers.update',$supplier->id) }}" method="POST">
  
             @csrf
             @method('PUT')
             <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Nit:</strong>
-                        <input type="text" name="nit" value="{{ $supplier->nit }}" class="form-control" placeholder="nit">
+                        <strong>NIT:</strong>
+                        <input type="text" name="nit" value="{{ $supplier->nit }}" class="form-control" placeholder="NIT" readonly>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -50,26 +50,32 @@
                 
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Direccion:</strong>
+                        <strong>Dirección:</strong>
                         <input type="text" name="direccion" value="{{ $supplier->direccion }}" class="form-control">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Telefono:</strong>
+                        <strong>Teléfono:</strong>
                         <input type="text" name="telefono" value="{{ $supplier->telefono}}" class="form-control">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Correo Electronico:</strong>
-                        <input type="text" name="correoElectronico" value="{{ $supplier->correoElectronico}}" class="form-control">
+                        <strong>Correo Electrónico:</strong>
+                        <input type="text" name="correoelectronico" value="{{ $supplier->correoelectronico}}" class="form-control">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Ciudad:</strong>
-                        <input type="text" name="idciudad" value="{{ $supplier->idciudad}}" class="form-control">
+                    <label for="city">Ciudad:</label><br>
+                        <input list="idciudades" name="idciudad" id="idciudad" class="form-control">
+                        <datalist name="idciudad" id="idciudades" class="">
+                            @foreach($cities as $city)
+                            <option value="{{$city->idciudad}}" id="idciudad"> {{$city->nombre}}</option>
+                            @endforeach
+                        </datalist>
+                        <input type="hidden" id="idciudad">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">

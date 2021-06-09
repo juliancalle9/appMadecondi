@@ -23,15 +23,20 @@ class SaleController extends Controller
      */
   /**  public function index(Request $request)
     {
+<<<<<<< HEAD
         /**$sale = Sale::all();
         return view('sales.index',compact('sale'));**/
        /** if($request)
+=======
+        if($request)
+>>>>>>> 8f65171e5f2f918ae50490a52e06f0274291e098
         {
             $sales=DB::table('sales as v')
             ->join('clients as c', 'v.documento', '=', 'c.documento')
             ->join('salesDetail as sc', 'v.idVenta', '=', 'sc.idVenta')
-            ->select('v.idVenta', 'v.documento', 'c.nombre', 'c.apellidos',
-            'v.fechaVenta', 'sc.valorTotal');
+            ->select('sc.idVenta', 'v.documento', 'c.nombre', 'c.apellidos',
+            'v.fechaVenta', 'sc.valorTotal')
+            ->DISTINCT();
             $sales = $sales->get();
             return view('sales.index', compact('sales'));
         }
@@ -50,7 +55,7 @@ class SaleController extends Controller
         ->get();
         $products=DB::table('products AS pro')
         ->select(DB::raw('CONCAT(pro.idproducto," ",pro.nombre) AS Producto'),
-        'pro.idproducto','pro.stock','pro.preciounitario')
+        'pro.idproducto','pro.stock','pro.precioventa')
         ->where('pro.estado', '=', '1')
         ->where('pro.stock', '>', '0')
         ->get();    
@@ -68,7 +73,7 @@ class SaleController extends Controller
     {
         
             DB::beginTransaction(); 
-            $sale = new Sale; 
+            $sale = new Sale(); 
             //campos de ventas
             $sale->documento= $request->get('documento');
             $sale->fechaVenta= $request->get('fechaVenta');
@@ -79,26 +84,28 @@ class SaleController extends Controller
             $nombre = $request->get('nombre');
             $stock = $request->get('stock');
             $cantidad = $request->get('cantidad'); 
-            $precioUnitario = $request->get('precioUnitario');
+            $precioventa = $request->get('precioventa');
             $valorTotal = $request->get('valorTotal'); 
 
             //detalles de venta
             $cont = 0;
+            
             while($cont < count($idproducto)){
                 $detalle  = new SaleDetail();
                 $detalle->idVenta= $sale->idVenta;
                 $detalle->idProducto=$idproducto[$cont];
                 $detalle->cantidad=$cantidad[$cont];
                 $detalle->valorTotal=$valorTotal;
-                $detalle->save(); 
+                $detalle->save();
                 $cont=$cont+1; 
             }
-            DB::commit(); 
+            DB::commit();
+        
 
         
         /*return redirect::to('sales.index');
         $input = $request->all();*/
-      /**  Sale::create($request->all());
+        //Sale::create($request->all());
         return redirect()->route('sales.index')->with('status', 'Venta agregada con éxito.');
           
     }
@@ -116,15 +123,15 @@ class SaleController extends Controller
             ->join('salesdetail as sv', 'v.idVenta', '=', 'sv.idVenta')
             ->select('v.idVenta', 'c.direccion', 'c.nombre', 'c.apellidos', 'v.fechaVenta', 'sv.valorTotal')
             ->where('v.idVenta', '=', $idVenta)
-            ->get(); 
+            ->first(); 
 
             //tabla detalles
-            $detalles = DB::table('salesDetail as dv')
+            $detalles = DB::table('salesdetail as dv')
             ->join('products as p', 'dv.idproducto', '=', 'p.idproducto')
-            ->select('p.nombre as producto', 'dv.cantidad', 'p.preciounitario')
+            ->select('p.nombre as producto', 'dv.cantidad', 'p.precioventa', 'dv.valorTotal')
             ->where('dv.idVenta', '=', $idVenta)
             ->get();
-            return view('sales.show', ["sales"=>$sales, "salesDetail"=>$detalles]);
+            return view('sales.show', ["sales"=>$sales, "salesDetail"=>$detalles],compact('detalles'));
 
     }
 
@@ -134,10 +141,12 @@ class SaleController extends Controller
      * @param  \App\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    /**public function edit($idVenta)
+    public function edit($idVenta)
     {
-        return view('sales.edit',['sale' => Sale::find($idVenta)]);
-    }**/
+        $products = Product::all();
+        $detalles = SalesDetail::all();
+        return view('sales.edit',['sale' => Sale::find($idVenta)],compact('products'), compact('detalles'));
+    }
 
     /**
      * Update the specified resource in storage.
@@ -152,7 +161,7 @@ class SaleController extends Controller
         $sale->nombreCliente = $request->get('nombreCliente');
         $sale->telefono = $request->get('telefono');
         $sale->direccion = $request->get('direccion');
-        $sale-> precioUnitario= $request->get('precioUnitario');
+        $sale-> precioventa= $request->get('precioventa');
         $sale-> precioTotal= $request->get('precioTotal');
         $sale->update($request->all()); //Editar un registro.
         Flash::success("la venta fue modificada con exito");

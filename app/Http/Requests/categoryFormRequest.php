@@ -26,7 +26,7 @@ class categoryFormRequest extends FormRequest
         return [
             
             'nombre' => 'required',
-            'descripcion' 
+            'descripcion' =>'required' 
           ];
         
     }

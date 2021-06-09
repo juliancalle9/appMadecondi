@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
 @endsection
+@section('title', 'Compras')
 @section('content')
 
 
@@ -47,14 +48,12 @@
                         <td>{{ $purchase->nit }}</td>
                         <td>{{ $purchase->nombre }}</td>
                         <td>{{ $purchase->fechacompra }}</td>
-
-                         <td>{{ $purchase->precioFinal }}</td>
+                        <td>{{ $purchase->precioFinal }}</td>
 
 
                          <td>
-                         <a href="{{URL::action('purchaseController@show',$purchase->idcompra)}}" class="btn btn-primary">Detalles</a>
-                         <a href="{{route('purchases.pdf',$purchase)}}" class="jsgrid-button jsgrid-edit-button"><i class="fas fa-print"></i></a>
-                          <a href="{{route('purchases.edit',$purchase->idcompra)}}" class="btn btn-info">Editar</a>
+                         <a href="{{route('purchases.show', $purchase->idcompra)}}" class="btn btn-primary">Detalles</a>
+
                           </td>
    
                     @endforeach

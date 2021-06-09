@@ -14,11 +14,13 @@ class CreateSuppliersTable extends Migration
     public function up()
     {
         Schema::create('suppliers', function (Blueprint $table) {
-            $table->string('nit')->primary();
+            $table->bigIncrements('id');
+            $table->string('nit');
             $table->string('nombre');
             $table->string('direccion');
             $table->string('telefono');
-            $table->string('correoelectronico');
+            $table->string('correoelectronico')->nullable();
+            $table->boolean('estado')->default(1); 
             $table->bigInteger('idciudad')->unsigned();
             $table->foreign('idciudad')->references('idciudad')->on('cities'); 
             

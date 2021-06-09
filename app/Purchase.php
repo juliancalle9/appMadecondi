@@ -8,7 +8,7 @@ class Purchase extends Model
 {
     protected $primaryKey = 'idcompra';
     protected $fillable = [
-        'fechacompra', 'nit'
+        'fechacompra', 'id'
     ];
     public $timestamps = false;
 }

@@ -3,47 +3,49 @@
 @section('content')
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="js/functions.js"></script>
-<script src="js/sweetalert.min.js"></script>
-<link href="css/sweetalert.css" rel="stylesheet">
 
-    <div class="card">
-        <div class="col-lg-12 margin-tb card-header">
-            <div class="pull-left">
-                <h2>Agregar una nueva compra</h2>
-                @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+
+<div class="card">
+    <div class="col-lg-12 margin-tb card-header">
+        <div class="pull-left">
+            <h2>Agregar una nueva compra</h2>
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
+            @endif
+        </div>
             <div class="pull-right">
                  <a class="btn btn-primary" href="{{route('purchases.index')}}">Volver</a>
             </div>
         </div>
-        
     </div>
+
 <div class="card">
     <div class="card-body">
             <form action="{{ route('purchases.store') }}" method="POST">
                 @csrf
-
-             
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <label for="supplier">Proveedor:</label><br>
-                        <input list="proveedores" name="nit" id="nit" class="form-control">
-                        <datalist name="nit" id="proveedores" class="">
+                        <!--<label for="supplier">Proveedor:</label><br>
+                        <input list="proveedores" name="id" id="id" class="form-control">
+                        <datalist name="id" id="proveedores" class="">
                             @foreach($suppliers as $supplier)
-                            <option value="{{$supplier->nit}}" id="nit"> {{$supplier->nombre}} </option>
+                            <option value="{{$supplier->id}}" id="id">{{$supplier->nit}}{{$supplier->nombre}} </option>
                             @endforeach
                         </datalist>
-                        <input type="hidden" id="nit">
-
+                        <input type="hidden" id="id">-->
+                        <label for="">Proveedor:</label>
+                            <select name="id" id="id" class="form-control selectpicker" >
+                                <option>--Seleccionar--</option>
+                                @foreach($suppliers as $supplier)
+                                    <option value="{{$supplier->id}}">{{$supplier->nombre}}</option>
+                                @endforeach
+                            </select>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -59,7 +61,7 @@
                                     <select name="idproducto" id="idproducto" class="form-control selectpicker" >
                                         <option>--Seleccionar--</option>
                                         @foreach($products as $product)
-                                            <option value="{{$product->idproducto}}_{{$product->stock}}_{{$product->preciounitario}}">{{$product->producto}}</option>
+                                            <option value="{{$product->idproducto}}_{{$product->stock}}_{{$product->preciocompra}}">{{$product->producto}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -73,7 +75,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Precio de Compra:</strong>
-                                    <input value="" type="number" class="form-control" name="preciounitario" id="preciounitario" placeholder="Precio de compra">
+                                    <input value="" type="number" class="form-control" name="preciocompra" id="preciocompra" placeholder="Precio de compra">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -102,7 +104,7 @@
                             <th></th>
                             <th></th>
                             <th><h4 id="total">s/ . 0.00</h4>
-                                <input type="hidden" name="precioFinal" id="precioFinal>
+                                <input type="hidden" name="precioFinal" id="precioFinal">
                             </th>
                         </tfoot>
                     </table>
@@ -118,15 +120,14 @@
             </div>
             </div>
             </div>
-          
         </form>
     </div>
 </div>
+@endsection
 
 @section('js')
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-    <script>
+<script>
 $(document).ready(function(){
   $("#bt_add").click(function()
 
@@ -143,7 +144,7 @@ $(document).ready(function(){
   function mostrarValores()
   {
    datosProductos=document.getElementById('idproducto').value.split('_');
-   $("#preciounitario").val(datosProductos[2]);
+   $("#preciocompra").val(datosProductos[2]);
    $("#stock").val(datosProductos[1]);
     
   }
@@ -153,17 +154,17 @@ $(document).ready(function(){
   idproducto=datosProductos[0];
   producto =$("#idproducto option:selected").text();
   cantidad =parseInt($("#cantidad").val(),10);
-  preciounitario = parseFloat($("#preciounitario").val());
+  preciocompra = parseFloat($("#preciocompra").val());
   stock=parseInt($('#stock').val(),10); 
 
-  if (idproducto!="" && cantidad!="" && cantidad>0 && preciounitario!="") 
+  if (idproducto!="" && cantidad!="" && cantidad>0 && preciocompra!="") 
   {
-        subtotal[cont] = (cantidad*preciounitario);
+        subtotal[cont] = (cantidad*preciocompra);
         total = total + subtotal[cont];
 
         var fila = '<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('
         +cont+'); ">X</button></td><td><input type="hidden" name="idproducto[]" value="'+idproducto+'">'+producto+'</td><td><input type="number" name="cantidad[]" value="'
-        +cantidad+'"></td><td><input type="number" name="preciounitario[]" value="'+preciounitario+'"></td><td>'
+        +cantidad+'"></td><td><input type="number" name="preciocompra[]" value="'+preciocompra+'"></td><td>'
         +subtotal[cont]+'</td></tr>';
         cont++;
         limpiar();
@@ -206,5 +207,4 @@ $(document).ready(function(){
   evaluar();
  }
 </script>
-
 @endsection
