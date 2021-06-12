@@ -53,6 +53,12 @@ class SupplierController extends Controller
      */
     public function store(supplierFormRequest $request)
     {
+        $request->validate([
+        'nit' => 'required|min:9',
+        'nombre' => 'required|min:4',
+        'direccion' => 'required|min:8',
+        'telefono' => 'required|min:7',
+        ]);
         $input = $request->all();
         Supplier::create($request->all());
              Flash::success("el proveedor fue creado con exito");

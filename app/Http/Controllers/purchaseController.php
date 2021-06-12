@@ -31,7 +31,7 @@ class purchaseController extends Controller
             $purchases=DB::table('purchases as c')
             ->join('suppliers as p', 'c.id', '=', 'p.id')
             ->join('purchasesdetails as pd', 'c.idcompra', '=', 'pd.idcompra')
-            ->select('c.idcompra', 'p.nit', 'p.nombre', 
+            ->select('pd.idcompra', 'p.nit', 'p.nombre', 
             'c.fechacompra', 'pd.precioFinal')
             ->DISTINCT();
             $purchases = $purchases->get();
@@ -96,7 +96,7 @@ class purchaseController extends Controller
 
             
 
-        Purchase::create($request->all());
+        
         return redirect()->route('purchases.index')->with('status', 'Compra agregada con éxito.');
     }
 

@@ -24,10 +24,10 @@ class clientFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'documento' => 'required|unique:clients,documento|numeric',
+            'documento' => 'required|unique:clients,documento|numeric|min:5',
             'nombre' => 'required',
             'apellidos' => 'required',
-            'telefono',
+            'telefono|min:7',
             'correoElectronico',
             'direccion'
         ];

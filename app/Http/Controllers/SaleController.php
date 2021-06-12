@@ -83,7 +83,6 @@ class SaleController extends Controller
 
             //detalles de venta
             $cont = 0;
-            
             while($cont < count($idproducto)){
                 $detalle  = new SaleDetail();
                 $detalle->idVenta= $sale->idVenta;

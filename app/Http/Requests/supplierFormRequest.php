@@ -27,7 +27,7 @@ class supplierFormRequest extends FormRequest
             'nit' => 'required|unique:suppliers,nit|min:9',
             'nombre' => 'required|min:4',
             'direccion' => 'required|min:8|max:50',
-            'telefono' => 'required||min:7|max:15',
+            'telefono' => 'required|min:7|max:15',
             'idciudad' => 'required'
         ];
     }
