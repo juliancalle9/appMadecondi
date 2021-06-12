@@ -27,8 +27,8 @@ Route::get('categories', function () {
 Route::get('sales', function () {
     return view('sales');
 });
-
-
+Route::get('/pdfVenta', 'PDFVentaController@pdf')->name('descargarpdfVenta');
+Route::get('/pdf', 'PDFController@pdf')->name('descargarpdf');
 Route::get('clients', 'ClientController@index')->name('clients');
 Route::get('clients', 'ClientController@list');
 Route::get('clients', 'ClientController@create')->name('create');
@@ -42,6 +42,9 @@ Route::resource('clients','ClientController');
 Auth::routes();
 
 Route::resource('sales','SaleController');
+Auth::routes();
+Route::get('sales/pdf/{sale}', 'SaleController@pdf')->name('sales.pdf');
+Route::get('sales/informe', 'SaleController@informe')->name('sales.informe');
 
 
 
@@ -64,6 +67,7 @@ Route::get('menu', function () {
 Route::resource('cities','CityController');
 Route::get('cities/{idciudad}', 'CityController@edit');
 
+
  
 Route::resource('suppliers','SupplierController');
 Route::get('changeStatus', 'SupplierController@changeStatus')->name('changeStatus');
@@ -72,4 +76,5 @@ Route::get('PaginaWeb', function () {
     return view('index');
 });
 Route::resource('purchases','purchaseController');
+Route::get('purchases/pdf/{purchase}', 'purchaseController@pdf')->name('purchases.pdf');
  

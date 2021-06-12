@@ -53,7 +53,7 @@
 
                          <td>
                          <a href="{{route('purchases.show', $purchase->idcompra)}}" class="btn btn-primary">Detalles</a>
-
+                         <a href="{{route('descargarpdf')}}" class="jsgrid-button jsgrid-edit-button"><i class="fas fa-print"></i></a>
                           </td>
    
                     @endforeach

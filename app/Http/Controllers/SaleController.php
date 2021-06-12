@@ -9,7 +9,7 @@ use DB;
 use Flash;
 use Illuminate\Http\Request;
 use Response;  
-
+use Barryvdh\DomPDF\Facade as PDF;
 class SaleController extends Controller
 {
     public function __construct()
@@ -21,7 +21,7 @@ class SaleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+   public function index(Request $request)
     {
         if($request)
         {
@@ -42,7 +42,7 @@ class SaleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+   public function create()
     {
         $clients=DB::table('clients as c')
         ->where('c.estado', '=', '1')
@@ -109,7 +109,7 @@ class SaleController extends Controller
      * @param  \App\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function show($idVenta)
+   public function show($idVenta)
     {
         $sales=DB::table('sales as v')
             ->join('clients as c', 'v.documento', '=', 'c.documento')
@@ -148,7 +148,7 @@ class SaleController extends Controller
      * @param  \App\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function update(saleFormRequest $request, $idVenta)
+   public function update(saleFormRequest $request, $idVenta)
     {
         $sale = Sale::find($idVenta);
         $sale->nombreCliente = $request->get('nombreCliente');
@@ -171,4 +171,25 @@ class SaleController extends Controller
     {
         //
     }
+    public function pdf(Sale $sale)
+    {
+        
+        $sales=DB::table('sales as v')
+           ->join('clients as c', 'v.documento', '=', 'c.documento')
+            ->join('salesdetail as sv', 'v.idVenta', '=', 'sv.idVenta')
+            ->select('v.idVenta', 'c.documento', 'c.nombre', 'c.apellidos', 'v.fechaVenta', 'sv.valorTotal')
+            ->where('v.idVenta', '=', $idVenta)
+            ->get(); 
+
+            //tabla detalles
+            $detalles = DB::table('salesDetail as dv')
+            ->join('products as p', 'dv.idproducto', '=', 'p.idproducto')
+            ->select('p.nombre as producto', 'dv.cantidad', 'p.preciounitario')
+            ->where('dv.idVenta', '=', $idVenta)
+            ->get();
+           // $pdf = \PDF::loadView('sales.pdf', compact('sales','detalles'));
+            return $pdf->download('reporte_compra-'.$sale->idventa.'.pdf');
+            
+    }
+    
 }

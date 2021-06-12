@@ -47,7 +47,10 @@
                     <td>{{ $sale->apellidos }}</td>
                     <td>{{ $sale->fechaVenta }}</td>
                     <td>{{ $sale->valorTotal }}</td>
-                    <td><a href="{{route('sales.show',$sale->idVenta)}}" class="btn btn-info">Detalles</a>
+                    <td>
+                    <a href="{{route('sales.show',$sale->idVenta)}}" class="btn btn-info">Detalles</a>
+                    <a href="{{route('descargarpdfVenta')}}" class="jsgrid-button jsgrid-edit-button"><i class="fas fa-print"></i></a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
