@@ -24,7 +24,7 @@ class cityFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required',
+            'nombre' => 'required|min:5|max:15',
             
         ];
     }

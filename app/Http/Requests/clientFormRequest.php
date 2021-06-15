@@ -24,12 +24,12 @@ class clientFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'documento' => 'required|unique:clients,documento|numeric',
-            'nombre' => 'required',
-            'apellidos' => 'required',
-            'telefono',
-            'correoElectronico',
-            'direccion'
+            'documento' => 'required|unique:clients,documento|numeric|min:7|max:15',
+            'nombre' => 'required|min:3|max:30',
+            'apellidos' => 'required|min:3|max:30',
+            'telefono'=>'numeric|min:7|max:15',
+            'correoElectronico' => 'email|min:8|max:50',
+            'direccion' => 'min:8|max:50'
         ];
     }
 }
