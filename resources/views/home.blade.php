@@ -33,7 +33,7 @@
                     </a>
                 </div>
                 <div>
-                    <a href="" class="linkIcono">
+                    <a href="{{route('purchases.index')}}" class="linkIcono">
                         Compras
                         <img src="{{ asset('image/compras.png')}}" alt="icono compras">
                     </a>

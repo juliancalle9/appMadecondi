@@ -28,18 +28,20 @@ class ClientController extends Controller
 
     public function store(clientFormRequest $request)
     {
-        try{
+        $request->validate([
+            'documento' => 'required|min:5',
+            'nombre' => 'required',
+            'apellidos' => 'required',
+            'telefono|min:7',
+            'correoElectronico',
+            'direccion'
+        ]);
+        
         $input = $request->all();
         Client::create($request->all());
-        Flash::success("Cliente agregado con éxito");
-        //return redirect()->route('clients.index');
-        
-            return redirect()->route('clients.index')
+        return redirect()->route('clients.index')
             ->with('status','Cliente agregado correctamente');
-        }catch(Throwable $e){
-            report($e);
-            
-        }
+       
         
         
     }
@@ -56,7 +58,7 @@ class ClientController extends Controller
         $request->validate([
             'nombre' => 'required', 
             'apellidos' => 'required',
-            'telefono' => 'required'
+            'telefono|min:7'
         ]);
 
         $client->update($request->all());
