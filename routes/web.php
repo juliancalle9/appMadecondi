@@ -73,8 +73,12 @@ Route::resource('suppliers','SupplierController');
 Route::get('changeStatus', 'SupplierController@changeStatus')->name('changeStatus');
 
 Route::get('PaginaWeb', function () {
-    return view('index');
+   return view('PaginaWeb');
 });
+Route::resource('PaginaWeb','pageController');
+//Route::get('PaginaWeb', 'paginaController@madecondi')->name('PaginaWeb.madecondi');
+//Route::get('PaginaWeb', 'pageController@index')->name('PaginaWeb.index');
+//Route::get('PaginaWeb', 'pageController@store');
 Route::resource('purchases','purchaseController');
 Route::get('purchases/pdf/{purchase}', 'purchaseController@pdf')->name('purchases.pdf');
  

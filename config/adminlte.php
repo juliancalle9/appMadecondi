@@ -278,6 +278,11 @@ return [
                     'icon'    => 'fas fa-fw fa-file-pdf',
                     'url'  => 'reports',
                 ],
+                [
+                    'text' => 'Pàgina Web',
+                    'icon'    => 'fas fa-globe',
+                    'url'  => 'PaginaWeb',
+                ],
         ],    
     ],    
         [

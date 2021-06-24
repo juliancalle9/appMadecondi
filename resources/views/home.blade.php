@@ -40,7 +40,7 @@
                 </div>
                 <div>
                     <a href="" class="linkIcono">
-                        Informes
+                        Pàgina Web
                         <img src="{{ asset('image/pdf.png')}}" alt="icono informes">
                     </a>
                 </div>
