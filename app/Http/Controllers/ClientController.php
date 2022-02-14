@@ -40,7 +40,7 @@ class ClientController extends Controller
         $input = $request->all();
         Client::create($request->all());
         return redirect()->route('clients.index')
-            ->with('status','Cliente agregado correctamente');
+            ->with('status','Cliente Agregado Correctamente');
        
         
         
@@ -64,7 +64,7 @@ class ClientController extends Controller
         $client->update($request->all());
 
         return redirect()->route('clients.index')
-                            ->with('status', 'Cliente actualizado con éxito.');
+                            ->with('status', 'Cliente Actualizado con éxito.');
     }
 
     
